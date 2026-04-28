@@ -6,404 +6,373 @@
 <title>Sıvılar ve Özellikleri – Yalın Güneş 9/D – 2026/2027</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#181c28;
-  --bg2:#1f2436;
-  --bg3:#252c42;
-  --amber:#d4a853;
-  --amber-s:rgba(212,168,83,0.15);
-  --teal:#6db8b0;
-  --teal-s:rgba(109,184,176,0.13);
-  --rose:#c4706a;
-  --rose-s:rgba(196,112,106,0.13);
-  --sage:#82b878;
-  --sage-s:rgba(130,184,120,0.13);
-  --lilac:#9d8fcc;
-  --text:#e8e2d5;
-  --muted:rgba(232,226,213,0.52);
-  --softer:rgba(232,226,213,0.32);
-  --border:rgba(232,226,213,0.08);
-  --border-a:rgba(212,168,83,0.22);
-  --card:rgba(255,255,255,0.042);
-  --card2:rgba(255,255,255,0.07);
-  --shadow:0 28px 72px rgba(0,0,0,0.6);
-  --r:20px;
-  --slide-w:1040px;
-  --slide-h:640px;
+:root {
+  --bg: #141720;
+  --bg2: #1a1f30;
+  --bg3: #202538;
+  --amber: #e0b060;
+  --amber-s: rgba(224,176,96,0.13);
+  --teal: #6ec8be;
+  --teal-s: rgba(110,200,190,0.12);
+  --rose: #d0706a;
+  --rose-s: rgba(208,112,106,0.12);
+  --sage: #88c478;
+  --sage-s: rgba(136,196,120,0.12);
+  --lilac: #a898d8;
+  --text: #ede8dc;
+  --muted: rgba(237,232,220,0.68);
+  --softer: rgba(237,232,220,0.38);
+  --border: rgba(237,232,220,0.09);
+  --border-a: rgba(224,176,96,0.25);
+  --card: rgba(255,255,255,0.04);
+  --card2: rgba(255,255,255,0.075);
+  --shadow: 0 32px 80px rgba(0,0,0,0.7);
+  --r: 18px;
+  --slide-w: 1060px;
+  --slide-h: 652px;
 }
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html,body{
-  height:100%;overflow:hidden;
-  background:var(--bg);
-  font-family:'Nunito',sans-serif;
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
+html, body {
+  height: 100%; overflow: hidden;
+  background: var(--bg);
+  font-family: 'Nunito', sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ambient glow */
-body::after{
-  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 50% at 10% 10%, rgba(109,184,176,0.06) 0%,transparent 65%),
-    radial-gradient(ellipse 55% 55% at 90% 85%, rgba(212,168,83,0.07) 0%,transparent 65%),
-    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(157,143,204,0.03) 0%,transparent 70%);
+    radial-gradient(ellipse 55% 50% at 8% 8%, rgba(110,200,190,0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 55% at 92% 88%, rgba(224,176,96,0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 40% at 50% 50%, rgba(168,152,216,0.04) 0%, transparent 70%);
 }
 
-/* stage */
-.stage{
-  position:fixed;inset:0;z-index:1;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  gap:16px;
+.stage {
+  position: fixed; inset: 0; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 14px;
 }
 
-/* deck */
-.deck{
-  position:relative;
-  width:min(var(--slide-w),96vw);
-  height:min(var(--slide-h),88vh);
+.deck {
+  position: relative;
+  width: min(var(--slide-w), 97vw);
+  height: min(var(--slide-h), 87vh);
 }
 
-/* slides */
-.slide{
-  position:absolute;inset:0;
-  background:linear-gradient(148deg,var(--bg2) 0%,var(--bg3) 100%);
-  border:1px solid var(--border);
-  border-radius:var(--r);
-  box-shadow:var(--shadow);
-  display:flex;flex-direction:column;
-  padding:44px 54px 36px;
-  opacity:0;pointer-events:none;overflow:hidden;
-  transition:opacity .38s ease, transform .38s ease;
-  transform:translateY(18px);
+.slide {
+  position: absolute; inset: 0;
+  background: linear-gradient(148deg, var(--bg2) 0%, var(--bg3) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  display: flex; flex-direction: column;
+  padding: 38px 50px 32px;
+  opacity: 0; pointer-events: none; overflow: hidden;
+  transition: opacity .35s ease, transform .35s ease;
+  transform: translateY(16px);
 }
-.slide.active{opacity:1;pointer-events:all;transform:translateY(0)}
-.slide.exit{opacity:0;transform:translateY(-18px)}
+.slide.active { opacity: 1; pointer-events: all; transform: translateY(0); }
+.slide.exit { opacity: 0; transform: translateY(-16px); }
 
-/* slide corners deco */
-.slide::before{
-  content:'';position:absolute;top:0;right:0;
-  width:260px;height:260px;
-  background:radial-gradient(ellipse at top right,rgba(212,168,83,0.055),transparent 70%);
-  border-radius:0 var(--r) 0 0;pointer-events:none;
+.slide::before {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 280px; height: 280px;
+  background: radial-gradient(ellipse at top right, rgba(224,176,96,0.06), transparent 70%);
+  border-radius: 0 var(--r) 0 0; pointer-events: none;
 }
-.slide::after{
-  content:'';position:absolute;bottom:0;left:0;
-  width:200px;height:200px;
-  background:radial-gradient(ellipse at bottom left,rgba(109,184,176,0.04),transparent 70%);
-  border-radius:0 0 0 var(--r);pointer-events:none;
+.slide::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 220px; height: 220px;
+  background: radial-gradient(ellipse at bottom left, rgba(110,200,190,0.045), transparent 70%);
+  border-radius: 0 0 0 var(--r); pointer-events: none;
 }
 
-/* slide number badge */
-.slide-num{
-  position:absolute;top:20px;right:26px;
-  font-size:.72rem;font-weight:600;letter-spacing:1.5px;
-  color:var(--softer);
+.slide-num {
+  position: absolute; top: 18px; right: 24px;
+  font-size: .73rem; font-weight: 700; letter-spacing: 1.5px;
+  color: var(--softer);
 }
 
-/* ── TYPOGRAPHY ── */
-.tag{
-  font-size:.7rem;font-weight:700;letter-spacing:3px;
-  text-transform:uppercase;color:var(--amber);
-  margin-bottom:8px;opacity:.85;
+.tag {
+  font-size: .72rem; font-weight: 800; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--amber);
+  margin-bottom: 7px; opacity: .9;
 }
-.h1{
-  font-family:'Lora',serif;
-  font-size:2.1rem;font-weight:700;line-height:1.15;
-  color:var(--text);margin-bottom:5px;
+.h1 {
+  font-family: 'Lora', serif;
+  font-size: 2rem; font-weight: 700; line-height: 1.15;
+  color: var(--text); margin-bottom: 4px;
 }
-.h1 em{font-style:italic;color:var(--amber)}
-.h2{
-  font-family:'Lora',serif;
-  font-size:1.25rem;font-weight:700;
-  color:var(--text);margin-bottom:8px;
+.h1 em { font-style: italic; color: var(--amber); }
+.h2 {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--text); margin-bottom: 8px;
 }
-.rule{
-  width:48px;height:2.5px;border-radius:2px;
-  background:linear-gradient(90deg,var(--amber),var(--teal));
-  margin-bottom:20px;
-}
-.body{font-size:.9rem;line-height:1.78;color:var(--muted)}
-.body p{margin-bottom:9px}
-.body strong,.hl{color:var(--text);font-weight:600}
-.accent{color:var(--amber);font-weight:600}
-.teal{color:var(--teal);font-weight:600}
-.rose{color:var(--rose);font-weight:600}
-.sage{color:var(--sage);font-weight:600}
-
-/* ── LAYOUT UTILITIES ── */
-.row{display:flex;gap:22px;flex:1;min-height:0}
-.col{display:flex;flex-direction:column;gap:12px;flex:1;min-width:0}
-.col-3{flex:.75}
-.col-4{flex:1.2}
-
-/* ── CARDS ── */
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:13px;
-  padding:16px 18px;
-}
-.card-a{border-color:var(--border-a);background:var(--amber-s)}
-.card-t{border-color:rgba(109,184,176,0.22);background:var(--teal-s)}
-.card-r{border-color:rgba(196,112,106,0.22);background:var(--rose-s)}
-.card-s{border-color:rgba(130,184,120,0.22);background:var(--sage-s)}
-.card-l{border-color:rgba(157,143,204,0.22);background:rgba(157,143,204,0.10)}
-
-.card-icon{font-size:1.65rem;margin-bottom:6px;line-height:1}
-.card-title{font-size:.72rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--amber);margin-bottom:5px}
-.card-title.t{color:var(--teal)}
-.card-title.r{color:var(--rose)}
-.card-title.s{color:var(--sage)}
-.card-title.l{color:var(--lilac)}
-.card-body{font-size:.83rem;line-height:1.65;color:var(--muted)}
-.card-body strong{color:var(--text);font-weight:600}
-
-/* grid cards */
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-
-/* ── HIGHLIGHT BOX ── */
-.hbox{
-  border-left:3px solid var(--amber);
-  background:var(--amber-s);
-  border-radius:0 11px 11px 0;
-  padding:12px 16px;
-  font-size:.86rem;line-height:1.7;
-  color:var(--muted);
-}
-.hbox strong,.hbox .hl{color:var(--text);font-weight:600}
-.hbox.t{border-color:var(--teal);background:var(--teal-s)}
-.hbox.r{border-color:var(--rose);background:var(--rose-s)}
-.hbox.s{border-color:var(--sage);background:var(--sage-s)}
-
-/* ── FACT CHIP ── */
-.fact{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:7px 14px;border-radius:30px;
-  border:1px solid rgba(212,168,83,0.25);
-  background:rgba(212,168,83,0.08);
-  font-size:.8rem;color:var(--amber);font-weight:600;
-}
-.fact.t{border-color:rgba(109,184,176,0.25);background:rgba(109,184,176,0.08);color:var(--teal)}
-.fact.s{border-color:rgba(130,184,120,0.25);background:rgba(130,184,120,0.08);color:var(--sage)}
-
-/* ── LIST ITEMS ── */
-.list{display:flex;flex-direction:column;gap:8px}
-.li{
-  display:flex;align-items:flex-start;gap:12px;
-  background:var(--card);border:1px solid var(--border);
-  border-radius:11px;padding:11px 14px;
-}
-.li-dot{
-  min-width:26px;height:26px;border-radius:50%;
-  background:linear-gradient(135deg,var(--amber),var(--teal));
-  display:flex;align-items:center;justify-content:center;
-  font-size:.72rem;font-weight:700;color:#181c28;flex-shrink:0;margin-top:1px;
-}
-.li-dot.t{background:linear-gradient(135deg,var(--teal),var(--sage))}
-.li-dot.r{background:linear-gradient(135deg,var(--rose),var(--amber))}
-.li-dot.l{background:linear-gradient(135deg,var(--lilac),var(--teal))}
-.li-text{font-size:.85rem;line-height:1.65;color:var(--muted)}
-.li-text strong{color:var(--text);font-weight:600}
-
-/* ── TABLE ── */
-.tbl{width:100%;border-collapse:separate;border-spacing:0 7px;font-size:.84rem}
-.tbl thead th{
-  font-size:.7rem;letter-spacing:1.8px;text-transform:uppercase;
-  color:var(--amber);padding:4px 14px;text-align:left;font-weight:700;
-}
-.tbl thead th.t{color:var(--teal)}
-.tbl tbody td{
-  padding:10px 14px;color:var(--muted);
-  background:var(--card);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-}
-.tbl tbody td:first-child{border-left:1px solid var(--border);border-radius:10px 0 0 10px}
-.tbl tbody td:last-child{border-right:1px solid var(--border);border-radius:0 10px 10px 0;text-align:right}
-.tbl tbody td strong{color:var(--text);font-weight:600}
-.tbl tbody tr.hl-row td{background:var(--amber-s);border-color:var(--border-a)}
-.tbl tbody tr.hl-row td strong{color:var(--amber)}
-
-/* bar (yoğunluk / viskozite görseli) */
-.bar-wrap{display:flex;flex-direction:column;gap:6px}
-.bar-row{display:flex;align-items:center;gap:10px;font-size:.8rem}
-.bar-label{min-width:90px;color:var(--muted);font-weight:500;text-align:right;font-size:.78rem}
-.bar-track{flex:1;height:10px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden}
-.bar-fill{height:100%;border-radius:6px;transition:width 1s ease}
-.bar-val{min-width:52px;color:var(--softer);font-size:.75rem;font-weight:600}
-
-/* ── COVER SPECIFIC ── */
-.cover{justify-content:center;align-items:center;text-align:center;gap:0}
-.cover-emoji{font-size:4.5rem;margin-bottom:16px;animation:float 4s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.cover-title{
-  font-family:'Lora',serif;
-  font-size:3.1rem;font-weight:700;line-height:1.1;
-  color:var(--text);margin-bottom:6px;
-}
-.cover-title em{font-style:italic;color:var(--amber)}
-.cover-sub{
-  font-size:.95rem;color:var(--muted);
-  margin-bottom:28px;letter-spacing:.3px;line-height:1.7;
-}
-.badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.badge{
-  padding:8px 20px;border-radius:30px;
-  background:var(--card2);border:1px solid var(--border-a);
-  font-size:.8rem;color:var(--amber);font-weight:600;letter-spacing:.5px;
-}
-.badge.t{border-color:rgba(109,184,176,0.25);color:var(--teal)}
-.badge.n{border-color:var(--border);color:var(--muted)}
-
-/* ── TOC ── */
-.toc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;flex:1}
-.toc-item{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:12px;padding:14px 13px;
-  display:flex;flex-direction:column;gap:6px;
-  transition:border-color .2s,background .2s;
-}
-.toc-item:hover{border-color:var(--border-a);background:var(--amber-s)}
-.toc-num{font-size:.65rem;font-weight:700;letter-spacing:2px;color:var(--softer)}
-.toc-icon{font-size:1.5rem;line-height:1;margin:2px 0}
-.toc-label{font-size:.8rem;font-weight:600;color:var(--text);line-height:1.35}
-.toc-sub{font-size:.72rem;color:var(--muted);line-height:1.5}
-
-/* ── FORMULA BOX ── */
-.formula{
-  background:var(--card2);border:1px solid var(--border-a);
-  border-radius:13px;padding:16px 20px;text-align:center;
-}
-.formula-eq{
-  font-family:'Lora',serif;font-style:italic;
-  font-size:1.6rem;color:var(--amber);margin-bottom:6px;letter-spacing:1px;
-}
-.formula-note{font-size:.78rem;color:var(--muted);line-height:1.6}
-.formula-note span{color:var(--teal);font-weight:600}
-
-/* ── MOLECULE SVG ── */
-.mol-area{
-  display:flex;align-items:center;justify-content:center;
-  background:var(--card);border:1px solid var(--border);
-  border-radius:13px;overflow:hidden;
+.rule {
+  width: 44px; height: 2.5px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--amber), var(--teal));
+  margin-bottom: 18px;
 }
 
-/* ── COMPARE BOXES ── */
-.state-box{
-  display:flex;flex-direction:column;align-items:center;gap:10px;
-  background:var(--card);border:1px solid var(--border);
-  border-radius:14px;padding:18px 14px;text-align:center;flex:1;
-}
-.state-box .s-icon{font-size:2.2rem}
-.state-box .s-title{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase}
-.state-box .s-body{font-size:.78rem;color:var(--muted);line-height:1.65}
-.state-box.active-s{border-color:var(--border-a);background:var(--amber-s)}
-.state-box.active-s .s-title{color:var(--amber)}
+.body { font-size: .9rem; line-height: 1.8; color: var(--muted); }
+.body p { margin-bottom: 9px; }
+.body strong { color: var(--text); font-weight: 700; }
+.accent { color: var(--amber); font-weight: 700; }
+.teal { color: var(--teal); font-weight: 700; }
+.rose { color: var(--rose); font-weight: 700; }
+.sage { color: var(--sage); font-weight: 700; }
 
-/* ── STEP LIST ── */
-.steps{display:flex;flex-direction:column;gap:10px}
-.step{display:flex;gap:14px;align-items:flex-start}
-.step-num{
-  min-width:30px;height:30px;
-  border-radius:50%;
-  border:2px solid var(--amber);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.75rem;font-weight:700;color:var(--amber);flex-shrink:0;
-}
-.step-text{font-size:.86rem;line-height:1.7;color:var(--muted);padding-top:4px}
-.step-text strong{color:var(--text);font-weight:600}
+.row { display: flex; gap: 20px; flex: 1; min-height: 0; }
+.col { display: flex; flex-direction: column; gap: 11px; flex: 1; min-width: 0; }
+.col-3 { flex: .75; }
+.col-4 { flex: 1.2; }
 
-/* ── KAPILLARITE SVG DEMO ── */
-.kap-demo{display:flex;align-items:flex-end;justify-content:center;gap:20px;padding:10px}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 15px 17px;
+}
+.card-a { border-color: rgba(224,176,96,0.28); background: var(--amber-s); }
+.card-t { border-color: rgba(110,200,190,0.25); background: var(--teal-s); }
+.card-r { border-color: rgba(208,112,106,0.25); background: var(--rose-s); }
+.card-s { border-color: rgba(136,196,120,0.25); background: var(--sage-s); }
+.card-l { border-color: rgba(168,152,216,0.25); background: rgba(168,152,216,0.10); }
 
-/* ── SUMMARY GRID ── */
-.sum-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;flex:1}
-.sum-item{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:13px;padding:15px 14px;
-  display:flex;flex-direction:column;gap:5px;
+.card-icon { font-size: 1.6rem; margin-bottom: 6px; line-height: 1; }
+.card-title {
+  font-size: .75rem; font-weight: 800; letter-spacing: 1.6px;
+  text-transform: uppercase; color: var(--amber); margin-bottom: 6px;
 }
-.sum-icon{font-size:1.45rem}
-.sum-tag{font-size:.67rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--amber)}
-.sum-title{font-size:.85rem;font-weight:700;color:var(--text)}
-.sum-body{font-size:.78rem;color:var(--muted);line-height:1.6}
-.sum-body strong{color:var(--teal)}
+.card-title.t { color: var(--teal); }
+.card-title.r { color: var(--rose); }
+.card-title.s { color: var(--sage); }
+.card-title.l { color: var(--lilac); }
+.card-body { font-size: .85rem; line-height: 1.7; color: var(--muted); }
+.card-body strong { color: var(--text); font-weight: 700; }
 
-/* ── KAYNAKÇA ── */
-.ref-list{display:flex;flex-direction:column;gap:9px;flex:1}
-.ref-item{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:10px;padding:10px 16px;
-  font-size:.82rem;color:var(--muted);line-height:1.6;
-}
-.ref-item span{color:var(--amber);font-weight:600;margin-right:8px}
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+.grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 11px; }
+.grid4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
 
-/* ── PROGRESS DOTS ── */
-.progress-bar{
-  position:relative;z-index:2;
-  width:min(1040px,96vw);
-  display:flex;align-items:center;justify-content:center;
-  gap:6px;padding:6px 0;
+.hbox {
+  border-left: 3px solid var(--amber);
+  background: var(--amber-s);
+  border-radius: 0 11px 11px 0;
+  padding: 11px 15px;
+  font-size: .87rem; line-height: 1.72;
+  color: var(--muted);
 }
-.dot{
-  width:7px;height:7px;border-radius:50%;
-  background:rgba(232,226,213,0.18);
-  cursor:pointer;
-  transition:background .3s, transform .25s, width .3s;
-}
-.dot.active{background:var(--amber);transform:scale(1.35);width:20px;border-radius:4px}
-.dot:hover:not(.active){background:rgba(212,168,83,0.45)}
+.hbox strong { color: var(--text); font-weight: 700; }
+.hbox.t { border-color: var(--teal); background: var(--teal-s); }
+.hbox.r { border-color: var(--rose); background: var(--rose-s); }
+.hbox.s { border-color: var(--sage); background: var(--sage-s); }
+.hbox.l { border-color: var(--lilac); background: rgba(168,152,216,0.10); }
 
-/* ── NAVIGATION ── */
-.nav{
-  position:relative;z-index:2;
-  display:flex;align-items:center;gap:14px;
+.fact {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px; border-radius: 30px;
+  border: 1px solid rgba(224,176,96,0.3);
+  background: rgba(224,176,96,0.09);
+  font-size: .82rem; color: var(--amber); font-weight: 700;
 }
-.nav-btn{
-  width:44px;height:44px;border-radius:50%;
-  background:var(--card2);border:1px solid var(--border);
-  color:var(--muted);font-size:1.1rem;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  transition:all .2s;
-}
-.nav-btn:hover:not(:disabled){
-  background:var(--amber-s);border-color:var(--border-a);
-  color:var(--amber);transform:scale(1.08);
-}
-.nav-btn:disabled{opacity:.22;cursor:default}
-.slide-counter{
-  font-size:.75rem;font-weight:600;
-  color:var(--softer);letter-spacing:1px;min-width:48px;text-align:center;
-}
+.fact.t { border-color: rgba(110,200,190,0.3); background: rgba(110,200,190,0.09); color: var(--teal); }
+.fact.s { border-color: rgba(136,196,120,0.3); background: rgba(136,196,120,0.09); color: var(--sage); }
 
-.kb{font-size:.65rem;color:var(--softer);letter-spacing:1px;text-align:center;margin-top:2px;position:relative;z-index:2}
+.list { display: flex; flex-direction: column; gap: 8px; }
+.li {
+  display: flex; align-items: flex-start; gap: 11px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 11px; padding: 10px 13px;
+}
+.li-dot {
+  min-width: 26px; height: 26px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--amber), var(--teal));
+  display: flex; align-items: center; justify-content: center;
+  font-size: .72rem; font-weight: 800; color: #141720; flex-shrink: 0; margin-top: 1px;
+}
+.li-dot.t { background: linear-gradient(135deg, var(--teal), var(--sage)); }
+.li-dot.r { background: linear-gradient(135deg, var(--rose), var(--amber)); }
+.li-dot.l { background: linear-gradient(135deg, var(--lilac), var(--teal)); }
+.li-text { font-size: .86rem; line-height: 1.68; color: var(--muted); }
+.li-text strong { color: var(--text); font-weight: 700; }
 
-/* ── ANIMATIONS ── */
-@keyframes fadein{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.slide.active .h1,.slide.active .cover-title{animation:fadein .45s .05s both}
-.slide.active .rule{animation:fadein .4s .15s both}
-.slide.active .row,.slide.active .grid2,.slide.active .grid3,.slide.active .toc-grid,.slide.active .sum-grid{animation:fadein .5s .2s both}
+.tbl { width: 100%; border-collapse: separate; border-spacing: 0 6px; font-size: .85rem; }
+.tbl thead th {
+  font-size: .72rem; letter-spacing: 1.8px; text-transform: uppercase;
+  color: var(--amber); padding: 4px 14px; text-align: left; font-weight: 800;
+}
+.tbl thead th.t { color: var(--teal); }
+.tbl tbody td {
+  padding: 10px 14px; color: var(--muted);
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.tbl tbody td:first-child { border-left: 1px solid var(--border); border-radius: 10px 0 0 10px; }
+.tbl tbody td:last-child { border-right: 1px solid var(--border); border-radius: 0 10px 10px 0; text-align: right; }
+.tbl tbody td strong { color: var(--text); font-weight: 700; }
+.tbl tbody tr.hl-row td { background: var(--amber-s); border-color: var(--border-a); }
+.tbl tbody tr.hl-row td strong { color: var(--amber); }
+
+.bar-wrap { display: flex; flex-direction: column; gap: 7px; }
+.bar-row { display: flex; align-items: center; gap: 10px; }
+.bar-label { min-width: 96px; color: var(--muted); font-weight: 600; text-align: right; font-size: .8rem; }
+.bar-track { flex: 1; height: 10px; background: rgba(255,255,255,0.07); border-radius: 6px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 6px; }
+.bar-val { min-width: 58px; color: var(--softer); font-size: .78rem; font-weight: 700; }
+
+.cover { justify-content: center; align-items: center; text-align: center; }
+.cover-emoji { font-size: 4.2rem; margin-bottom: 14px; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.cover-title {
+  font-family: 'Lora', serif;
+  font-size: 3rem; font-weight: 700; line-height: 1.1;
+  color: var(--text); margin-bottom: 6px;
+}
+.cover-title em { font-style: italic; color: var(--amber); }
+.cover-sub {
+  font-size: .95rem; color: var(--muted);
+  margin-bottom: 26px; letter-spacing: .3px; line-height: 1.75;
+}
+.badges { display: flex; gap: 11px; justify-content: center; flex-wrap: wrap; }
+.badge {
+  padding: 8px 20px; border-radius: 30px;
+  background: var(--card2); border: 1px solid var(--border-a);
+  font-size: .82rem; color: var(--amber); font-weight: 700; letter-spacing: .5px;
+}
+.badge.t { border-color: rgba(110,200,190,0.28); color: var(--teal); }
+.badge.n { border-color: var(--border); color: var(--muted); }
+
+.toc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 9px; flex: 1; }
+.toc-item {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 13px 12px;
+  display: flex; flex-direction: column; gap: 5px;
+  transition: border-color .2s, background .2s;
+}
+.toc-item:hover { border-color: var(--border-a); background: var(--amber-s); }
+.toc-num { font-size: .67rem; font-weight: 800; letter-spacing: 2px; color: var(--softer); }
+.toc-icon { font-size: 1.45rem; line-height: 1; margin: 2px 0; }
+.toc-label { font-size: .82rem; font-weight: 700; color: var(--text); line-height: 1.35; }
+.toc-sub { font-size: .74rem; color: var(--muted); line-height: 1.5; }
+
+.formula {
+  background: var(--card2); border: 1px solid var(--border-a);
+  border-radius: 13px; padding: 16px 20px; text-align: center;
+}
+.formula-eq {
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: 1.65rem; color: var(--amber); margin-bottom: 7px; letter-spacing: 1px;
+}
+.formula-note { font-size: .8rem; color: var(--muted); line-height: 1.65; }
+.formula-note span { color: var(--teal); font-weight: 700; }
+
+.state-box {
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px 13px; text-align: center; flex: 1;
+}
+.state-box .s-icon { font-size: 2.1rem; }
+.state-box .s-title { font-size: .73rem; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; }
+.state-box .s-body { font-size: .82rem; color: var(--muted); line-height: 1.68; }
+.state-box .s-body strong { color: var(--text); font-weight: 700; }
+.state-box.active-s { border-color: var(--border-a); background: var(--amber-s); }
+.state-box.active-s .s-title { color: var(--amber); }
+
+.steps { display: flex; flex-direction: column; gap: 10px; }
+.step { display: flex; gap: 13px; align-items: flex-start; }
+.step-num {
+  min-width: 30px; height: 30px; border-radius: 50%;
+  border: 2px solid var(--amber);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .76rem; font-weight: 800; color: var(--amber); flex-shrink: 0;
+}
+.step-text { font-size: .87rem; line-height: 1.72; color: var(--muted); padding-top: 3px; }
+.step-text strong { color: var(--text); font-weight: 700; }
+
+.sum-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; flex: 1; }
+.sum-item {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 13px 13px;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.sum-icon { font-size: 1.4rem; }
+.sum-tag { font-size: .68rem; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; color: var(--amber); }
+.sum-title { font-size: .86rem; font-weight: 700; color: var(--text); }
+.sum-body { font-size: .8rem; color: var(--muted); line-height: 1.62; }
+.sum-body strong { color: var(--teal); font-weight: 700; }
+
+.ref-list { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.ref-item {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 15px;
+  font-size: .84rem; color: var(--muted); line-height: 1.62;
+}
+.ref-item span { color: var(--amber); font-weight: 800; margin-right: 7px; }
+
+.progress-bar {
+  position: relative; z-index: 2;
+  width: min(1060px, 97vw);
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px; padding: 5px 0;
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(237,232,220,0.18);
+  cursor: pointer;
+  transition: background .3s, transform .25s, width .3s;
+}
+.dot.active { background: var(--amber); transform: scale(1.35); width: 20px; border-radius: 4px; }
+.dot:hover:not(.active) { background: rgba(224,176,96,0.5); }
+
+.nav {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; gap: 14px;
+}
+.nav-btn {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--card2); border: 1px solid var(--border);
+  color: var(--muted); font-size: 1.1rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+.nav-btn:hover:not(:disabled) {
+  background: var(--amber-s); border-color: var(--border-a);
+  color: var(--amber); transform: scale(1.08);
+}
+.nav-btn:disabled { opacity: .22; cursor: default; }
+.slide-counter {
+  font-size: .78rem; font-weight: 700;
+  color: var(--softer); letter-spacing: 1px; min-width: 48px; text-align: center;
+}
+.kb { font-size: .67rem; color: var(--softer); letter-spacing: 1px; text-align: center; margin-top: 1px; position: relative; z-index: 2; }
+
+@keyframes fadein { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.slide.active .h1, .slide.active .cover-title { animation: fadein .42s .05s both; }
+.slide.active .rule { animation: fadein .38s .14s both; }
+.slide.active .row,
+.slide.active .grid2,
+.slide.active .grid3,
+.slide.active .toc-grid,
+.slide.active .sum-grid { animation: fadein .48s .19s both; }
 </style>
 </head>
 <body>
 
 <div class="stage">
-
 <div class="deck" id="deck">
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 1 – KAPAK -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide cover active" id="s1">
   <div class="cover-emoji">💧</div>
   <div class="tag" style="margin-bottom:10px">9. Sınıf Kimya — Proje Sunumu &nbsp;·&nbsp; 2026 / 2027</div>
   <div class="cover-title">Sıvılar ve<br><em>Özellikleri</em></div>
-  <div class="cover-sub" style="max-width:540px;margin:12px auto 28px">
+  <div class="cover-sub" style="max-width:540px;margin:12px auto 26px">
     Maddenin en dinamik hâli olan sıvıları; moleküler yapısından<br>
     günlük hayattaki yansımalarına kadar kapsamlı biçimde inceleyen bir çalışma.
   </div>
@@ -416,16 +385,13 @@ body::after{
   <div class="slide-num">01 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 2 – İÇİNDEKİLER -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s2">
   <div class="tag">Sunum Planı</div>
   <div class="h1">İçindekiler</div>
   <div class="rule"></div>
   <div class="toc-grid">
     <div class="toc-item"><div class="toc-num">SLAYT 03</div><div class="toc-icon">⚛️</div><div class="toc-label">Maddenin Üç Hâli</div><div class="toc-sub">Karşılaştırmalı genel bakış</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 04</div><div class="toc-icon">🔬</div><div class="toc-label">Sıvıların Moleküler Yapısı</div><div class="toc-sub">Tanecik düzeni ve bağlar</div></div>
+    <div class="toc-item"><div class="toc-num">SLAYT 04</div><div class="toc-icon">🔬</div><div class="toc-label">Moleküler Yapı</div><div class="toc-sub">Tanecik düzeni ve bağlar</div></div>
     <div class="toc-item"><div class="toc-num">SLAYT 05</div><div class="toc-icon">🌊</div><div class="toc-label">Akışkanlık</div><div class="toc-sub">Tanım, etkenler, örnekler</div></div>
     <div class="toc-item"><div class="toc-num">SLAYT 06</div><div class="toc-icon">⚖️</div><div class="toc-label">Yoğunluk</div><div class="toc-sub">Formül, tablo, katman deneyi</div></div>
     <div class="toc-item"><div class="toc-num">SLAYT 07</div><div class="toc-icon">🍯</div><div class="toc-label">Viskozite</div><div class="toc-sub">İç sürtünme ve ölçümü</div></div>
@@ -435,7 +401,7 @@ body::after{
     <div class="toc-item"><div class="toc-num">SLAYT 11</div><div class="toc-icon">☁️</div><div class="toc-label">Buhar Basıncı</div><div class="toc-sub">Buharlaşma, denge basıncı</div></div>
     <div class="toc-item"><div class="toc-num">SLAYT 12</div><div class="toc-icon">♨️</div><div class="toc-label">Kaynama Noktası</div><div class="toc-sub">Basınç etkisi, uygulamalar</div></div>
     <div class="toc-item"><div class="toc-num">SLAYT 13</div><div class="toc-icon">❄️</div><div class="toc-label">Donma Noktası</div><div class="toc-sub">Donma & çözünür madde etkisi</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 14</div><div class="toc-icon">🏭</div><div class="toc-label">Sıvılar ve Teknoloji</div><div class="toc-sub">Sanayi ve günlük yaşam</div></div>
+    <div class="toc-item"><div class="toc-num">SLAYT 14</div><div class="toc-icon">🏭</div><div class="toc-label">Sıvılar & Teknoloji</div><div class="toc-sub">Sanayi ve günlük yaşam</div></div>
     <div class="toc-item"><div class="toc-num">SLAYT 15</div><div class="toc-icon">🔭</div><div class="toc-label">Özel Sıvılar</div><div class="toc-sub">Su, cıva, sıvı azot…</div></div>
     <div class="toc-item"><div class="toc-num">SLAYT 16–19</div><div class="toc-icon">📊</div><div class="toc-label">Deneyler & Özet</div><div class="toc-sub">Basit deneyler, genel özet</div></div>
     <div class="toc-item"><div class="toc-num">SLAYT 20</div><div class="toc-icon">📚</div><div class="toc-label">Kaynakça & Teşekkür</div><div class="toc-sub">Referanslar ve kapanış</div></div>
@@ -444,14 +410,11 @@ body::after{
   <div class="slide-num">02 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 3 – MADDENİN ÜÇ HALİ -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s3">
   <div class="tag">Temel Kavramlar</div>
   <div class="h1">Maddenin <em>Üç Hâli</em></div>
   <div class="rule"></div>
-  <div class="row" style="margin-bottom:14px">
+  <div class="row" style="margin-bottom:13px">
     <div class="state-box">
       <div class="s-icon">🧊</div>
       <div class="s-title" style="color:var(--teal)">Katı</div>
@@ -470,15 +433,12 @@ body::after{
   </div>
   <div class="row" style="flex:none;gap:12px">
     <div class="hbox" style="flex:1">💡 <strong>Sıvılar neden özel?</strong> Hem katı gibi belirli hacme sahiptir hem de gaz gibi akabilir. Bu ikili özellik sıvıları biyoloji, kimya ve mühendislikte son derece işlevsel kılar.</div>
-    <div class="hbox t" style="flex:1">🌍 <strong>Dünya'nın %71'i</strong> sıvı suyla kaplıdır. İnsan vücudunun yaklaşık <strong>%60-70'i</strong> sıvıdan oluşur. Sıvılar yaşamın temelidir.</div>
-    <div class="hbox" style="flex:1;border-color:var(--lilac);background:rgba(157,143,204,0.10)">🔬 <strong>Cıva</strong>, oda koşullarında sıvı hâlde bulunan tek metaldir; erime noktası −38,8 °C'dir. <strong>Brom</strong> ise oda sıcaklığında sıvı olan tek ametal elementtir.</div>
+    <div class="hbox t" style="flex:1">🌍 <strong>Dünya'nın %71'i</strong> sıvı suyla kaplıdır. İnsan vücudunun yaklaşık <strong>%60–70'i</strong> sıvıdan oluşur. Sıvılar yaşamın temelidir.</div>
+    <div class="hbox l" style="flex:1">🔬 <strong>Cıva</strong>, oda koşullarında sıvı hâlde bulunan tek metaldir; erime noktası −38,8 °C'dir. <strong>Brom</strong> ise oda sıcaklığında sıvı olan tek ametal elementtir.</div>
   </div>
   <div class="slide-num">03 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 4 – MOLEKÜLER YAPI -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s4">
   <div class="tag">Yapısal İnceleme</div>
   <div class="h1">Sıvıların <em>Moleküler Yapısı</em></div>
@@ -493,7 +453,7 @@ body::after{
       <div class="fact t">🔗 Su molekülleri arasındaki <strong>hidrojen bağları</strong>, suyun olağandışı yüksek kaynama noktasını açıklar.</div>
     </div>
     <div class="col col-3">
-      <div class="h2" style="font-size:1rem;margin-bottom:6px;color:var(--amber)">Moleküller Arası Kuvvetler</div>
+      <div class="h2" style="font-size:1rem;margin-bottom:7px;color:var(--amber)">Moleküller Arası Kuvvetler</div>
       <div class="list">
         <div class="li"><div class="li-dot">1</div><div class="li-text"><strong>London Dağılma Kuvvetleri:</strong> Tüm moleküllerde bulunan geçici dipol etkileşimleri. Molekül büyüdükçe artar.</div></div>
         <div class="li"><div class="li-dot t">2</div><div class="li-text"><strong>Dipol-Dipol Kuvvetleri:</strong> Polar moleküllerde (+) ve (−) uçlar arasındaki kalıcı çekim. Örn: HCl, SO₂</div></div>
@@ -506,9 +466,6 @@ body::after{
   <div class="slide-num">04 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 5 – AKIŞKANLIK -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s5">
   <div class="tag">Özellik 1</div>
   <div class="h1">Akışkanlık <em>(Fluidity)</em></div>
@@ -520,28 +477,25 @@ body::after{
         <p>Akışkanlık <strong>viskozite ile ters orantılıdır</strong>: Viskozitesi yüksek bir sıvı daha az akışkandır. Akışkanlık aynı zamanda <strong>sıcaklıkla doğru orantılı</strong>dır; ısınan sıvı daha kolay akar.</p>
         <p>Katı maddeler akamaz; çünkü tanecikleri arası çekim kuvvetleri aşılamayacak kadar güçlüdür. Gazlar ise her yöne serbest yayılır. Sıvılar bu ikisi arasında <strong>kontrollü akış</strong> özelliğini gösterir.</p>
       </div>
-      <div class="grid2" style="margin-top:4px">
+      <div class="grid2" style="margin-top:6px">
         <div class="fact">🚿 Su boru hatları akışkanlık sayesinde çalışır</div>
         <div class="fact t">⛽ Akaryakıt pompa sistemleri bu prensiple tasarlanır</div>
       </div>
     </div>
     <div class="col col-3">
-      <div class="h2" style="font-size:.95rem;color:var(--amber);margin-bottom:8px">Akışkanlığı Etkileyen Faktörler</div>
+      <div class="h2" style="font-size:.95rem;color:var(--amber);margin-bottom:9px">Akışkanlığı Etkileyen Faktörler</div>
       <div class="list">
         <div class="li"><div class="li-dot">T</div><div class="li-text"><strong>Sıcaklık:</strong> Artan sıcaklık moleküllerin kinetik enerjisini artırır → akışkanlık artar. Soğuyan zeytinyağı donmaya yaklaşır.</div></div>
         <div class="li"><div class="li-dot t">M</div><div class="li-text"><strong>Moleküler yapı:</strong> Büyük ve karmaşık moleküller birbirine takılır → daha az akışkan. Uzun zincirli polimerler buna örnek.</div></div>
         <div class="li"><div class="li-dot r">B</div><div class="li-text"><strong>Bağ türü:</strong> Hidrojen bağları akışkanlığı kısıtlar. Bu yüzden su, benzen veya heksandan daha az akışkandır.</div></div>
-        <div class="li"><div class="li-dot l">B</div><div class="li-text"><strong>Basınç:</strong> Sıvılar üzerine uygulanan basınç hacmi değiştirmez ama akış hızını etkiler (pompalarda kullanılır).</div></div>
+        <div class="li"><div class="li-dot l">P</div><div class="li-text"><strong>Basınç:</strong> Sıvılar üzerine uygulanan basınç hacmi değiştirmez ama akış hızını etkiler (pompalarda kullanılır).</div></div>
       </div>
-      <div class="hbox" style="margin-top:4px">🏊 <strong>Süperkritik akışkanlar</strong> hem sıvı hem gaz özelliği gösterir. Saf CO₂'nin süperkritik hâli kafein çıkarmada kullanılır!</div>
+      <div class="hbox" style="margin-top:5px">🏊 <strong>Süperkritik akışkanlar</strong> hem sıvı hem gaz özelliği gösterir. Saf CO₂'nin süperkritik hâli kafein çıkarmada kullanılır!</div>
     </div>
   </div>
   <div class="slide-num">05 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 6 – YOĞUNLUK -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s6">
   <div class="tag">Özellik 2</div>
   <div class="h1">Yoğunluk <em>(Density)</em></div>
@@ -559,32 +513,29 @@ body::after{
       <div class="body" style="margin-top:10px">
         <p>Yoğunluk bir maddenin <strong>birim hacmine düşen kütlesidir</strong>. Aynı hacimde daha fazla tanecik barındıran madde daha yoğundur.</p>
         <p>Yoğun sıvılar daha az yoğun olanların <strong>altına çöker</strong>. Bu gerçek hayatta; salata sosu katmanları, deniz kazalarında oluşan petrol tabakası gibi durumları açıklar.</p>
-        <p><strong>Arşimet İlkesi:</strong> Sıvıya daldırılan cisim, yerinden ettiği sıvının ağırlığı kadar kaldırma kuvveti alır. Gemiler bu ilke sayesinde batar.</p>
+        <p><strong>Arşimet İlkesi:</strong> Sıvıya daldırılan cisim, yerinden ettiği sıvının ağırlığı kadar kaldırma kuvveti alır. Gemiler bu ilke sayesinde yüzer.</p>
       </div>
-      <div class="fact" style="margin-top:6px">🌊 Ölü Deniz'in tuz konsantrasyonu %33'tür; yoğunluğu ~1.24 g/cm³ olduğundan insanlar batar değil yüzer!</div>
+      <div class="fact" style="margin-top:6px">🌊 Ölü Deniz'in tuz konsantrasyonu %33'tür; yoğunluğu ~1.24 g/cm³ olduğundan insanlar kolayca yüzer!</div>
     </div>
     <div class="col col-4">
-      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:8px">Seçili Sıvıların Yoğunluğu (25 °C, g/cm³)</div>
+      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:9px">Seçili Sıvıların Yoğunluğu (25 °C, g/cm³)</div>
       <div class="bar-wrap">
         <div class="bar-row"><div class="bar-label">Cıva (Hg)</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,var(--rose),var(--amber))"></div></div><div class="bar-val">13.60</div></div>
         <div class="bar-row"><div class="bar-label">Gliserin</div><div class="bar-track"><div class="bar-fill" style="width:9.3%;background:var(--amber)"></div></div><div class="bar-val">1.26</div></div>
+        <div class="bar-row"><div class="bar-label">Süt</div><div class="bar-track"><div class="bar-fill" style="width:7.6%;background:var(--amber)"></div></div><div class="bar-val">1.030</div></div>
         <div class="bar-row"><div class="bar-label">Deniz Suyu</div><div class="bar-track"><div class="bar-fill" style="width:7.5%;background:var(--amber)"></div></div><div class="bar-val">1.025</div></div>
         <div class="bar-row"><div class="bar-label">Saf Su ⭐</div><div class="bar-track"><div class="bar-fill" style="width:7.35%;background:var(--teal)"></div></div><div class="bar-val">1.000</div></div>
-        <div class="bar-row"><div class="bar-label">Süt</div><div class="bar-track"><div class="bar-fill" style="width:7.6%;background:var(--amber)"></div></div><div class="bar-val">1.030</div></div>
         <div class="bar-row"><div class="bar-label">Zeytinyağı</div><div class="bar-track"><div class="bar-fill" style="width:6.7%;background:var(--sage)"></div></div><div class="bar-val">0.910</div></div>
+        <div class="bar-row"><div class="bar-label">Benzin</div><div class="bar-track"><div class="bar-fill" style="width:5.3%;background:var(--sage)"></div></div><div class="bar-val">0.720</div></div>
         <div class="bar-row"><div class="bar-label">Etanol</div><div class="bar-track"><div class="bar-fill" style="width:5.8%;background:var(--sage)"></div></div><div class="bar-val">0.789</div></div>
         <div class="bar-row"><div class="bar-label">Hekzan</div><div class="bar-track"><div class="bar-fill" style="width:4.9%;background:var(--sage)"></div></div><div class="bar-val">0.659</div></div>
-        <div class="bar-row"><div class="bar-label">Benzin</div><div class="bar-track"><div class="bar-fill" style="width:5.3%;background:var(--sage)"></div></div><div class="bar-val">0.720</div></div>
       </div>
-      <div class="hbox t" style="margin-top:10px">🧊 <strong>Su'nun ilginç istisnası:</strong> Katı hâldeki buz, sıvı suya göre <em>daha az yoğundur</em> (0.92 g/cm³). Bu yüzden buz suda yüzer; okyanuslardaki canlılar buz altında hayatta kalabilir.</div>
+      <div class="hbox t" style="margin-top:11px">🧊 <strong>Su'nun ilginç istisnası:</strong> Katı hâldeki buz, sıvı suya göre <em>daha az yoğundur</em> (0.92 g/cm³). Bu yüzden buz suda yüzer; okyanuslardaki canlılar buz altında hayatta kalabilir.</div>
     </div>
   </div>
   <div class="slide-num">06 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 7 – VİSKOZİTE -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s7">
   <div class="tag">Özellik 3</div>
   <div class="h1">Viskozite <em>(Viscosity)</em></div>
@@ -593,14 +544,14 @@ body::after{
     <div class="col col-4">
       <div class="body">
         <p>Viskozite, bir sıvının <strong>akışa karşı gösterdiği iç dirençtir</strong>. Katman katman akan bir sıvıda bitişik katmanların birbirini frenlemesinden doğar. Buna "iç sürtünme" denir.</p>
-        <p>Ölçü birimi: <strong>Pascal·saniye (Pa·s)</strong> ya da daha eski birim <strong>Poise (P)</strong>. Suyun viskozitesi 20 °C'de yaklaşık <strong>1 mPa·s</strong>, balınki ise <strong>2000–10 000 mPa·s</strong>'dir.</p>
+        <p>Ölçü birimi: <strong>Pascal·saniye (Pa·s)</strong> ya da daha eski birim <strong>Poise (P)</strong>. Suyun viskozitesi 20 °C'de yaklaşık <strong>1 mPa·s</strong>, balınki ise <strong>2000–10 000 mPa·s</strong> arasındadır.</p>
         <p>Viskozitenin iki türü vardır:</p>
         <p>🔹 <strong>Dinamik (mutlak) viskozite (η):</strong> Akışa karşı direncin doğrudan ölçümü.<br>🔹 <strong>Kinematik viskozite (ν):</strong> η / yoğunluk oranıdır; akış davranışını yorumlamada kullanılır.</p>
       </div>
       <div class="fact" style="margin-top:8px">⏱️ Tar balı deneyi (Queensland, 1927): Tar balının damlaması için <em>yıllarca</em> beklendi — ultra yüksek viskozite!</div>
     </div>
     <div class="col col-3">
-      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:8px">Viskozite Skalası (yaklaşık, 25 °C)</div>
+      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:9px">Viskozite Skalası (yaklaşık, 25 °C)</div>
       <div class="bar-wrap">
         <div class="bar-row"><div class="bar-label">Aseton</div><div class="bar-track"><div class="bar-fill" style="width:1%;background:var(--teal)"></div></div><div class="bar-val">0.3 mPa·s</div></div>
         <div class="bar-row"><div class="bar-label">Su</div><div class="bar-track"><div class="bar-fill" style="width:3%;background:var(--teal)"></div></div><div class="bar-val">1 mPa·s</div></div>
@@ -616,9 +567,6 @@ body::after{
   <div class="slide-num">07 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 8 – VİSKOZİTE & SICAKLIK -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s8">
   <div class="tag">Özellik 3 — Devam</div>
   <div class="h1">Viskozite ve <em>Sıcaklık İlişkisi</em></div>
@@ -628,7 +576,7 @@ body::after{
       <div class="hbox" style="margin-bottom:14px">📌 <strong>Temel Kural — Sıvılarda:</strong> Sıcaklık artar → Moleküllerin kinetik enerjisi artar → Birbirinden kolay uzaklaşırlar → <strong style="color:var(--teal)">Viskozite azalır, akışkanlık artar.</strong></div>
       <div class="body">
         <p>Sıcaklık–viskozite ilişkisi Arrhenius denklemi ile ifade edilir:</p>
-        <p style="text-align:center;font-family:'Lora',serif;font-style:italic;font-size:1.1rem;color:var(--amber);margin:6px 0">η = A · e<sup>(Ea/RT)</sup></p>
+        <p style="text-align:center;font-family:'Lora',serif;font-style:italic;font-size:1.15rem;color:var(--amber);margin:7px 0">η = A · e<sup>(Ea/RT)</sup></p>
         <p>Burada <strong>Ea</strong> aktivasyon enerjisi, <strong>R</strong> gaz sabiti, <strong>T</strong> mutlak sıcaklıktır. Bu denklem sıcaklık arttıkça viskozite üstel biçimde azaldığını gösterir.</p>
         <p>⚠️ <strong>Gazlarda tam tersi geçerlidir:</strong> Gazlarda sıcaklık arttıkça moleküller daha sık çarpışır → viskozite artar. Bu sıvılar ile gazların temel farkıdır.</p>
       </div>
@@ -638,7 +586,7 @@ body::after{
       <div class="list">
         <div class="li"><div class="li-dot">🛢</div><div class="li-text"><strong>Motor Yağı (Kış vs Yaz):</strong> Kış sabahı soğuk motor yağı çok koyudur; aracı çalıştırmak güçtür. Bu yüzden 0W-40 gibi düşük sıcaklıkta ince kalan yağlar geliştirilmiştir.</div></div>
         <div class="li"><div class="li-dot t">🍯</div><div class="li-text"><strong>Bal:</strong> Buzdolabındaki bal kaşıktan zar zor dökülür. Ilık banya yapılınca kolayca akar; fabrikada bal ısıtılarak şişelere doldurulur.</div></div>
-        <div class="li"><div class="li-dot r">🍫</div><div class="li-text"><strong>Çikolata:</strong> Erimiş çikolata kaplaması sıcakken ince ve akıcıdır; soğuyunca katılaşır. Pastacılar doğru sıcaklıkta çalışır.</div></div>
+        <div class="li"><div class="li-dot r">🍫</div><div class="li-text"><strong>Çikolata:</strong> Erimiş çikolata kaplaması sıcakken ince ve akıcıdır; soğuyunca katılaşır. Pastacılar doğru sıcaklıkta çalışmak zorundadır.</div></div>
         <div class="li"><div class="li-dot l">🩸</div><div class="li-text"><strong>İnsan Kanı:</strong> Yüksek ateşte kan viskozitesi biraz azalır. Hipotermi (soğuk) durumunda artar ve dolaşım güçleşir.</div></div>
       </div>
       <div class="fact" style="margin-top:8px">🏭 Petrol rafinerilerinde ham petrol ısıtılarak viskozitesi düşürülür ve boru hatlarından kolayca taşınması sağlanır.</div>
@@ -647,9 +595,6 @@ body::after{
   <div class="slide-num">08 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 9 – YÜZEY GERİLİMİ -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s9">
   <div class="tag">Özellik 4</div>
   <div class="h1">Yüzey Gerilimi <em>(Surface Tension)</em></div>
@@ -672,7 +617,7 @@ body::after{
       <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:10px">Kohezyon & Adezyon</div>
       <div class="card card-a" style="margin-bottom:10px">
         <div class="card-title">Kohezyon — Aynı Cins Moleküller Arası Çekim</div>
-        <div class="card-body">Suyun su moleküllerini çekmesidir. <strong>Yüzey geriliminin kaynağıdır.</strong> Bal damlasının yuvarlak kalmaya çalışması, yağmur damlasının küresel şekli.</div>
+        <div class="card-body">Suyun su moleküllerini çekmesidir. <strong>Yüzey geriliminin kaynağıdır.</strong> Bal damlasının yuvarlak kalmaya çalışması, yağmur damlasının küresel şekli bunun sonucudur.</div>
       </div>
       <div class="card card-t" style="margin-bottom:10px">
         <div class="card-title t">Adezyon — Farklı Cins Moleküller Arası Çekim</div>
@@ -688,9 +633,6 @@ body::after{
   <div class="slide-num">09 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 10 – KILCALLIK -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s10">
   <div class="tag">Özellik 4 — Devam</div>
   <div class="h1">Kılcallık <em>(Kapillarite)</em></div>
@@ -719,9 +661,6 @@ body::after{
   <div class="slide-num">10 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 11 – BUHAR BASINCI -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s11">
   <div class="tag">Özellik 5</div>
   <div class="h1">Buhar Basıncı <em>(Vapor Pressure)</em></div>
@@ -732,7 +671,7 @@ body::after{
         <p>Bir sıvının yüzeyindeki moleküllerin bir kısmı yeterli kinetik enerjiye sahip olduğunda <strong>sıvı fazdan çıkarak buhar fazına geçer</strong>. Kapalı bir kapta bu buhar molekülleri sıvı yüzeyine baskı uygular; bu basınca <strong>doymuş buhar basıncı</strong> denir.</p>
         <p><strong>Denge durumu:</strong> Birim zamanda buharlaşan molekül sayısı = yoğunlaşan molekül sayısı. Bu noktada buhar basıncı sabit kalır.</p>
         <p>Buhar basıncı yalnızca <strong>sıcaklığa ve maddenin cinsine</strong> bağlıdır; kabın hacmine ya da sıvı miktarına bağlı değildir.</p>
-        <p><strong>Antoine Denklemi:</strong> log P = A − B/(C+T) ile her madde için buhar basıncı hesaplanabilir (A, B, C maddeye özgü sabitler).</p>
+        <p><strong>Antoine Denklemi:</strong> log P = A − B/(C+T) ile her madde için buhar basıncı hesaplanabilir (A, B, C maddeye özgü sabitlerdir).</p>
       </div>
       <div class="fact" style="margin-top:6px">🧪 Aseton 20 °C'de 231 mmHg buhar basıncına sahiptir; su ise yalnızca 17.5 mmHg. Bu yüzden aseton çok hızlı buharlaşır.</div>
     </div>
@@ -750,16 +689,13 @@ body::after{
   <div class="slide-num">11 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 12 – KAYNAMA NOKTASI -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s12">
   <div class="tag">Özellik 6</div>
   <div class="h1">Kaynama Noktası <em>(Boiling Point)</em></div>
   <div class="rule"></div>
   <div class="row">
     <div class="col col-4">
-      <div class="hbox" style="margin-bottom:12px">⚗️ <strong>Tanım:</strong> Bir sıvının <strong>buhar basıncının dış (atmosfer) basıncına eşit olduğu sıcaklıktır.</strong> Bu noktada sıvı tüm hacminde birden kaynamaya başlar; yani kabarcıklar yalnızca yüzeyden değil, sıvının içinden de yükselir.</div>
+      <div class="hbox" style="margin-bottom:12px">⚗️ <strong>Tanım:</strong> Bir sıvının <strong>buhar basıncının dış (atmosfer) basıncına eşit olduğu sıcaklıktır.</strong> Bu noktada sıvı tüm hacminde birden kaynamaya başlar; kabarcıklar yalnızca yüzeyden değil, sıvının içinden de yükselir.</div>
       <div class="body">
         <p>Saf su deniz seviyesinde (1 atm = 101.325 kPa) <strong>100 °C</strong>'de kaynar. Ancak bu değer yükseklikle birlikte değişir.</p>
         <p><strong>Yüksek rakımda:</strong> Atmosfer basıncı düşer → suyun buhar basıncı daha düşük sıcaklıkta dış basınca eşit olur → su 100 °C altında kaynar → yiyecekler tam pişmez.</p>
@@ -768,29 +704,26 @@ body::after{
       </div>
     </div>
     <div class="col col-3">
-      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:8px">Kaynama Noktaları Tablosu (1 atm)</div>
+      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:9px">Kaynama Noktaları Tablosu (1 atm)</div>
       <table class="tbl">
         <thead><tr><th>Madde</th><th class="t" style="text-align:right">Kaynama Noktası</th></tr></thead>
         <tbody>
           <tr><td><strong>Sıvı Azot (N₂)</strong></td><td><strong>–196 °C</strong></td></tr>
           <tr><td><strong>Sıvı Oksijen (O₂)</strong></td><td><strong>–183 °C</strong></td></tr>
-          <tr><td><strong>Kloroform (CHCl₃)</strong></td><td><strong>61 °C</strong></td></tr>
           <tr><td><strong>Aseton</strong></td><td><strong>56 °C</strong></td></tr>
+          <tr><td><strong>Kloroform (CHCl₃)</strong></td><td><strong>61 °C</strong></td></tr>
           <tr><td><strong>Etil Alkol</strong></td><td><strong>78 °C</strong></td></tr>
           <tr class="hl-row"><td><strong>Saf Su ⭐</strong></td><td><strong>100 °C</strong></td></tr>
           <tr><td><strong>Zeytinyağı</strong></td><td><strong>~300 °C</strong></td></tr>
           <tr><td><strong>Cıva (Hg)</strong></td><td><strong>357 °C</strong></td></tr>
         </tbody>
       </table>
-      <div class="fact t" style="margin-top:8px">🏔 Ağrı Dağı zirvesinde (~5137 m) su yalnızca <strong>~83 °C</strong>'de kaynar. Yumurta pişirmek için daha uzun beklemeniz gerekir!</div>
+      <div class="fact t" style="margin-top:9px">🏔 Ağrı Dağı zirvesinde (~5137 m) su yalnızca <strong>~83 °C</strong>'de kaynar. Yumurta pişirmek için daha uzun beklemeniz gerekir!</div>
     </div>
   </div>
   <div class="slide-num">12 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 13 – DONMA NOKTASI -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s13">
   <div class="tag">Özellik 7</div>
   <div class="h1">Donma Noktası <em>(Freezing Point)</em></div>
@@ -800,8 +733,8 @@ body::after{
       <div class="body">
         <p>Donma noktası, bir sıvının <strong>katı hâle geçtiği sıcaklıktır</strong>. Bu noktada moleküllerin kinetik enerjisi o kadar azalır ki artık birbirlerini sabit pozisyonda tutmaya yetecek düzeyde çekim kuvvetleri üstün gelir ve <strong>kristal kafes yapısı</strong> oluşmaya başlar.</p>
         <p>Saf suyun donma noktası <strong>0 °C</strong>'dir (1 atm'de). Sıvı ve katı arasındaki geçiş sırasında sıcaklık sabit kalır; çünkü enerji faz değişimi için harcanır (örgü enerjisi).</p>
-        <p><strong>Donma Noktası Alçalması (Kriyoskopi):</strong> Suya tuz, şeker gibi uçucu olmayan maddeler çözündürülürse donma noktası düşer:<br>
-        <span style="font-family:'Lora',serif;font-style:italic;color:var(--amber);font-size:1rem">ΔTf = Kf · m · i</span></p>
+        <p><strong>Donma Noktası Alçalması (Kriyoskopi):</strong> Suya tuz, şeker gibi uçucu olmayan maddeler çözündürülürse donma noktası düşer:</p>
+        <p style="text-align:center;font-family:'Lora',serif;font-style:italic;font-size:1.1rem;color:var(--amber);margin:5px 0">ΔTf = Kf · m · i</p>
       </div>
       <div class="fact" style="margin-top:8px">🚗 Antifriz (etilenglikon + su) çözeltisi −40 °C'ye kadar donmaz; motorları soğuk kış günlerinde korur.</div>
     </div>
@@ -811,7 +744,7 @@ body::after{
         <div class="li"><div class="li-dot">🧂</div><div class="li-text"><strong>Yollara Tuz Dökülmesi:</strong> Kış aylarında yol karlarını eritmek için NaCl ya da CaCl₂ kullanılır; tuz suyun donma noktasını düşürür.</div></div>
         <div class="li"><div class="li-dot t">🍦</div><div class="li-text"><strong>Dondurma Yapımı:</strong> Karışıma tuz eklenmiş buz kullanıldığında buz −20 °C'ye kadar erimeden soğutma sağlar; bu yüzden kremanın donmasına izin verir.</div></div>
         <div class="li"><div class="li-dot r">🚢</div><div class="li-text"><strong>Okyanus Suyu:</strong> Deniz suyu tuz içerdiğinden 0 °C'de donmaz; yaklaşık <strong>−1.8 °C</strong>'de donar. Bu, kutup denizlerindeki canlı yaşamı için kritik öneme sahiptir.</div></div>
-        <div class="li"><div class="li-dot l">🩸</div><td class="li-text"><strong>Kan Plazması:</strong> Protein ve tuz içerdiğinden donma noktası −0.54 °C'dir. Doku donması (donakalım) bu değerin altına düşüldüğünde gerçekleşir.</div></div>
+        <div class="li"><div class="li-dot l">🩸</div><div class="li-text"><strong>Kan Plazması:</strong> Protein ve tuz içerdiğinden donma noktası −0.54 °C'dir. Doku donması (donakalım) bu değerin altına düşüldüğünde gerçekleşir.</div></div>
         <div class="li"><div class="li-dot">🔬</div><div class="li-text"><strong>Kriyoprezervasyon:</strong> Hücreler sıvı azot (−196 °C) ile dondurularak yıllarca saklanabilir. Kan bankacılığı ve spermatoloji bu yöntemi kullanır.</div></div>
       </div>
     </div>
@@ -819,9 +752,6 @@ body::after{
   <div class="slide-num">13 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 14 – TEKNOLOJİ & SANAYİ -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s14">
   <div class="tag">Uygulamalar</div>
   <div class="h1">Sıvılar <em>Teknoloji & Sanayide</em></div>
@@ -840,7 +770,7 @@ body::after{
     <div class="card card-s">
       <div class="card-icon">🚀</div>
       <div class="card-title s">Uzay & Havacılık</div>
-      <div class="card-body"><strong>Sıvı Roket Yakıtı:</strong> Sıvı hidrojen (–253 °C) + sıvı oksijen (–183 °C) birleşir; son derece güçlü yakıt oluşur.<br><br><strong>Hidro-dinamik Yastıklama:</strong> Uçak kanatlarında hava basıncını hesaplamada sıvı benzetimleri kullanılır.</div>
+      <div class="card-body"><strong>Sıvı Roket Yakıtı:</strong> Sıvı hidrojen (–253 °C) + sıvı oksijen (–183 °C) birleşir; son derece güçlü yakıt oluşur.<br><br><strong>Hidrodinamik Yastıklama:</strong> Uçak kanatlarında hava basıncını hesaplamada sıvı benzetimleri kullanılır.</div>
     </div>
     <div class="card card-l">
       <div class="card-icon">💻</div>
@@ -855,15 +785,12 @@ body::after{
     <div class="card">
       <div class="card-icon">🌿</div>
       <div class="card-title">Gıda & Tarım</div>
-      <div class="card-body"><strong>Damla Sulama:</strong> Su, kılcal borularla bitki köklerine iletilir; tasarruf %50 artar.<br><br><strong>Pastörizasyon:</strong> Sütün belirli sıcaklıkta ısıtılıp hızla soğutulması — faz özellikleri kullanılır.<br><br><strong>Yağ Rafinasyonu:</strong> Ham yağ farklı yoğunluklarına göre ayrıştırılır.</div>
+      <div class="card-body"><strong>Damla Sulama:</strong> Su, kılcal borularla bitki köklerine iletilir; su tasarrufu %50 artar.<br><br><strong>Pastörizasyon:</strong> Sütün belirli sıcaklıkta ısıtılıp hızla soğutulması — faz özellikleri kullanılır.<br><br><strong>Yağ Rafinasyonu:</strong> Ham yağ farklı yoğunluklarına göre ayrıştırılır.</div>
     </div>
   </div>
   <div class="slide-num">14 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 15 – ÖZEL SIVILAR -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s15">
   <div class="tag">Detaylı İnceleme</div>
   <div class="h1">Özel Sıvılar: <em>Su, Cıva, Sıvı Azot</em></div>
@@ -878,7 +805,7 @@ body::after{
           🔹 <strong>Yoğunluk anomalisi:</strong> 4 °C'de en yoğun hâldedir; donunca genişler.<br>
           🔹 <strong>Yüksek yüzey gerilimi:</strong> 72.8 mN/m; hidrojen bağlarından kaynaklanır.<br>
           🔹 <strong>Yüksek özgül ısı:</strong> (4.18 J/g·K) iklimi dengeler.<br>
-          🔹 <strong>Amphoteric:</strong> Hem asit hem baz gibi davranabilir.<br>
+          🔹 <strong>Amfoterik:</strong> Hem asit hem baz gibi davranabilir.<br>
           🔹 Polar yapısı sayesinde iyonik ve polar maddeleri çözer.
         </div>
       </div>
@@ -888,7 +815,7 @@ body::after{
         <div class="card-icon">🌡</div>
         <div class="card-title r" style="font-size:.8rem">Cıva — Sıvı Metal</div>
         <div class="card-body">
-          Periyodik tablodaki tek oda koşullarında sıvı metal (brom ile birlikte):<br><br>
+          Periyodik tablodaki tek oda koşullarında sıvı metal (bromla birlikte):<br><br>
           🔹 <strong>Yoğunluk:</strong> 13.6 g/cm³ — kurşundan bile ağır!<br>
           🔹 <strong>Yüzey gerilimi:</strong> 486 mN/m — cam boruda aşağı iner.<br>
           🔹 <strong>Kaynama noktası:</strong> 357 °C; buharı son derece toksiktir.<br>
@@ -916,9 +843,6 @@ body::after{
   <div class="slide-num">15 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 16 – BASIT DENEYLER -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s16">
   <div class="tag">Laboratuvar</div>
   <div class="h1">Sınıfta Yapılabilecek <em>Basit Deneyler</em></div>
@@ -958,8 +882,8 @@ body::after{
       <div class="card-icon">🍳</div>
       <div class="card-title l">Deney 4: Viskozite Yarışması</div>
       <div class="card-body">
-        <strong>Malzeme:</strong> Eğimli yüzey (kitap), su, zeytinyağı, bal, gliserin, kronometre, bilye.<br><br>
-        <strong>Yapılış:</strong> Eğimli yüzeye farklı sıvılar dökün ve zeytenyağı bilyelerinin akış süresini ölçün.<br><br>
+        <strong>Malzeme:</strong> Eğimli yüzey (kitap), su, zeytinyağı, bal, gliserin, kronometre.<br><br>
+        <strong>Yapılış:</strong> Eğimli yüzeye farklı sıvılar dökün ve akış süresini ölçün.<br><br>
         <strong>Sonuç:</strong> En hızlı: su, En yavaş: bal. Viskozite farkı açıkça görülür.<br><br>
         <strong>İleri Seviye:</strong> Aynı sıvıyı sıcak ve soğuk hâlde test ederek sıcaklık-viskozite ilişkisini gözlemleyin.
       </div>
@@ -968,100 +892,38 @@ body::after{
   <div class="slide-num">16 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 17 – MUKAYESELI ÖZET TABLO -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s17">
   <div class="tag">Karşılaştırmalı Analiz</div>
   <div class="h1">Sıvı Özellikleri <em>Karşılaştırma Tablosu</em></div>
   <div class="rule"></div>
   <div style="flex:1;overflow:auto">
-  <table class="tbl" style="font-size:.8rem">
-    <thead>
-      <tr>
-        <th>Özellik</th>
-        <th>Tanım</th>
-        <th>Birim</th>
-        <th>Sıcaklıkla İlişkisi</th>
-        <th>Günlük Örnek</th>
-        <th style="text-align:right">Su Değeri</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Akışkanlık</strong></td>
-        <td>Akabilme yeteneği</td>
-        <td>—</td>
-        <td style="color:var(--sage)">↑ Sıcaklık → ↑ Akışkanlık</td>
-        <td>Musluk suyu</td>
-        <td><strong>Yüksek</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Yoğunluk</strong></td>
-        <td>Birim hacimde kütle</td>
-        <td>g/cm³</td>
-        <td style="color:var(--rose)">↑ Sıcaklık → ↓ Yoğunluk</td>
-        <td>Yağ-su katmanı</td>
-        <td><strong>1.00 g/cm³</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Viskozite</strong></td>
-        <td>Akışa iç direnç</td>
-        <td>mPa·s</td>
-        <td style="color:var(--rose)">↑ Sıcaklık → ↓ Viskozite</td>
-        <td>Bal vs. su</td>
-        <td><strong>~1 mPa·s</strong></td>
-      </tr>
-      <tr class="hl-row">
-        <td><strong>Yüzey Gerilimi</strong></td>
-        <td>Yüzeyi küçültme eğilimi</td>
-        <td>mN/m</td>
-        <td style="color:var(--rose)">↑ Sıcaklık → ↓ Yüz. Ger.</td>
-        <td>İğne yüzeyde kalır</td>
-        <td><strong>72.8 mN/m</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Kılcallık</strong></td>
-        <td>İnce boruda yükselme</td>
-        <td>mm / cm</td>
-        <td style="color:var(--rose)">↑ Sıcaklık → ↓ Yükselme</td>
-        <td>Bitki su iletimi</td>
-        <td><strong>~15 cm (r=0.1mm)</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Buhar Basıncı</strong></td>
-        <td>Denge buhar basıncı</td>
-        <td>kPa / mmHg</td>
-        <td style="color:var(--sage)">↑ Sıcaklık → ↑ Buhar Bas.</td>
-        <td>Çamaşır kuruması</td>
-        <td><strong>2.34 kPa (20°C)</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Kaynama Noktası</strong></td>
-        <td>Buhar basıncı = dış basınç</td>
-        <td>°C</td>
-        <td style="color:var(--rose)">↑ Basınç → ↑ Kaynama N.</td>
-        <td>Düdüklü tencere</td>
-        <td><strong>100 °C (1 atm)</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Donma Noktası</strong></td>
-        <td>Katılaşma sıcaklığı</td>
-        <td>°C</td>
-        <td style="color:var(--rose)">↑ Çözünen → ↓ Donma N.</td>
-        <td>Tuzlu yollar</td>
-        <td><strong>0 °C (1 atm)</strong></td>
-      </tr>
-    </tbody>
-  </table>
+    <table class="tbl" style="font-size:.82rem">
+      <thead>
+        <tr>
+          <th>Özellik</th>
+          <th>Tanım</th>
+          <th>Birim</th>
+          <th>Sıcaklıkla İlişkisi</th>
+          <th>Günlük Örnek</th>
+          <th style="text-align:right">Su Değeri</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Akışkanlık</strong></td><td>Akabilme yeteneği</td><td>—</td><td style="color:var(--sage)">↑ Sıcaklık → ↑ Akışkanlık</td><td>Musluk suyu</td><td><strong>Yüksek</strong></td></tr>
+        <tr><td><strong>Yoğunluk</strong></td><td>Birim hacimde kütle</td><td>g/cm³</td><td style="color:var(--rose)">↑ Sıcaklık → ↓ Yoğunluk</td><td>Yağ-su katmanı</td><td><strong>1.00 g/cm³</strong></td></tr>
+        <tr><td><strong>Viskozite</strong></td><td>Akışa iç direnç</td><td>mPa·s</td><td style="color:var(--rose)">↑ Sıcaklık → ↓ Viskozite</td><td>Bal vs. su</td><td><strong>~1 mPa·s</strong></td></tr>
+        <tr class="hl-row"><td><strong>Yüzey Gerilimi</strong></td><td>Yüzeyi küçültme eğilimi</td><td>mN/m</td><td style="color:var(--rose)">↑ Sıcaklık → ↓ Yüz. Ger.</td><td>İğne yüzeyde kalır</td><td><strong>72.8 mN/m</strong></td></tr>
+        <tr><td><strong>Kılcallık</strong></td><td>İnce boruda yükselme</td><td>mm / cm</td><td style="color:var(--rose)">↑ Sıcaklık → ↓ Yükselme</td><td>Bitki su iletimi</td><td><strong>~15 cm (r=0.1mm)</strong></td></tr>
+        <tr><td><strong>Buhar Basıncı</strong></td><td>Denge buhar basıncı</td><td>kPa / mmHg</td><td style="color:var(--sage)">↑ Sıcaklık → ↑ Buhar Bas.</td><td>Çamaşır kuruması</td><td><strong>2.34 kPa (20°C)</strong></td></tr>
+        <tr><td><strong>Kaynama Noktası</strong></td><td>Buhar basıncı = dış basınç</td><td>°C</td><td style="color:var(--rose)">↑ Basınç → ↑ Kaynama N.</td><td>Düdüklü tencere</td><td><strong>100 °C (1 atm)</strong></td></tr>
+        <tr><td><strong>Donma Noktası</strong></td><td>Katılaşma sıcaklığı</td><td>°C</td><td style="color:var(--rose)">↑ Çözünen → ↓ Donma N.</td><td>Tuzlu yollar</td><td><strong>0 °C (1 atm)</strong></td></tr>
+      </tbody>
+    </table>
   </div>
-  <div class="hbox" style="margin-top:12px">📊 <strong>Genel örüntü:</strong> Sıcaklık arttıkça yoğunluk, viskozite, yüzey gerilimi ve kılcal yükselme <span class="rose">azalır</span>; buhar basıncı ve akışkanlık ise <span class="sage">artar</span>. Tek istisna: <strong>Su 4°C'de maksimum yoğunluğa ulaşır.</strong></div>
+  <div class="hbox" style="margin-top:11px">📊 <strong>Genel örüntü:</strong> Sıcaklık arttıkça yoğunluk, viskozite, yüzey gerilimi ve kılcal yükselme <span class="rose">azalır</span>; buhar basıncı ve akışkanlık ise <span class="sage">artar</span>. Tek istisna: <strong>Su 4 °C'de maksimum yoğunluğa ulaşır.</strong></div>
   <div class="slide-num">17 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 18 – İLGİNÇ BİLGİLER -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s18">
   <div class="tag">Biliyor muydunuz?</div>
   <div class="h1"><em>İlginç</em> Kimya Gerçekleri</div>
@@ -1084,8 +946,8 @@ body::after{
     </div>
     <div class="card card-l">
       <div class="card-icon">🌀</div>
-      <div class="card-title l">Süperkritikal CO₂</div>
-      <div class="card-body">31 °C ve 73 atm üzerinde CO₂ <strong>süperkritik faza</strong> girer: hem gaz gibi yayılır hem sıvı gibi çözer. Kahvedeki kafeini, biradaki alkol çıkarılmasında <strong>yeşil çözücü</strong> olarak kullanılır.</div>
+      <div class="card-title l">Süperkritik CO₂</div>
+      <div class="card-body">31 °C ve 73 atm üzerinde CO₂ <strong>süperkritik faza</strong> girer: hem gaz gibi yayılır hem sıvı gibi çözer. Kahvedeki kafeini ve biradaki alkolü çıkarmada <strong>yeşil çözücü</strong> olarak kullanılır.</div>
     </div>
     <div class="card card-r">
       <div class="card-icon">💎</div>
@@ -1095,15 +957,12 @@ body::after{
     <div class="card">
       <div class="card-icon">🩺</div>
       <div class="card-title">Kan: Karmaşık Bir Sıvı</div>
-      <div class="card-body">Kan teknik olarak <strong>biyolojik bir kolloid</strong>dur; içinde hücreler, protein, tuz ve yüzlerce farklı madde vardır. Dar damarlarda daha düşük viskozite gösterir (<strong>Fahraeus-Lindqvist etkisi</strong>). Kılcal damarlarda bu özellik hayatidir.</div>
+      <div class="card-body">Kan teknik olarak <strong>biyolojik bir kolloiddir</strong>; içinde hücreler, protein, tuz ve yüzlerce farklı madde vardır. Dar damarlarda daha düşük viskozite gösterir (<strong>Fahraeus-Lindqvist etkisi</strong>). Kılcal damarlarda bu özellik hayatidir.</div>
     </div>
   </div>
   <div class="slide-num">18 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 19 – ÖZET -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s19">
   <div class="tag">Genel Değerlendirme</div>
   <div class="h1">Kapsamlı <em>Özet</em></div>
@@ -1111,13 +970,13 @@ body::after{
   <div class="row" style="margin-bottom:12px">
     <div class="col">
       <div class="hbox" style="margin-bottom:10px">🎯 <strong>Bu sunumda ne öğrendik?</strong> Sıvıların yalnızca "su gibi akan şeyler" olmadığını; aksine son derece zengin ve karmaşık fiziksel özelliklere sahip madde hâli olduklarını gördük.</div>
-      <div class="sum-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
         <div class="sum-item"><div class="sum-icon">🌊</div><div class="sum-tag">Akışkanlık</div><div class="sum-body">Tanecikler birbirinin üzerinden kayar. Sıcaklıkla artar. <strong>Viskozite ile ters orantılı.</strong></div></div>
-        <div class="sum-item"><div class="sum-icon">⚖️</div><div class="sum-tag">Yoğunluk</div><div class="sum-body"><strong>d = m/V</strong>. Yoğun sıvı alta çöker. Su'nun anomalisi: 4°C'de maksimum.</div></div>
+        <div class="sum-item"><div class="sum-icon">⚖️</div><div class="sum-tag">Yoğunluk</div><div class="sum-body"><strong>d = m/V</strong>. Yoğun sıvı alta çöker. Su'nun anomalisi: 4 °C'de maksimum.</div></div>
         <div class="sum-item"><div class="sum-icon">🍯</div><div class="sum-tag">Viskozite</div><div class="sum-body">İç direnç. Sıcaklıkla <strong>azalır</strong>. Gazlarda ise sıcaklıkla artar (fark önemli!)</div></div>
         <div class="sum-item"><div class="sum-icon">🫧</div><div class="sum-tag">Yüzey Gerilimi</div><div class="sum-body">Kohezyon asimetrisi → esnek yüzey. Sabunla azalır. Su: <strong>72.8 mN/m</strong>.</div></div>
         <div class="sum-item"><div class="sum-icon">🌿</div><div class="sum-tag">Kılcallık</div><div class="sum-body">Adezyon + kohezyon. İnce boru → yüksek yükselme. Bitkilerdeki su iletiminin temeli.</div></div>
-        <div class="sum-item"><div class="sum-icon">☁️</div><div class="sum-tag">Buhar Basıncı</div><div class="sum-body">Kapalı kapta denge basıncı. Sıcaklıkla <strong>artar</strong>. Raoult yasası: çözünen eklenince azalır.</div></div>
+        <div class="sum-item"><div class="sum-icon">☁️</div><div class="sum-tag">Buhar Basıncı</div><div class="sum-body">Kapalı kapta denge basıncı. Sıcaklıkla <strong>artar</strong>. Raoult: çözünen eklenince azalır.</div></div>
         <div class="sum-item"><div class="sum-icon">♨️</div><div class="sum-tag">Kaynama</div><div class="sum-body">Buhar basıncı = dış basınç. Basınç artar → kaynama noktası <strong>yükselir</strong>.</div></div>
         <div class="sum-item"><div class="sum-icon">❄️</div><div class="sum-tag">Donma</div><div class="sum-body">Çözünen eklenince <strong>düşer</strong>. Kriyoskopi prensibi. Antifriz bu yüzden işe yarar.</div></div>
       </div>
@@ -1127,9 +986,6 @@ body::after{
   <div class="slide-num">19 / 20</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!-- SLAYT 20 – KAYNAKÇA & TEŞEKKÜR -->
-<!-- ══════════════════════════════════════════════════════ -->
 <div class="slide" id="s20">
   <div class="tag">Kapanış</div>
   <div class="h1">Kaynakça & <em>Teşekkürler</em></div>
@@ -1149,8 +1005,8 @@ body::after{
     </div>
     <div class="col col-3" style="align-items:center;justify-content:center;text-align:center;gap:18px">
       <div style="font-size:3.5rem;animation:float 4s ease-in-out infinite">🎓</div>
-      <div style="font-family:'Lora',serif;font-size:1.6rem;font-weight:700;color:var(--text);line-height:1.2">Dinlediğiniz için<br><em style="color:var(--amber)">Teşekkürler!</em></div>
-      <div style="font-size:.88rem;color:var(--muted);line-height:1.7;max-width:260px">Sorularınızı bekliyorum. Sıvıların dünyası sandığımızdan çok daha derin ve ilgi çekici!</div>
+      <div style="font-family:'Lora',serif;font-size:1.65rem;font-weight:700;color:var(--text);line-height:1.2">Dinlediğiniz için<br><em style="color:var(--amber)">Teşekkürler!</em></div>
+      <div style="font-size:.9rem;color:var(--muted);line-height:1.75;max-width:260px">Sorularınızı bekliyorum. Sıvıların dünyası sandığımızdan çok daha derin ve ilgi çekici!</div>
       <div style="display:flex;flex-direction:column;gap:8px;width:100%;max-width:240px">
         <div class="badge" style="justify-content:center;display:flex">👤 Yalın Güneş</div>
         <div class="badge t" style="justify-content:center;display:flex">🏫 9 / D</div>
@@ -1161,64 +1017,60 @@ body::after{
   <div class="slide-num">20 / 20</div>
 </div>
 
-</div><!-- /deck -->
+</div>
 
-<!-- PROGRESS -->
 <div class="progress-bar" id="progress"></div>
 
-<!-- NAV -->
 <div class="nav">
   <button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>&#8592;</button>
   <span class="slide-counter" id="counter">1 / 20</span>
   <button class="nav-btn" id="nextBtn" onclick="go(1)">&#8594;</button>
 </div>
-<div class="kb">← → klavye tuşları · noktalara tıkla · kaydırarak geç</div>
+<div class="kb">← → klavye tuşları &nbsp;·&nbsp; noktalara tıkla &nbsp;·&nbsp; kaydırarak geç</div>
 
-</div><!-- /stage -->
+</div>
 
 <script>
 const N = 20;
 let cur = 1;
 
-// Build dots
 const pb = document.getElementById('progress');
-for(let i=1;i<=N;i++){
-  const d=document.createElement('div');
-  d.className='dot'+(i===1?' active':'');
-  d.title='Slayt '+i;
-  d.onclick=()=>goTo(i);
+for (let i = 1; i <= N; i++) {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 1 ? ' active' : '');
+  d.title = 'Slayt ' + i;
+  d.onclick = () => goTo(i);
   pb.appendChild(d);
 }
 
-function goTo(n){
-  if(n<1||n>N||n===cur)return;
-  const prev=document.getElementById('s'+cur);
+function goTo(n) {
+  if (n < 1 || n > N || n === cur) return;
+  const prev = document.getElementById('s' + cur);
   prev.classList.remove('active');
   prev.classList.add('exit');
-  setTimeout(()=>{prev.classList.remove('exit')},380);
-  cur=n;
-  const next=document.getElementById('s'+cur);
+  setTimeout(() => { prev.classList.remove('exit'); }, 360);
+  cur = n;
+  const next = document.getElementById('s' + cur);
   next.classList.add('active');
-  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i+1===cur));
-  document.getElementById('prevBtn').disabled=cur===1;
-  document.getElementById('nextBtn').disabled=cur===N;
-  document.getElementById('counter').textContent=cur+' / '+N;
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i + 1 === cur));
+  document.getElementById('prevBtn').disabled = cur === 1;
+  document.getElementById('nextBtn').disabled = cur === N;
+  document.getElementById('counter').textContent = cur + ' / ' + N;
 }
 
-function go(d){goTo(cur+d)}
+function go(d) { goTo(cur + d); }
 
-document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ')go(1);
-  if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(-1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') go(1);
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') go(-1);
 });
 
-// Touch/swipe
-let tx=0;
-document.getElementById('deck').addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
-document.getElementById('deck').addEventListener('touchend',e=>{
-  const dx=e.changedTouches[0].clientX-tx;
-  if(Math.abs(dx)>50){dx<0?go(1):go(-1);}
-},{passive:true});
+let tx = 0;
+document.getElementById('deck').addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+document.getElementById('deck').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 50) { dx < 0 ? go(1) : go(-1); }
+}, { passive: true });
 </script>
 </body>
 </html>
