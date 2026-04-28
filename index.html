@@ -3,505 +3,407 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sıvılar ve Özellikleri – Yalın Güneş 9/D – 2026/2027</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Sıvılar ve Özellikleri – Yalın Güneş 9/D</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #141720;
-  --bg2: #1a1f30;
-  --bg3: #202538;
-  --amber: #e0b060;
-  --amber-s: rgba(224,176,96,0.13);
-  --teal: #6ec8be;
-  --teal-s: rgba(110,200,190,0.12);
-  --rose: #d0706a;
-  --rose-s: rgba(208,112,106,0.12);
-  --sage: #88c478;
-  --sage-s: rgba(136,196,120,0.12);
-  --lilac: #a898d8;
-  --text: #ede8dc;
-  --muted: rgba(237,232,220,0.68);
-  --softer: rgba(237,232,220,0.38);
-  --border: rgba(237,232,220,0.09);
-  --border-a: rgba(224,176,96,0.25);
-  --card: rgba(255,255,255,0.04);
-  --card2: rgba(255,255,255,0.075);
-  --shadow: 0 32px 80px rgba(0,0,0,0.7);
-  --r: 18px;
-  --slide-w: 1060px;
-  --slide-h: 652px;
+  --ocean: #050c18;
+  --deep: #080f1f;
+  --mid: #0d1830;
+  --surface: #111e3a;
+  --glass: rgba(255,255,255,0.04);
+  --glass2: rgba(255,255,255,0.07);
+  --glass3: rgba(255,255,255,0.11);
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --cyan: #00d4f5;
+  --cyan-dim: rgba(0,212,245,0.15);
+  --cyan-glow: rgba(0,212,245,0.3);
+  --coral: #ff6b6b;
+  --coral-dim: rgba(255,107,107,0.14);
+  --mint: #00e5a0;
+  --mint-dim: rgba(0,229,160,0.13);
+  --amber: #ffb347;
+  --amber-dim: rgba(255,179,71,0.14);
+  --lilac: #b39ddb;
+  --lilac-dim: rgba(179,157,219,0.14);
+  --text: #e8eff8;
+  --text2: rgba(232,239,248,0.72);
+  --text3: rgba(232,239,248,0.42);
+  --r: 20px;
+  --slide-w: 1080px;
+  --slide-h: 660px;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-html, body {
-  height: 100%; overflow: hidden;
-  background: var(--bg);
-  font-family: 'Nunito', sans-serif;
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-}
+html,body{height:100%;overflow:hidden;background:var(--ocean);font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
 
-body::after {
-  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background:
-    radial-gradient(ellipse 55% 50% at 8% 8%, rgba(110,200,190,0.07) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 55% at 92% 88%, rgba(224,176,96,0.08) 0%, transparent 65%),
-    radial-gradient(ellipse 35% 40% at 50% 50%, rgba(168,152,216,0.04) 0%, transparent 70%);
-}
+/* ── AMBIENT BLOBS ── */
+.ambient{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(120px);opacity:.18;animation:drift 18s ease-in-out infinite}
+.blob1{width:700px;height:700px;background:radial-gradient(circle,#00d4f5,transparent 70%);top:-20%;left:-10%;animation-delay:0s}
+.blob2{width:500px;height:500px;background:radial-gradient(circle,#ff6b6b,transparent 70%);top:40%;right:-15%;animation-delay:-6s}
+.blob3{width:600px;height:600px;background:radial-gradient(circle,#00e5a0,transparent 70%);bottom:-20%;left:30%;animation-delay:-12s;opacity:.1}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.07)}66%{transform:translate(-25px,20px) scale(.94)}}
 
-.stage {
-  position: fixed; inset: 0; z-index: 1;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 14px;
-}
+/* ── GRID NOISE OVERLAY ── */
+body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
+background-image:linear-gradient(rgba(255,255,255,.014) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px);
+background-size:48px 48px}
 
-.deck {
-  position: relative;
-  width: min(var(--slide-w), 97vw);
-  height: min(var(--slide-h), 87vh);
-}
+/* ── STAGE ── */
+.stage{position:fixed;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
 
-.slide {
-  position: absolute; inset: 0;
-  background: linear-gradient(148deg, var(--bg2) 0%, var(--bg3) 100%);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  box-shadow: var(--shadow);
-  display: flex; flex-direction: column;
-  padding: 38px 50px 32px;
-  opacity: 0; pointer-events: none; overflow: hidden;
-  transition: opacity .35s ease, transform .35s ease;
-  transform: translateY(16px);
-}
-.slide.active { opacity: 1; pointer-events: all; transform: translateY(0); }
-.slide.exit { opacity: 0; transform: translateY(-16px); }
+/* ── DECK ── */
+.deck{position:relative;width:min(var(--slide-w),97vw);height:min(var(--slide-h),86vh)}
 
-.slide::before {
-  content: ''; position: absolute; top: 0; right: 0;
-  width: 280px; height: 280px;
-  background: radial-gradient(ellipse at top right, rgba(224,176,96,0.06), transparent 70%);
-  border-radius: 0 var(--r) 0 0; pointer-events: none;
+/* ── SLIDE BASE ── */
+.slide{
+  position:absolute;inset:0;
+  background:linear-gradient(145deg,rgba(13,24,48,.96) 0%,rgba(8,15,31,.98) 100%);
+  border:1px solid var(--border2);
+  border-radius:var(--r);
+  box-shadow:0 0 0 1px rgba(0,212,245,.06),0 40px 100px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.07);
+  display:flex;flex-direction:column;
+  padding:36px 48px 28px;
+  opacity:0;pointer-events:none;overflow:hidden;
+  transition:opacity .4s cubic-bezier(.4,0,.2,1),transform .4s cubic-bezier(.4,0,.2,1);
+  transform:translateY(20px) scale(.98);
 }
-.slide::after {
-  content: ''; position: absolute; bottom: 0; left: 0;
-  width: 220px; height: 220px;
-  background: radial-gradient(ellipse at bottom left, rgba(110,200,190,0.045), transparent 70%);
-  border-radius: 0 0 0 var(--r); pointer-events: none;
-}
+.slide.active{opacity:1;pointer-events:all;transform:translateY(0) scale(1)}
+.slide.exit{opacity:0;transform:translateY(-20px) scale(.98)}
 
-.slide-num {
-  position: absolute; top: 18px; right: 24px;
-  font-size: .73rem; font-weight: 700; letter-spacing: 1.5px;
-  color: var(--softer);
-}
+/* corner accent */
+.slide::before{content:'';position:absolute;top:0;right:0;width:300px;height:300px;
+background:radial-gradient(ellipse at top right,rgba(0,212,245,.07),transparent 65%);border-radius:0 var(--r) 0 0;pointer-events:none}
+.slide::after{content:'';position:absolute;bottom:0;left:0;width:240px;height:240px;
+background:radial-gradient(ellipse at bottom left,rgba(0,229,160,.05),transparent 65%);border-radius:0 0 0 var(--r);pointer-events:none}
 
-.tag {
-  font-size: .72rem; font-weight: 800; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--amber);
-  margin-bottom: 7px; opacity: .9;
-}
-.h1 {
-  font-family: 'Lora', serif;
-  font-size: 2rem; font-weight: 700; line-height: 1.15;
-  color: var(--text); margin-bottom: 4px;
-}
-.h1 em { font-style: italic; color: var(--amber); }
-.h2 {
-  font-family: 'Lora', serif;
-  font-size: 1.1rem; font-weight: 700;
-  color: var(--text); margin-bottom: 8px;
-}
-.rule {
-  width: 44px; height: 2.5px; border-radius: 2px;
-  background: linear-gradient(90deg, var(--amber), var(--teal));
-  margin-bottom: 18px;
-}
+/* ── SLIDE NUMBER ── */
+.snum{position:absolute;top:16px;right:22px;font-size:.65rem;font-weight:700;letter-spacing:2px;color:var(--text3);font-family:'Plus Jakarta Sans',sans-serif}
 
-.body { font-size: .9rem; line-height: 1.8; color: var(--muted); }
-.body p { margin-bottom: 9px; }
-.body strong { color: var(--text); font-weight: 700; }
-.accent { color: var(--amber); font-weight: 700; }
-.teal { color: var(--teal); font-weight: 700; }
-.rose { color: var(--rose); font-weight: 700; }
-.sage { color: var(--sage); font-weight: 700; }
+/* ── TYPOGRAPHY ── */
+.tag{font-size:.65rem;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;display:flex;align-items:center;gap:7px}
+.tag::before{content:'';width:22px;height:1.5px;background:var(--cyan);border-radius:2px;display:inline-block}
 
-.row { display: flex; gap: 20px; flex: 1; min-height: 0; }
-.col { display: flex; flex-direction: column; gap: 11px; flex: 1; min-width: 0; }
-.col-3 { flex: .75; }
-.col-4 { flex: 1.2; }
+.h1{font-family:'Fraunces',serif;font-size:2.05rem;font-weight:900;line-height:1.1;color:var(--text);margin-bottom:4px}
+.h1 em{font-style:italic;color:var(--cyan)}
+.h1 em.coral{color:var(--coral)}
+.h1 em.mint{color:var(--mint)}
+.h1 em.amber{color:var(--amber)}
 
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 13px;
-  padding: 15px 17px;
-}
-.card-a { border-color: rgba(224,176,96,0.28); background: var(--amber-s); }
-.card-t { border-color: rgba(110,200,190,0.25); background: var(--teal-s); }
-.card-r { border-color: rgba(208,112,106,0.25); background: var(--rose-s); }
-.card-s { border-color: rgba(136,196,120,0.25); background: var(--sage-s); }
-.card-l { border-color: rgba(168,152,216,0.25); background: rgba(168,152,216,0.10); }
+.h2{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:8px}
 
-.card-icon { font-size: 1.6rem; margin-bottom: 6px; line-height: 1; }
-.card-title {
-  font-size: .75rem; font-weight: 800; letter-spacing: 1.6px;
-  text-transform: uppercase; color: var(--amber); margin-bottom: 6px;
-}
-.card-title.t { color: var(--teal); }
-.card-title.r { color: var(--rose); }
-.card-title.s { color: var(--sage); }
-.card-title.l { color: var(--lilac); }
-.card-body { font-size: .85rem; line-height: 1.7; color: var(--muted); }
-.card-body strong { color: var(--text); font-weight: 700; }
+.rule{width:38px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--cyan),var(--mint));margin-bottom:16px}
 
-.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
-.grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 11px; }
-.grid4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+.body{font-size:.88rem;line-height:1.82;color:var(--text2)}
+.body p{margin-bottom:8px}
+.body strong{color:var(--text);font-weight:700}
 
-.hbox {
-  border-left: 3px solid var(--amber);
-  background: var(--amber-s);
-  border-radius: 0 11px 11px 0;
-  padding: 11px 15px;
-  font-size: .87rem; line-height: 1.72;
-  color: var(--muted);
-}
-.hbox strong { color: var(--text); font-weight: 700; }
-.hbox.t { border-color: var(--teal); background: var(--teal-s); }
-.hbox.r { border-color: var(--rose); background: var(--rose-s); }
-.hbox.s { border-color: var(--sage); background: var(--sage-s); }
-.hbox.l { border-color: var(--lilac); background: rgba(168,152,216,0.10); }
+/* color helpers */
+.c-cyan{color:var(--cyan);font-weight:700}
+.c-coral{color:var(--coral);font-weight:700}
+.c-mint{color:var(--mint);font-weight:700}
+.c-amber{color:var(--amber);font-weight:700}
+.c-lilac{color:var(--lilac);font-weight:700}
 
-.fact {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 7px 14px; border-radius: 30px;
-  border: 1px solid rgba(224,176,96,0.3);
-  background: rgba(224,176,96,0.09);
-  font-size: .82rem; color: var(--amber); font-weight: 700;
-}
-.fact.t { border-color: rgba(110,200,190,0.3); background: rgba(110,200,190,0.09); color: var(--teal); }
-.fact.s { border-color: rgba(136,196,120,0.3); background: rgba(136,196,120,0.09); color: var(--sage); }
+/* ── LAYOUT ── */
+.row{display:flex;gap:18px;flex:1;min-height:0}
+.col{display:flex;flex-direction:column;gap:10px;flex:1;min-width:0}
+.col-w{flex:1.25}
+.col-n{flex:.8}
 
-.list { display: flex; flex-direction: column; gap: 8px; }
-.li {
-  display: flex; align-items: flex-start; gap: 11px;
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 11px; padding: 10px 13px;
-}
-.li-dot {
-  min-width: 26px; height: 26px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--amber), var(--teal));
-  display: flex; align-items: center; justify-content: center;
-  font-size: .72rem; font-weight: 800; color: #141720; flex-shrink: 0; margin-top: 1px;
-}
-.li-dot.t { background: linear-gradient(135deg, var(--teal), var(--sage)); }
-.li-dot.r { background: linear-gradient(135deg, var(--rose), var(--amber)); }
-.li-dot.l { background: linear-gradient(135deg, var(--lilac), var(--teal)); }
-.li-text { font-size: .86rem; line-height: 1.68; color: var(--muted); }
-.li-text strong { color: var(--text); font-weight: 700; }
+/* ── GLASS CARDS ── */
+.card{background:var(--glass2);border:1px solid var(--border);border-radius:14px;padding:14px 16px;backdrop-filter:blur(12px)}
+.card.c{border-color:rgba(0,212,245,.22);background:var(--cyan-dim)}
+.card.r{border-color:rgba(255,107,107,.22);background:var(--coral-dim)}
+.card.m{border-color:rgba(0,229,160,.22);background:var(--mint-dim)}
+.card.a{border-color:rgba(255,179,71,.22);background:var(--amber-dim)}
+.card.l{border-color:rgba(179,157,219,.22);background:var(--lilac-dim)}
+.card.dim{background:var(--glass);border-color:var(--border)}
 
-.tbl { width: 100%; border-collapse: separate; border-spacing: 0 6px; font-size: .85rem; }
-.tbl thead th {
-  font-size: .72rem; letter-spacing: 1.8px; text-transform: uppercase;
-  color: var(--amber); padding: 4px 14px; text-align: left; font-weight: 800;
-}
-.tbl thead th.t { color: var(--teal); }
-.tbl tbody td {
-  padding: 10px 14px; color: var(--muted);
-  background: var(--card);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.tbl tbody td:first-child { border-left: 1px solid var(--border); border-radius: 10px 0 0 10px; }
-.tbl tbody td:last-child { border-right: 1px solid var(--border); border-radius: 0 10px 10px 0; text-align: right; }
-.tbl tbody td strong { color: var(--text); font-weight: 700; }
-.tbl tbody tr.hl-row td { background: var(--amber-s); border-color: var(--border-a); }
-.tbl tbody tr.hl-row td strong { color: var(--amber); }
+.ctag{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:5px}
+.ctag.r{color:var(--coral)}
+.ctag.m{color:var(--mint)}
+.ctag.a{color:var(--amber)}
+.ctag.l{color:var(--lilac)}
+.cbody{font-size:.84rem;line-height:1.74;color:var(--text2)}
+.cbody strong{color:var(--text);font-weight:700}
+.cicon{font-size:1.5rem;line-height:1;margin-bottom:5px}
 
-.bar-wrap { display: flex; flex-direction: column; gap: 7px; }
-.bar-row { display: flex; align-items: center; gap: 10px; }
-.bar-label { min-width: 96px; color: var(--muted); font-weight: 600; text-align: right; font-size: .8rem; }
-.bar-track { flex: 1; height: 10px; background: rgba(255,255,255,0.07); border-radius: 6px; overflow: hidden; }
-.bar-fill { height: 100%; border-radius: 6px; }
-.bar-val { min-width: 58px; color: var(--softer); font-size: .78rem; font-weight: 700; }
+/* ── ALERT STRIP ── */
+.strip{border-left:2.5px solid var(--cyan);background:var(--cyan-dim);border-radius:0 12px 12px 0;padding:10px 14px;font-size:.86rem;line-height:1.74;color:var(--text2)}
+.strip strong{color:var(--text);font-weight:700}
+.strip.r{border-color:var(--coral);background:var(--coral-dim)}
+.strip.m{border-color:var(--mint);background:var(--mint-dim)}
+.strip.a{border-color:var(--amber);background:var(--amber-dim)}
+.strip.l{border-color:var(--lilac);background:var(--lilac-dim)}
 
-.cover { justify-content: center; align-items: center; text-align: center; }
-.cover-emoji { font-size: 4.2rem; margin-bottom: 14px; animation: float 4s ease-in-out infinite; }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-.cover-title {
-  font-family: 'Lora', serif;
-  font-size: 3rem; font-weight: 700; line-height: 1.1;
-  color: var(--text); margin-bottom: 6px;
-}
-.cover-title em { font-style: italic; color: var(--amber); }
-.cover-sub {
-  font-size: .95rem; color: var(--muted);
-  margin-bottom: 26px; letter-spacing: .3px; line-height: 1.75;
-}
-.badges { display: flex; gap: 11px; justify-content: center; flex-wrap: wrap; }
-.badge {
-  padding: 8px 20px; border-radius: 30px;
-  background: var(--card2); border: 1px solid var(--border-a);
-  font-size: .82rem; color: var(--amber); font-weight: 700; letter-spacing: .5px;
-}
-.badge.t { border-color: rgba(110,200,190,0.28); color: var(--teal); }
-.badge.n { border-color: var(--border); color: var(--muted); }
+/* ── PILL FACTS ── */
+.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:30px;border:1px solid rgba(0,212,245,.3);background:rgba(0,212,245,.08);font-size:.8rem;color:var(--cyan);font-weight:700}
+.pill.r{border-color:rgba(255,107,107,.3);background:rgba(255,107,107,.08);color:var(--coral)}
+.pill.m{border-color:rgba(0,229,160,.3);background:rgba(0,229,160,.08);color:var(--mint)}
+.pill.a{border-color:rgba(255,179,71,.3);background:rgba(255,179,71,.08);color:var(--amber)}
 
-.toc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 9px; flex: 1; }
-.toc-item {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 13px 12px;
-  display: flex; flex-direction: column; gap: 5px;
-  transition: border-color .2s, background .2s;
-}
-.toc-item:hover { border-color: var(--border-a); background: var(--amber-s); }
-.toc-num { font-size: .67rem; font-weight: 800; letter-spacing: 2px; color: var(--softer); }
-.toc-icon { font-size: 1.45rem; line-height: 1; margin: 2px 0; }
-.toc-label { font-size: .82rem; font-weight: 700; color: var(--text); line-height: 1.35; }
-.toc-sub { font-size: .74rem; color: var(--muted); line-height: 1.5; }
+/* ── LIST ITEMS ── */
+.list{display:flex;flex-direction:column;gap:7px}
+.li{display:flex;align-items:flex-start;gap:10px;background:var(--glass);border:1px solid var(--border);border-radius:12px;padding:10px 13px}
+.li-dot{min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--ocean);flex-shrink:0;margin-top:1px}
+.li-dot.c{background:linear-gradient(135deg,var(--cyan),var(--mint))}
+.li-dot.r{background:linear-gradient(135deg,var(--coral),var(--amber))}
+.li-dot.m{background:linear-gradient(135deg,var(--mint),var(--cyan))}
+.li-dot.l{background:linear-gradient(135deg,var(--lilac),var(--cyan))}
+.li-dot.a{background:linear-gradient(135deg,var(--amber),var(--coral))}
+.li-text{font-size:.85rem;line-height:1.7;color:var(--text2)}
+.li-text strong{color:var(--text);font-weight:700}
 
-.formula {
-  background: var(--card2); border: 1px solid var(--border-a);
-  border-radius: 13px; padding: 16px 20px; text-align: center;
-}
-.formula-eq {
-  font-family: 'Lora', serif; font-style: italic;
-  font-size: 1.65rem; color: var(--amber); margin-bottom: 7px; letter-spacing: 1px;
-}
-.formula-note { font-size: .8rem; color: var(--muted); line-height: 1.65; }
-.formula-note span { color: var(--teal); font-weight: 700; }
+/* ── GRIDS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
 
-.state-box {
-  display: flex; flex-direction: column; align-items: center; gap: 9px;
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 14px; padding: 16px 13px; text-align: center; flex: 1;
-}
-.state-box .s-icon { font-size: 2.1rem; }
-.state-box .s-title { font-size: .73rem; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; }
-.state-box .s-body { font-size: .82rem; color: var(--muted); line-height: 1.68; }
-.state-box .s-body strong { color: var(--text); font-weight: 700; }
-.state-box.active-s { border-color: var(--border-a); background: var(--amber-s); }
-.state-box.active-s .s-title { color: var(--amber); }
+/* ── FORMULA BOX ── */
+.formula{background:rgba(0,212,245,.07);border:1px solid rgba(0,212,245,.25);border-radius:14px;padding:16px 18px;text-align:center}
+.formula-eq{font-family:'Fraunces',serif;font-style:italic;font-size:1.7rem;color:var(--cyan);margin-bottom:6px;letter-spacing:1px}
+.formula-note{font-size:.8rem;color:var(--text2);line-height:1.7}
+.formula-note span{color:var(--cyan);font-weight:700}
 
-.steps { display: flex; flex-direction: column; gap: 10px; }
-.step { display: flex; gap: 13px; align-items: flex-start; }
-.step-num {
-  min-width: 30px; height: 30px; border-radius: 50%;
-  border: 2px solid var(--amber);
-  display: flex; align-items: center; justify-content: center;
-  font-size: .76rem; font-weight: 800; color: var(--amber); flex-shrink: 0;
-}
-.step-text { font-size: .87rem; line-height: 1.72; color: var(--muted); padding-top: 3px; }
-.step-text strong { color: var(--text); font-weight: 700; }
+/* ── BAR CHART ── */
+.bars{display:flex;flex-direction:column;gap:6px}
+.bar-r{display:flex;align-items:center;gap:9px}
+.bar-lbl{min-width:92px;color:var(--text2);font-weight:600;text-align:right;font-size:.78rem}
+.bar-track{flex:1;height:9px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden}
+.bar-fill{height:100%;border-radius:5px}
+.bar-val{min-width:60px;color:var(--text3);font-size:.76rem;font-weight:700}
 
-.sum-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; flex: 1; }
-.sum-item {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 13px 13px;
-  display: flex; flex-direction: column; gap: 5px;
-}
-.sum-icon { font-size: 1.4rem; }
-.sum-tag { font-size: .68rem; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; color: var(--amber); }
-.sum-title { font-size: .86rem; font-weight: 700; color: var(--text); }
-.sum-body { font-size: .8rem; color: var(--muted); line-height: 1.62; }
-.sum-body strong { color: var(--teal); font-weight: 700; }
+/* ── TABLE ── */
+.tbl{width:100%;border-collapse:separate;border-spacing:0 5px;font-size:.84rem}
+.tbl thead th{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);padding:3px 13px;text-align:left;font-weight:700}
+.tbl thead th.r{color:var(--coral)}
+.tbl tbody td{padding:9px 13px;color:var(--text2);background:var(--glass);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.tbl tbody td:first-child{border-left:1px solid var(--border);border-radius:10px 0 0 10px}
+.tbl tbody td:last-child{border-right:1px solid var(--border);border-radius:0 10px 10px 0;text-align:right}
+.tbl tbody td strong{color:var(--text);font-weight:700}
+.tbl tbody tr.hl td{background:var(--cyan-dim);border-color:rgba(0,212,245,.2)}
+.tbl tbody tr.hl td strong{color:var(--cyan)}
 
-.ref-list { display: flex; flex-direction: column; gap: 8px; flex: 1; }
-.ref-item {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 10px; padding: 10px 15px;
-  font-size: .84rem; color: var(--muted); line-height: 1.62;
-}
-.ref-item span { color: var(--amber); font-weight: 800; margin-right: 7px; }
+/* ── STATE BOXES ── */
+.sbox{display:flex;flex-direction:column;align-items:center;gap:8px;background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:16px 14px;text-align:center;flex:1;transition:.3s}
+.sbox.active{border-color:rgba(0,212,245,.35);background:var(--cyan-dim);box-shadow:0 0 24px rgba(0,212,245,.08)}
+.sbox .si{font-size:2rem}
+.sbox .st{font-size:.68rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:3px}
+.sbox.active .st{color:var(--cyan)}
+.sbox .sb{font-size:.83rem;line-height:1.7;color:var(--text2)}
+.sbox .sb strong{color:var(--text);font-weight:700}
 
-.progress-bar {
-  position: relative; z-index: 2;
-  width: min(1060px, 97vw);
-  display: flex; align-items: center; justify-content: center;
-  gap: 6px; padding: 5px 0;
-}
-.dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: rgba(237,232,220,0.18);
-  cursor: pointer;
-  transition: background .3s, transform .25s, width .3s;
-}
-.dot.active { background: var(--amber); transform: scale(1.35); width: 20px; border-radius: 4px; }
-.dot:hover:not(.active) { background: rgba(224,176,96,0.5); }
+/* ── STEPS ── */
+.steps{display:flex;flex-direction:column;gap:9px}
+.step{display:flex;gap:12px;align-items:flex-start}
+.step-n{min-width:28px;height:28px;border-radius:50%;border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;color:var(--cyan);flex-shrink:0}
+.step-t{font-size:.86rem;line-height:1.72;color:var(--text2);padding-top:2px}
+.step-t strong{color:var(--text);font-weight:700}
 
-.nav {
-  position: relative; z-index: 2;
-  display: flex; align-items: center; gap: 14px;
-}
-.nav-btn {
-  width: 44px; height: 44px; border-radius: 50%;
-  background: var(--card2); border: 1px solid var(--border);
-  color: var(--muted); font-size: 1.1rem;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  transition: all .2s;
-}
-.nav-btn:hover:not(:disabled) {
-  background: var(--amber-s); border-color: var(--border-a);
-  color: var(--amber); transform: scale(1.08);
-}
-.nav-btn:disabled { opacity: .22; cursor: default; }
-.slide-counter {
-  font-size: .78rem; font-weight: 700;
-  color: var(--softer); letter-spacing: 1px; min-width: 48px; text-align: center;
-}
-.kb { font-size: .67rem; color: var(--softer); letter-spacing: 1px; text-align: center; margin-top: 1px; position: relative; z-index: 2; }
+/* ── SUMMARY GRID ── */
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.si2{background:var(--glass);border:1px solid var(--border);border-radius:13px;padding:12px}
+.si2-ico{font-size:1.35rem;margin-bottom:4px}
+.si2-tag{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan)}
+.si2-title{font-size:.84rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.si2-body{font-size:.78rem;color:var(--text2);line-height:1.62}
+.si2-body strong{color:var(--mint);font-weight:700}
 
-@keyframes fadein { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-.slide.active .h1, .slide.active .cover-title { animation: fadein .42s .05s both; }
-.slide.active .rule { animation: fadein .38s .14s both; }
-.slide.active .row,
-.slide.active .grid2,
-.slide.active .grid3,
-.slide.active .toc-grid,
-.slide.active .sum-grid { animation: fadein .48s .19s both; }
+/* ── TOC ── */
+.toc{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;flex:1}
+.ti{background:var(--glass);border:1px solid var(--border);border-radius:13px;padding:12px 11px;display:flex;flex-direction:column;gap:4px;cursor:pointer;transition:.25s}
+.ti:hover{border-color:rgba(0,212,245,.3);background:var(--cyan-dim);transform:translateY(-1px)}
+.ti-n{font-size:.6rem;font-weight:700;letter-spacing:2px;color:var(--text3)}
+.ti-ico{font-size:1.35rem;line-height:1;margin:3px 0}
+.ti-lbl{font-size:.81rem;font-weight:700;color:var(--text);line-height:1.35}
+.ti-sub{font-size:.72rem;color:var(--text3);line-height:1.5}
+
+/* ── REFS ── */
+.ref{background:var(--glass);border:1px solid var(--border);border-radius:11px;padding:9px 14px;font-size:.83rem;color:var(--text2);line-height:1.65}
+.ref span{color:var(--cyan);font-weight:800;margin-right:6px}
+
+/* ── COVER ── */
+.cover{justify-content:center;align-items:center;text-align:center}
+.cov-em{font-size:4.5rem;margin-bottom:12px;display:inline-block;animation:bob 4.5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(3deg)}}
+.cov-title{font-family:'Fraunces',serif;font-size:3.4rem;font-weight:900;line-height:1.05;color:var(--text);margin-bottom:8px}
+.cov-title em{font-style:italic;color:var(--cyan)}
+.cov-sub{font-size:.93rem;color:var(--text2);margin-bottom:24px;line-height:1.78;max-width:520px}
+.badges{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
+.badge{padding:7px 18px;border-radius:30px;background:var(--glass2);border:1px solid var(--border2);font-size:.8rem;color:var(--text2);font-weight:700;letter-spacing:.4px}
+.badge.c{border-color:rgba(0,212,245,.3);color:var(--cyan)}
+.badge.m{border-color:rgba(0,229,160,.3);color:var(--mint)}
+
+/* ── PROGRESS BAR ── */
+.progress{position:relative;z-index:2;width:min(1080px,97vw);display:flex;align-items:center;justify-content:center;gap:5px;padding:4px 0}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.16);cursor:pointer;transition:background .3s,width .3s,border-radius .3s}
+.dot.active{background:var(--cyan);width:22px;border-radius:3px}
+.dot:hover:not(.active){background:rgba(0,212,245,.45)}
+
+/* ── NAV ── */
+.nav{position:relative;z-index:2;display:flex;align-items:center;gap:12px}
+.nb{width:42px;height:42px;border-radius:50%;background:var(--glass2);border:1px solid var(--border2);color:var(--text2);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.nb:hover:not(:disabled){background:var(--cyan-dim);border-color:rgba(0,212,245,.4);color:var(--cyan);transform:scale(1.08)}
+.nb:disabled{opacity:.2;cursor:default}
+.nc{font-size:.76rem;font-weight:700;color:var(--text3);letter-spacing:1px;min-width:44px;text-align:center}
+.kb{font-size:.64rem;color:var(--text3);letter-spacing:.8px;text-align:center;position:relative;z-index:2}
+
+/* ── ANIMATIONS ── */
+@keyframes fi{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.slide.active .h1{animation:fi .45s .04s both}
+.slide.active .rule{animation:fi .4s .12s both}
+.slide.active .row,.slide.active .g2,.slide.active .g3,.slide.active .g4,.slide.active .toc,.slide.active .sg{animation:fi .5s .18s both}
+.slide.active .cov-title{animation:fi .5s .03s both}
+.slide.active .badges{animation:fi .5s .22s both}
+
+/* ── DIVIDER LINE ── */
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:8px 0;flex-shrink:0}
+
+/* ── OVERFLOW SCROLL ── */
+.scroll-y{overflow-y:auto;flex:1;min-height:0}
+.scroll-y::-webkit-scrollbar{width:4px}
+.scroll-y::-webkit-scrollbar-thumb{background:rgba(0,212,245,.25);border-radius:2px}
 </style>
 </head>
 <body>
 
+<div class="ambient">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+</div>
+
 <div class="stage">
 <div class="deck" id="deck">
 
+<!-- ╔══ SLIDE 1 – COVER ══╗ -->
 <div class="slide cover active" id="s1">
-  <div class="cover-emoji">💧</div>
-  <div class="tag" style="margin-bottom:10px">9. Sınıf Kimya — Proje Sunumu &nbsp;·&nbsp; 2026 / 2027</div>
-  <div class="cover-title">Sıvılar ve<br><em>Özellikleri</em></div>
-  <div class="cover-sub" style="max-width:540px;margin:12px auto 26px">
-    Maddenin en dinamik hâli olan sıvıları; moleküler yapısından<br>
-    günlük hayattaki yansımalarına kadar kapsamlı biçimde inceleyen bir çalışma.
-  </div>
+  <div class="cov-em">💧</div>
+  <div class="tag" style="justify-content:center;margin-bottom:10px">9. Sınıf Kimya · Proje Sunumu · 2026 / 2027</div>
+  <div class="cov-title">Sıvılar ve<br><em>Özellikleri</em></div>
+  <div class="cov-sub">Maddenin en dinamik hâli olan sıvıları; moleküler yapısından<br>günlük hayattaki yansımalarına kadar kapsamlı biçimde inceleyen bir çalışma.</div>
   <div class="badges">
-    <div class="badge">👤 Yalın Güneş</div>
-    <div class="badge t">🏫 Sınıf 9/D</div>
-    <div class="badge n">📚 MEB Müfredatı Uyumlu</div>
-    <div class="badge n">📅 2026 – 2027</div>
+    <div class="badge c">👤 Yalın Güneş</div>
+    <div class="badge m">🏫 Sınıf 9 / D</div>
+    <div class="badge">📚 MEB Müfredatı Uyumlu</div>
+    <div class="badge">📅 2026 – 2027</div>
   </div>
-  <div class="slide-num">01 / 20</div>
+  <div class="snum">01 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 2 – TOC ══╗ -->
 <div class="slide" id="s2">
   <div class="tag">Sunum Planı</div>
-  <div class="h1">İçindekiler</div>
+  <div class="h1">İçinde<em>kiler</em></div>
   <div class="rule"></div>
-  <div class="toc-grid">
-    <div class="toc-item"><div class="toc-num">SLAYT 03</div><div class="toc-icon">⚛️</div><div class="toc-label">Maddenin Üç Hâli</div><div class="toc-sub">Karşılaştırmalı genel bakış</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 04</div><div class="toc-icon">🔬</div><div class="toc-label">Moleküler Yapı</div><div class="toc-sub">Tanecik düzeni ve bağlar</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 05</div><div class="toc-icon">🌊</div><div class="toc-label">Akışkanlık</div><div class="toc-sub">Tanım, etkenler, örnekler</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 06</div><div class="toc-icon">⚖️</div><div class="toc-label">Yoğunluk</div><div class="toc-sub">Formül, tablo, katman deneyi</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 07</div><div class="toc-icon">🍯</div><div class="toc-label">Viskozite</div><div class="toc-sub">İç sürtünme ve ölçümü</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 08</div><div class="toc-icon">🌡️</div><div class="toc-label">Viskozite & Sıcaklık</div><div class="toc-sub">Ters orantı, endüstriyel önemi</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 09</div><div class="toc-icon">🫧</div><div class="toc-label">Yüzey Gerilimi</div><div class="toc-sub">Kohezyon, adezyon</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 10</div><div class="toc-icon">🌿</div><div class="toc-label">Kılcallık</div><div class="toc-sub">Kapillarite ve doğadaki yeri</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 11</div><div class="toc-icon">☁️</div><div class="toc-label">Buhar Basıncı</div><div class="toc-sub">Buharlaşma, denge basıncı</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 12</div><div class="toc-icon">♨️</div><div class="toc-label">Kaynama Noktası</div><div class="toc-sub">Basınç etkisi, uygulamalar</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 13</div><div class="toc-icon">❄️</div><div class="toc-label">Donma Noktası</div><div class="toc-sub">Donma & çözünür madde etkisi</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 14</div><div class="toc-icon">🏭</div><div class="toc-label">Sıvılar & Teknoloji</div><div class="toc-sub">Sanayi ve günlük yaşam</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 15</div><div class="toc-icon">🔭</div><div class="toc-label">Özel Sıvılar</div><div class="toc-sub">Su, cıva, sıvı azot…</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 16–19</div><div class="toc-icon">📊</div><div class="toc-label">Deneyler & Özet</div><div class="toc-sub">Basit deneyler, genel özet</div></div>
-    <div class="toc-item"><div class="toc-num">SLAYT 20</div><div class="toc-icon">📚</div><div class="toc-label">Kaynakça & Teşekkür</div><div class="toc-sub">Referanslar ve kapanış</div></div>
-    <div class="toc-item" style="visibility:hidden"></div>
+  <div class="toc">
+    <div class="ti"><div class="ti-n">SLAYT 03</div><div class="ti-ico">⚛️</div><div class="ti-lbl">Maddenin Üç Hâli</div><div class="ti-sub">Karşılaştırmalı genel bakış</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 04</div><div class="ti-ico">🔬</div><div class="ti-lbl">Moleküler Yapı</div><div class="ti-sub">Tanecik düzeni ve bağlar</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 05</div><div class="ti-ico">🌊</div><div class="ti-lbl">Akışkanlık</div><div class="ti-sub">Tanım, etkenler, örnekler</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 06</div><div class="ti-ico">⚖️</div><div class="ti-lbl">Yoğunluk</div><div class="ti-sub">Formül, tablo, katman deneyi</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 07</div><div class="ti-ico">🍯</div><div class="ti-lbl">Viskozite</div><div class="ti-sub">İç sürtünme ve ölçümü</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 08</div><div class="ti-ico">🌡️</div><div class="ti-lbl">Viskozite & Sıcaklık</div><div class="ti-sub">Ters orantı, endüstriyel önemi</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 09</div><div class="ti-ico">🫧</div><div class="ti-lbl">Yüzey Gerilimi</div><div class="ti-sub">Kohezyon, adezyon</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 10</div><div class="ti-ico">🌿</div><div class="ti-lbl">Kılcallık</div><div class="ti-sub">Kapillarite ve doğadaki yeri</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 11</div><div class="ti-ico">☁️</div><div class="ti-lbl">Buhar Basıncı</div><div class="ti-sub">Buharlaşma, denge basıncı</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 12</div><div class="ti-ico">♨️</div><div class="ti-lbl">Kaynama Noktası</div><div class="ti-sub">Basınç etkisi, uygulamalar</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 13</div><div class="ti-ico">❄️</div><div class="ti-lbl">Donma Noktası</div><div class="ti-sub">Çözünür madde etkisi</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 14</div><div class="ti-ico">🏭</div><div class="ti-lbl">Sıvılar & Teknoloji</div><div class="ti-sub">Sanayi ve günlük yaşam</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 15</div><div class="ti-ico">🔭</div><div class="ti-lbl">Özel Sıvılar</div><div class="ti-sub">Su, cıva, sıvı azot…</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 16–19</div><div class="ti-ico">📊</div><div class="ti-lbl">Deneyler & Özet</div><div class="ti-sub">Basit deneyler, genel özet</div></div>
+    <div class="ti"><div class="ti-n">SLAYT 20</div><div class="ti-ico">📚</div><div class="ti-lbl">Kaynakça</div><div class="ti-sub">Referanslar ve kapanış</div></div>
   </div>
-  <div class="slide-num">02 / 20</div>
+  <div class="snum">02 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 3 – ÜÇ HÂL ══╗ -->
 <div class="slide" id="s3">
   <div class="tag">Temel Kavramlar</div>
   <div class="h1">Maddenin <em>Üç Hâli</em></div>
   <div class="rule"></div>
-  <div class="row" style="margin-bottom:13px">
-    <div class="state-box">
-      <div class="s-icon">🧊</div>
-      <div class="s-title" style="color:var(--teal)">Katı</div>
-      <div class="s-body">Tanecikler <strong>çok sıkı</strong> ve düzenli dizilmiştir. Aralarındaki mesafe çok küçük, titreşim hareketi yaparlar. <strong>Belirli şekli ve hacmi</strong> vardır. Sıkıştırılamaz.</div>
-    </div>
-    <div class="state-box active-s">
-      <div class="s-icon">💧</div>
-      <div class="s-title">Sıvı ← Biz Bunu İnceliyoruz</div>
-      <div class="s-body">Tanecikler <strong>birbirine yakın</strong> ama düzensiz hareketlidir. Belirli <strong>hacmi var</strong>, şekli yoktur; kaba uyar. Sıkıştırılamaz, akabilir.</div>
-    </div>
-    <div class="state-box">
-      <div class="s-icon">💨</div>
-      <div class="s-title" style="color:var(--rose)">Gaz</div>
-      <div class="s-body">Tanecikler <strong>birbirinden çok uzak</strong> ve rastgele hareket eder. Belirli şekli ve hacmi <strong>yoktur</strong>. Sıkıştırılabilir; her yönde yayılır.</div>
-    </div>
+  <div class="row" style="margin-bottom:11px">
+    <div class="sbox"><div class="si">🧊</div><div class="st" style="color:var(--cyan)">Katı</div><div class="sb">Tanecikler <strong>çok sıkı</strong> ve düzenli dizilir. Titreşim hareketi yaparlar. <strong>Belirli şekli ve hacmi</strong> vardır, sıkıştırılamaz.</div></div>
+    <div class="sbox active"><div class="si">💧</div><div class="st">Sıvı ← İnceliyoruz</div><div class="sb">Tanecikler <strong>yakın ama düzensiz</strong> hareketlidir. Belirli <strong>hacmi var</strong>, şekli yoktur; kaba uyar. Sıkıştırılamaz, akabilir.</div></div>
+    <div class="sbox"><div class="si">💨</div><div class="st" style="color:var(--coral)">Gaz</div><div class="sb">Tanecikler <strong>birbirinden çok uzak</strong> ve rastgele hareket eder. Şekli ve hacmi <strong>yoktur</strong>. Sıkıştırılabilir.</div></div>
   </div>
-  <div class="row" style="flex:none;gap:12px">
-    <div class="hbox" style="flex:1">💡 <strong>Sıvılar neden özel?</strong> Hem katı gibi belirli hacme sahiptir hem de gaz gibi akabilir. Bu ikili özellik sıvıları biyoloji, kimya ve mühendislikte son derece işlevsel kılar.</div>
-    <div class="hbox t" style="flex:1">🌍 <strong>Dünya'nın %71'i</strong> sıvı suyla kaplıdır. İnsan vücudunun yaklaşık <strong>%60–70'i</strong> sıvıdan oluşur. Sıvılar yaşamın temelidir.</div>
-    <div class="hbox l" style="flex:1">🔬 <strong>Cıva</strong>, oda koşullarında sıvı hâlde bulunan tek metaldir; erime noktası −38,8 °C'dir. <strong>Brom</strong> ise oda sıcaklığında sıvı olan tek ametal elementtir.</div>
+  <div class="row" style="flex:none;gap:10px">
+    <div class="strip" style="flex:1">💡 <strong>Sıvılar neden özel?</strong> Hem katı gibi belirli hacme sahip hem de gaz gibi akabilir. Bu ikili özellik biyoloji, kimya ve mühendislikte sıvıları son derece işlevsel kılar.</div>
+    <div class="strip m" style="flex:1">🌍 <strong>Dünya'nın %71'i</strong> sıvı suyla kaplıdır. İnsan vücudunun yaklaşık <strong>%60–70'i</strong> sıvıdan oluşur. Sıvılar yaşamın temelidir.</div>
+    <div class="strip l" style="flex:1">🔬 <strong>Cıva</strong> oda koşullarında sıvı hâlde bulunan tek metaldir; erime noktası −38.8 °C'dir. <strong>Brom</strong> ise oda sıcaklığında sıvı olan tek ametal elementtir.</div>
   </div>
-  <div class="slide-num">03 / 20</div>
+  <div class="snum">03 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 4 – MOLEKÜLER YAPI ══╗ -->
 <div class="slide" id="s4">
   <div class="tag">Yapısal İnceleme</div>
   <div class="h1">Sıvıların <em>Moleküler Yapısı</em></div>
   <div class="rule"></div>
   <div class="row">
-    <div class="col col-4">
+    <div class="col col-w">
       <div class="body">
-        <p>Sıvılardaki tanecikler (moleküller, atomlar veya iyonlar) katı maddelerden farklı olarak <strong>sabit bir konumda kalmaz</strong>; sürekli yer değiştirerek hareket eder. Ancak bu hareket gazlardaki kadar özgür değildir; tanecikler birbirinin <strong>"yakın çevresinde"</strong> kalır.</p>
-        <p>Bu özel durumun nedeni, tanecikler arasındaki <strong>Van der Waals kuvvetleri</strong>, <strong>hidrojen bağları</strong> veya <strong>dipol-dipol etkileşimleri</strong> gibi çekim kuvvetlerinin belirli bir denge kurmasıdır. Kuvvetler çok güçlü olsaydı katı, çok zayıf olsaydı gaz oluşurdu.</p>
-        <p>Sıvılarda <strong>kısa menzilli düzen</strong> (short-range order) bulunur: Bir taneciğin hemen komşuları görece düzenlidir, ama 5–6 tanecik ötesi tamamen düzensizleşir. Bu durum X-ışını kırınımı deneyleriyle kanıtlanmıştır.</p>
+        <p>Sıvılardaki tanecikler katı maddelerden farklı olarak <strong>sabit bir konumda kalmaz</strong>; sürekli yer değiştirerek hareket eder. Ancak bu hareket gazlardaki kadar özgür değildir; tanecikler birbirinin <strong>"yakın çevresinde"</strong> kalır.</p>
+        <p>Bu özel durumun nedeni, tanecikler arasındaki <strong>Van der Waals kuvvetleri</strong>, <strong>hidrojen bağları</strong> veya <strong>dipol-dipol etkileşimleri</strong> gibi çekim kuvvetlerinin belirli bir denge kurmasıdır.</p>
+        <p>Sıvılarda <strong>kısa menzilli düzen</strong> (short-range order) bulunur: Bir taneciğin hemen komşuları görece düzenlidir, ama 5–6 tanecik ötesi tamamen düzensizleşir. X-ışını kırınımı deneyleriyle kanıtlanmıştır.</p>
       </div>
-      <div class="fact t">🔗 Su molekülleri arasındaki <strong>hidrojen bağları</strong>, suyun olağandışı yüksek kaynama noktasını açıklar.</div>
+      <div class="pill m">🔗 Su molekülleri arasındaki hidrojen bağları suyun yüksek kaynama noktasını açıklar</div>
     </div>
-    <div class="col col-3">
-      <div class="h2" style="font-size:1rem;margin-bottom:7px;color:var(--amber)">Moleküller Arası Kuvvetler</div>
+    <div class="col col-n">
+      <div class="h2" style="color:var(--cyan);font-size:.93rem">Moleküller Arası Kuvvetler</div>
       <div class="list">
-        <div class="li"><div class="li-dot">1</div><div class="li-text"><strong>London Dağılma Kuvvetleri:</strong> Tüm moleküllerde bulunan geçici dipol etkileşimleri. Molekül büyüdükçe artar.</div></div>
-        <div class="li"><div class="li-dot t">2</div><div class="li-text"><strong>Dipol-Dipol Kuvvetleri:</strong> Polar moleküllerde (+) ve (−) uçlar arasındaki kalıcı çekim. Örn: HCl, SO₂</div></div>
-        <div class="li"><div class="li-dot r">3</div><div class="li-text"><strong>Hidrojen Bağları:</strong> N–H, O–H veya F–H içeren moleküllerdeki özel ve güçlü çekim. Örn: H₂O, NH₃, HF</div></div>
-        <div class="li"><div class="li-dot l">4</div><div class="li-text"><strong>İyon-Dipol:</strong> İyonik tuzlar sıvıya çözünürken oluşur. Tuz suyun içinde çözünürken bu kuvvet etkendir.</div></div>
+        <div class="li"><div class="li-dot c">1</div><div class="li-text"><strong>London Dağılma:</strong> Tüm moleküllerde bulunan geçici dipol etkileşimleri. Molekül büyüdükçe artar.</div></div>
+        <div class="li"><div class="li-dot m">2</div><div class="li-text"><strong>Dipol-Dipol:</strong> Polar moleküllerde (+) ve (−) uçlar arası kalıcı çekim. Örn: HCl, SO₂</div></div>
+        <div class="li"><div class="li-dot r">3</div><div class="li-text"><strong>Hidrojen Bağları:</strong> N–H, O–H veya F–H içeren moleküllerdeki güçlü çekim. Örn: H₂O, NH₃, HF</div></div>
+        <div class="li"><div class="li-dot l">4</div><div class="li-text"><strong>İyon-Dipol:</strong> İyonik tuzlar sıvıya çözünürken oluşur. Tuz suyun içinde çözünürken etkendir.</div></div>
       </div>
-      <div class="hbox t" style="margin-top:4px">📌 Moleküller arası kuvvetler ne kadar <strong>güçlüyse</strong> sıvının kaynama noktası ve viskozitesi o kadar <strong>yüksek</strong>, buhar basıncı ise o kadar <strong>düşük</strong> olur.</div>
+      <div class="strip" style="font-size:.82rem">📌 Moleküller arası kuvvetler ne kadar <strong>güçlüyse</strong> kaynama noktası ve viskozite o kadar <strong>yüksek</strong>, buhar basıncı ise o kadar <strong>düşük</strong> olur.</div>
     </div>
   </div>
-  <div class="slide-num">04 / 20</div>
+  <div class="snum">04 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 5 – AKIŞKANLIK ══╗ -->
 <div class="slide" id="s5">
   <div class="tag">Özellik 1</div>
   <div class="h1">Akışkanlık <em>(Fluidity)</em></div>
   <div class="rule"></div>
   <div class="row">
-    <div class="col col-4">
+    <div class="col col-w">
       <div class="body">
-        <p>Akışkanlık, bir sıvının <strong>uygulanan kuvvet ya da yerçekimi etkisiyle serbestçe hareket edebilmesi</strong> ve bulunduğu kabın şeklini alabilmesidir. Bu özellik, sıvıdaki taneciklerin birbiri üzerinden kayabilmesinden kaynaklanır.</p>
+        <p>Akışkanlık, bir sıvının <strong>uygulanan kuvvet ya da yerçekimi etkisiyle serbestçe hareket edebilmesi</strong> ve bulunduğu kabın şeklini alabilmesidir. Sıvıdaki taneciklerin birbiri üzerinden kayabilmesinden kaynaklanır.</p>
         <p>Akışkanlık <strong>viskozite ile ters orantılıdır</strong>: Viskozitesi yüksek bir sıvı daha az akışkandır. Akışkanlık aynı zamanda <strong>sıcaklıkla doğru orantılı</strong>dır; ısınan sıvı daha kolay akar.</p>
         <p>Katı maddeler akamaz; çünkü tanecikleri arası çekim kuvvetleri aşılamayacak kadar güçlüdür. Gazlar ise her yöne serbest yayılır. Sıvılar bu ikisi arasında <strong>kontrollü akış</strong> özelliğini gösterir.</p>
       </div>
-      <div class="grid2" style="margin-top:6px">
-        <div class="fact">🚿 Su boru hatları akışkanlık sayesinde çalışır</div>
-        <div class="fact t">⛽ Akaryakıt pompa sistemleri bu prensiple tasarlanır</div>
+      <div class="g2" style="margin-top:6px">
+        <div class="pill">🚿 Su boru hatları akışkanlık sayesinde çalışır</div>
+        <div class="pill m">⛽ Akaryakıt pompaları bu prensiple tasarlanır</div>
       </div>
     </div>
-    <div class="col col-3">
-      <div class="h2" style="font-size:.95rem;color:var(--amber);margin-bottom:9px">Akışkanlığı Etkileyen Faktörler</div>
+    <div class="col col-n">
+      <div class="h2" style="color:var(--cyan);font-size:.9rem;margin-bottom:8px">Akışkanlığı Etkileyen Faktörler</div>
       <div class="list">
-        <div class="li"><div class="li-dot">T</div><div class="li-text"><strong>Sıcaklık:</strong> Artan sıcaklık moleküllerin kinetik enerjisini artırır → akışkanlık artar. Soğuyan zeytinyağı donmaya yaklaşır.</div></div>
-        <div class="li"><div class="li-dot t">M</div><div class="li-text"><strong>Moleküler yapı:</strong> Büyük ve karmaşık moleküller birbirine takılır → daha az akışkan. Uzun zincirli polimerler buna örnek.</div></div>
-        <div class="li"><div class="li-dot r">B</div><div class="li-text"><strong>Bağ türü:</strong> Hidrojen bağları akışkanlığı kısıtlar. Bu yüzden su, benzen veya heksandan daha az akışkandır.</div></div>
-        <div class="li"><div class="li-dot l">P</div><div class="li-text"><strong>Basınç:</strong> Sıvılar üzerine uygulanan basınç hacmi değiştirmez ama akış hızını etkiler (pompalarda kullanılır).</div></div>
+        <div class="li"><div class="li-dot c">T</div><div class="li-text"><strong>Sıcaklık:</strong> Artan sıcaklık kinetik enerjiyi artırır → akışkanlık artar. Soğuyan zeytinyağı donmaya yaklaşır.</div></div>
+        <div class="li"><div class="li-dot m">M</div><div class="li-text"><strong>Moleküler yapı:</strong> Büyük ve karmaşık moleküller birbirine takılır → daha az akışkan. Polimer zincirleri örnek.</div></div>
+        <div class="li"><div class="li-dot r">B</div><div class="li-text"><strong>Bağ türü:</strong> Hidrojen bağları akışkanlığı kısıtlar. Bu yüzden su, benzenden daha az akışkandır.</div></div>
+        <div class="li"><div class="li-dot l">P</div><div class="li-text"><strong>Basınç:</strong> Sıvılar üzerine uygulanan basınç hacmi değiştirmez ama akış hızını etkiler.</div></div>
       </div>
-      <div class="hbox" style="margin-top:5px">🏊 <strong>Süperkritik akışkanlar</strong> hem sıvı hem gaz özelliği gösterir. Saf CO₂'nin süperkritik hâli kafein çıkarmada kullanılır!</div>
+      <div class="strip a" style="margin-top:4px">🏊 <strong>Süperkritik akışkanlar</strong> hem sıvı hem gaz özelliği gösterir. Saf CO₂'nin süperkritik hâli kafein çıkarmada kullanılır!</div>
     </div>
   </div>
-  <div class="slide-num">05 / 20</div>
+  <div class="snum">05 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 6 – YOĞUNLUK ══╗ -->
 <div class="slide" id="s6">
   <div class="tag">Özellik 2</div>
   <div class="h1">Yoğunluk <em>(Density)</em></div>
   <div class="rule"></div>
   <div class="row">
-    <div class="col col-3">
+    <div class="col col-n">
       <div class="formula">
         <div class="formula-eq">d = m / V</div>
         <div class="formula-note">
@@ -510,394 +412,323 @@ body::after {
           <span>V</span> : hacim (cm³ veya m³)
         </div>
       </div>
-      <div class="body" style="margin-top:10px">
-        <p>Yoğunluk bir maddenin <strong>birim hacmine düşen kütlesidir</strong>. Aynı hacimde daha fazla tanecik barındıran madde daha yoğundur.</p>
-        <p>Yoğun sıvılar daha az yoğun olanların <strong>altına çöker</strong>. Bu gerçek hayatta; salata sosu katmanları, deniz kazalarında oluşan petrol tabakası gibi durumları açıklar.</p>
-        <p><strong>Arşimet İlkesi:</strong> Sıvıya daldırılan cisim, yerinden ettiği sıvının ağırlığı kadar kaldırma kuvveti alır. Gemiler bu ilke sayesinde yüzer.</p>
+      <div class="body" style="margin-top:8px">
+        <p>Yoğunluk bir maddenin <strong>birim hacmine düşen kütlesidir</strong>. Yoğun sıvılar daha az yoğun olanların <strong>altına çöker</strong>. Salata sosu katmanları, petrol-su ayrışması bunun sonucudur.</p>
+        <p><strong>Arşimet İlkesi:</strong> Sıvıya daldırılan cisim, yerinden ettiği sıvının ağırlığı kadar kaldırma kuvveti alır. Gemiler bu ilkeyle yüzer.</p>
       </div>
-      <div class="fact" style="margin-top:6px">🌊 Ölü Deniz'in tuz konsantrasyonu %33'tür; yoğunluğu ~1.24 g/cm³ olduğundan insanlar kolayca yüzer!</div>
+      <div class="pill" style="margin-top:4px">🌊 Ölü Deniz: yoğunluk ~1.24 g/cm³ — insanlar kolayca yüzer!</div>
     </div>
-    <div class="col col-4">
-      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:9px">Seçili Sıvıların Yoğunluğu (25 °C, g/cm³)</div>
-      <div class="bar-wrap">
-        <div class="bar-row"><div class="bar-label">Cıva (Hg)</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,var(--rose),var(--amber))"></div></div><div class="bar-val">13.60</div></div>
-        <div class="bar-row"><div class="bar-label">Gliserin</div><div class="bar-track"><div class="bar-fill" style="width:9.3%;background:var(--amber)"></div></div><div class="bar-val">1.26</div></div>
-        <div class="bar-row"><div class="bar-label">Süt</div><div class="bar-track"><div class="bar-fill" style="width:7.6%;background:var(--amber)"></div></div><div class="bar-val">1.030</div></div>
-        <div class="bar-row"><div class="bar-label">Deniz Suyu</div><div class="bar-track"><div class="bar-fill" style="width:7.5%;background:var(--amber)"></div></div><div class="bar-val">1.025</div></div>
-        <div class="bar-row"><div class="bar-label">Saf Su ⭐</div><div class="bar-track"><div class="bar-fill" style="width:7.35%;background:var(--teal)"></div></div><div class="bar-val">1.000</div></div>
-        <div class="bar-row"><div class="bar-label">Zeytinyağı</div><div class="bar-track"><div class="bar-fill" style="width:6.7%;background:var(--sage)"></div></div><div class="bar-val">0.910</div></div>
-        <div class="bar-row"><div class="bar-label">Benzin</div><div class="bar-track"><div class="bar-fill" style="width:5.3%;background:var(--sage)"></div></div><div class="bar-val">0.720</div></div>
-        <div class="bar-row"><div class="bar-label">Etanol</div><div class="bar-track"><div class="bar-fill" style="width:5.8%;background:var(--sage)"></div></div><div class="bar-val">0.789</div></div>
-        <div class="bar-row"><div class="bar-label">Hekzan</div><div class="bar-track"><div class="bar-fill" style="width:4.9%;background:var(--sage)"></div></div><div class="bar-val">0.659</div></div>
+    <div class="col col-w">
+      <div class="h2" style="color:var(--cyan);font-size:.88rem;margin-bottom:8px">Seçili Sıvıların Yoğunluğu (25 °C, g/cm³)</div>
+      <div class="bars">
+        <div class="bar-r"><div class="bar-lbl">Cıva (Hg)</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,var(--coral),var(--amber))"></div></div><div class="bar-val">13.60</div></div>
+        <div class="bar-r"><div class="bar-lbl">Gliserin</div><div class="bar-track"><div class="bar-fill" style="width:9.3%;background:var(--amber)"></div></div><div class="bar-val">1.26</div></div>
+        <div class="bar-r"><div class="bar-lbl">Süt</div><div class="bar-track"><div class="bar-fill" style="width:7.6%;background:var(--amber)"></div></div><div class="bar-val">1.030</div></div>
+        <div class="bar-r"><div class="bar-lbl">Deniz Suyu</div><div class="bar-track"><div class="bar-fill" style="width:7.5%;background:var(--cyan)"></div></div><div class="bar-val">1.025</div></div>
+        <div class="bar-r"><div class="bar-lbl">Saf Su ⭐</div><div class="bar-track"><div class="bar-fill" style="width:7.35%;background:linear-gradient(90deg,var(--cyan),var(--mint))"></div></div><div class="bar-val">1.000</div></div>
+        <div class="bar-r"><div class="bar-lbl">Zeytinyağı</div><div class="bar-track"><div class="bar-fill" style="width:6.7%;background:var(--mint)"></div></div><div class="bar-val">0.910</div></div>
+        <div class="bar-r"><div class="bar-lbl">Etanol</div><div class="bar-track"><div class="bar-fill" style="width:5.8%;background:var(--mint)"></div></div><div class="bar-val">0.789</div></div>
+        <div class="bar-r"><div class="bar-lbl">Benzin</div><div class="bar-track"><div class="bar-fill" style="width:5.3%;background:var(--mint)"></div></div><div class="bar-val">0.720</div></div>
+        <div class="bar-r"><div class="bar-lbl">Hekzan</div><div class="bar-track"><div class="bar-fill" style="width:4.9%;background:var(--mint)"></div></div><div class="bar-val">0.659</div></div>
       </div>
-      <div class="hbox t" style="margin-top:11px">🧊 <strong>Su'nun ilginç istisnası:</strong> Katı hâldeki buz, sıvı suya göre <em>daha az yoğundur</em> (0.92 g/cm³). Bu yüzden buz suda yüzer; okyanuslardaki canlılar buz altında hayatta kalabilir.</div>
+      <div class="strip m" style="margin-top:10px">🧊 <strong>Su'nun istisnası:</strong> Katı buz, sıvı suya göre <em>daha az yoğundur</em> (0.92 g/cm³). Buz suda yüzer — okyanus canlıları buz altında yaşayabilir.</div>
     </div>
   </div>
-  <div class="slide-num">06 / 20</div>
+  <div class="snum">06 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 7 – VİSKOZİTE ══╗ -->
 <div class="slide" id="s7">
   <div class="tag">Özellik 3</div>
   <div class="h1">Viskozite <em>(Viscosity)</em></div>
   <div class="rule"></div>
   <div class="row">
-    <div class="col col-4">
+    <div class="col col-w">
       <div class="body">
-        <p>Viskozite, bir sıvının <strong>akışa karşı gösterdiği iç dirençtir</strong>. Katman katman akan bir sıvıda bitişik katmanların birbirini frenlemesinden doğar. Buna "iç sürtünme" denir.</p>
-        <p>Ölçü birimi: <strong>Pascal·saniye (Pa·s)</strong> ya da daha eski birim <strong>Poise (P)</strong>. Suyun viskozitesi 20 °C'de yaklaşık <strong>1 mPa·s</strong>, balınki ise <strong>2000–10 000 mPa·s</strong> arasındadır.</p>
-        <p>Viskozitenin iki türü vardır:</p>
-        <p>🔹 <strong>Dinamik (mutlak) viskozite (η):</strong> Akışa karşı direncin doğrudan ölçümü.<br>🔹 <strong>Kinematik viskozite (ν):</strong> η / yoğunluk oranıdır; akış davranışını yorumlamada kullanılır.</p>
+        <p>Viskozite, bir sıvının <strong>akışa karşı gösterdiği iç dirençtir</strong>. Katman katman akan bir sıvıda bitişik katmanların birbirini frenlemesinden doğar — buna "iç sürtünme" denir.</p>
+        <p>Ölçü birimi: <strong>Pascal·saniye (Pa·s)</strong> ya da <strong>Poise (P)</strong>. Suyun viskozitesi 20 °C'de yaklaşık <strong>1 mPa·s</strong>, balınki ise <strong>2000–10 000 mPa·s</strong> arasındadır.</p>
+        <p>🔹 <strong>Dinamik viskozite (η):</strong> Akışa karşı direncin doğrudan ölçümü.<br>🔹 <strong>Kinematik viskozite (ν):</strong> η / yoğunluk oranı; akış davranışını yorumlamada kullanılır.</p>
       </div>
-      <div class="fact" style="margin-top:8px">⏱️ Tar balı deneyi (Queensland, 1927): Tar balının damlaması için <em>yıllarca</em> beklendi — ultra yüksek viskozite!</div>
+      <div class="pill r" style="margin-top:6px">⏱️ Queensland tar deneyi (1927): Bir damla için yıllarca beklendi — ultra yüksek viskozite!</div>
     </div>
-    <div class="col col-3">
-      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:9px">Viskozite Skalası (yaklaşık, 25 °C)</div>
-      <div class="bar-wrap">
-        <div class="bar-row"><div class="bar-label">Aseton</div><div class="bar-track"><div class="bar-fill" style="width:1%;background:var(--teal)"></div></div><div class="bar-val">0.3 mPa·s</div></div>
-        <div class="bar-row"><div class="bar-label">Su</div><div class="bar-track"><div class="bar-fill" style="width:3%;background:var(--teal)"></div></div><div class="bar-val">1 mPa·s</div></div>
-        <div class="bar-row"><div class="bar-label">Kan</div><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--rose)"></div></div><div class="bar-val">3–4 mPa·s</div></div>
-        <div class="bar-row"><div class="bar-label">Zeytinyağı</div><div class="bar-track"><div class="bar-fill" style="width:28%;background:var(--amber)"></div></div><div class="bar-val">~84 mPa·s</div></div>
-        <div class="bar-row"><div class="bar-label">Motor Yağı</div><div class="bar-track"><div class="bar-fill" style="width:56%;background:var(--amber)"></div></div><div class="bar-val">~250 mPa·s</div></div>
-        <div class="bar-row"><div class="bar-label">Gliserin</div><div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--rose)"></div></div><div class="bar-val">~1420 mPa·s</div></div>
-        <div class="bar-row"><div class="bar-label">Bal</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,var(--amber),var(--rose))"></div></div><div class="bar-val">~8000 mPa·s</div></div>
+    <div class="col col-n">
+      <div class="h2" style="color:var(--cyan);font-size:.88rem;margin-bottom:8px">Viskozite Skalası (~25 °C)</div>
+      <div class="bars">
+        <div class="bar-r"><div class="bar-lbl">Aseton</div><div class="bar-track"><div class="bar-fill" style="width:1%;background:var(--mint)"></div></div><div class="bar-val">0.3 mPa·s</div></div>
+        <div class="bar-r"><div class="bar-lbl">Su</div><div class="bar-track"><div class="bar-fill" style="width:3%;background:var(--cyan)"></div></div><div class="bar-val">1 mPa·s</div></div>
+        <div class="bar-r"><div class="bar-lbl">Kan</div><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--coral)"></div></div><div class="bar-val">3–4 mPa·s</div></div>
+        <div class="bar-r"><div class="bar-lbl">Zeytinyağı</div><div class="bar-track"><div class="bar-fill" style="width:28%;background:var(--amber)"></div></div><div class="bar-val">~84 mPa·s</div></div>
+        <div class="bar-r"><div class="bar-lbl">Motor Yağı</div><div class="bar-track"><div class="bar-fill" style="width:56%;background:var(--amber)"></div></div><div class="bar-val">~250 mPa·s</div></div>
+        <div class="bar-r"><div class="bar-lbl">Gliserin</div><div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--coral)"></div></div><div class="bar-val">~1420 mPa·s</div></div>
+        <div class="bar-r"><div class="bar-lbl">Bal</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,var(--amber),var(--coral))"></div></div><div class="bar-val">~8000 mPa·s</div></div>
       </div>
-      <div class="hbox s" style="margin-top:10px">🩸 <strong>Kan viskozitesi</strong> tıpta kritiktir. Çok yüksekse tromboz (pıhtılaşma) riski artar; çok düşükse organ beslenmesi bozulur.</div>
+      <div class="strip r" style="margin-top:9px">🩸 <strong>Kan viskozitesi</strong> tıpta kritiktir. Çok yüksekse tromboz riski artar; çok düşükse organ beslenmesi bozulur.</div>
     </div>
   </div>
-  <div class="slide-num">07 / 20</div>
+  <div class="snum">07 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 8 – VİSK & SICAKLIK ══╗ -->
 <div class="slide" id="s8">
   <div class="tag">Özellik 3 — Devam</div>
   <div class="h1">Viskozite ve <em>Sıcaklık İlişkisi</em></div>
   <div class="rule"></div>
   <div class="row">
-    <div class="col col-4">
-      <div class="hbox" style="margin-bottom:14px">📌 <strong>Temel Kural — Sıvılarda:</strong> Sıcaklık artar → Moleküllerin kinetik enerjisi artar → Birbirinden kolay uzaklaşırlar → <strong style="color:var(--teal)">Viskozite azalır, akışkanlık artar.</strong></div>
+    <div class="col col-w">
+      <div class="strip" style="margin-bottom:12px">📌 <strong>Temel Kural — Sıvılarda:</strong> Sıcaklık artar → Kinetik enerji artar → Moleküller birbirinden kolay uzaklaşır → <strong style="color:var(--cyan)">Viskozite azalır, akışkanlık artar.</strong></div>
       <div class="body">
-        <p>Sıcaklık–viskozite ilişkisi Arrhenius denklemi ile ifade edilir:</p>
-        <p style="text-align:center;font-family:'Lora',serif;font-style:italic;font-size:1.15rem;color:var(--amber);margin:7px 0">η = A · e<sup>(Ea/RT)</sup></p>
-        <p>Burada <strong>Ea</strong> aktivasyon enerjisi, <strong>R</strong> gaz sabiti, <strong>T</strong> mutlak sıcaklıktır. Bu denklem sıcaklık arttıkça viskozite üstel biçimde azaldığını gösterir.</p>
-        <p>⚠️ <strong>Gazlarda tam tersi geçerlidir:</strong> Gazlarda sıcaklık arttıkça moleküller daha sık çarpışır → viskozite artar. Bu sıvılar ile gazların temel farkıdır.</p>
+        <p>Sıcaklık–viskozite ilişkisi <strong>Arrhenius denklemi</strong> ile ifade edilir:</p>
+        <p style="text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--cyan);margin:8px 0">η = A · e<sup>(Ea/RT)</sup></p>
+        <p>Burada <strong>Ea</strong> aktivasyon enerjisi, <strong>R</strong> gaz sabiti, <strong>T</strong> mutlak sıcaklıktır. Sıcaklık arttıkça viskozite üstel biçimde azalır.</p>
+        <p>⚠️ <strong>Gazlarda tam tersi geçerlidir:</strong> Gazlarda sıcaklık arttıkça moleküller daha sık çarpışır → viskozite artar. Bu, sıvılar ile gazların temel farkıdır.</p>
       </div>
     </div>
-    <div class="col col-3">
-      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:10px">Gerçek Hayat Örnekleri</div>
+    <div class="col col-n">
+      <div class="h2" style="color:var(--cyan);font-size:.9rem;margin-bottom:8px">Gerçek Hayat Örnekleri</div>
       <div class="list">
-        <div class="li"><div class="li-dot">🛢</div><div class="li-text"><strong>Motor Yağı (Kış vs Yaz):</strong> Kış sabahı soğuk motor yağı çok koyudur; aracı çalıştırmak güçtür. Bu yüzden 0W-40 gibi düşük sıcaklıkta ince kalan yağlar geliştirilmiştir.</div></div>
-        <div class="li"><div class="li-dot t">🍯</div><div class="li-text"><strong>Bal:</strong> Buzdolabındaki bal kaşıktan zar zor dökülür. Ilık banya yapılınca kolayca akar; fabrikada bal ısıtılarak şişelere doldurulur.</div></div>
+        <div class="li"><div class="li-dot c">🛢</div><div class="li-text"><strong>Motor Yağı:</strong> Kış sabahı soğuk motor yağı çok koyudur. Bu yüzden 0W-40 gibi düşük sıcaklıkta ince kalan yağlar geliştirilmiştir.</div></div>
+        <div class="li"><div class="li-dot m">🍯</div><div class="li-text"><strong>Bal:</strong> Buzdolabındaki bal kaşıktan zar zor dökülür. Ilık banya yapılınca kolayca akar. Fabrikada ısıtılarak şişelenir.</div></div>
         <div class="li"><div class="li-dot r">🍫</div><div class="li-text"><strong>Çikolata:</strong> Erimiş çikolata kaplaması sıcakken ince ve akıcıdır; soğuyunca katılaşır. Pastacılar doğru sıcaklıkta çalışmak zorundadır.</div></div>
-        <div class="li"><div class="li-dot l">🩸</div><div class="li-text"><strong>İnsan Kanı:</strong> Yüksek ateşte kan viskozitesi biraz azalır. Hipotermi (soğuk) durumunda artar ve dolaşım güçleşir.</div></div>
+        <div class="li"><div class="li-dot a">🩸</div><div class="li-text"><strong>İnsan Kanı:</strong> Yüksek ateşte viskozite biraz azalır. Hipotermi durumunda artar ve dolaşım güçleşir.</div></div>
       </div>
-      <div class="fact" style="margin-top:8px">🏭 Petrol rafinerilerinde ham petrol ısıtılarak viskozitesi düşürülür ve boru hatlarından kolayca taşınması sağlanır.</div>
+      <div class="pill a" style="margin-top:6px">🏭 Petrol ısıtılarak viskozitesi düşürülür, boru hatlarından kolayca taşınır</div>
     </div>
   </div>
-  <div class="slide-num">08 / 20</div>
+  <div class="snum">08 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 9 – YÜZEY GERİLİMİ ══╗ -->
 <div class="slide" id="s9">
   <div class="tag">Özellik 4</div>
   <div class="h1">Yüzey Gerilimi <em>(Surface Tension)</em></div>
   <div class="rule"></div>
   <div class="row">
-    <div class="col col-4">
+    <div class="col col-w">
       <div class="body">
-        <p>Bir sıvının iç kısmındaki molekül, <strong>her yönden eşit çekim kuvveti</strong> alır ve net kuvvet sıfırdır. Ama sıvı-hava arayüzündeki molekül yalnızca <strong>alttan ve yandan</strong> çekilir; üstteki hava molekülleri çok seyrek olduğu için çekim ihmal edilebilir.</p>
-        <p>Bu asimetrik kuvvet, yüzey moleküllerini içe doğru çekerek sıvı yüzeyini <strong>mümkün olan en küçük alana</strong> sıkıştırır. Buna yüzey gerilimi denir.</p>
-        <p>Birim: <strong>N/m</strong> (Newton/metre) veya <strong>mJ/m²</strong>. Suyun yüzey gerilimi 20 °C'de <strong>72.8 mN/m</strong>'dir. Bu, sıvılar arasında son derece yüksek bir değerdir.</p>
+        <p>Sıvı içindeki bir molekül <strong>her yönden eşit çekim kuvveti</strong> alır ve net kuvvet sıfırdır. Ama yüzeydeki molekül yalnızca <strong>alttan ve yandan</strong> çekilir — bu asimetrik kuvvet, yüzeyi <strong>mümkün olan en küçük alana</strong> sıkıştırır.</p>
+        <p>Birim: <strong>N/m</strong> veya <strong>mJ/m²</strong>. Suyun yüzey gerilimi 20 °C'de <strong>72.8 mN/m</strong>'dir — sıvılar arasında son derece yüksek.</p>
       </div>
-      <div class="grid2" style="margin-top:8px">
-        <div class="fact">🫧 Su: 72.8 mN/m</div>
-        <div class="fact t">🧪 Etanol: 22.1 mN/m</div>
-        <div class="fact t">🛢 Cıva: 486 mN/m</div>
-        <div class="fact">🧴 Sabunlu Su: ~25 mN/m</div>
+      <div class="g2" style="margin-top:8px">
+        <div class="pill">🫧 Su: 72.8 mN/m</div>
+        <div class="pill m">🧪 Etanol: 22.1 mN/m</div>
+        <div class="pill r">🌡 Cıva: 486 mN/m</div>
+        <div class="pill a">🧴 Sabunlu Su: ~25 mN/m</div>
+      </div>
+      <div class="divider"></div>
+      <div class="card c" style="margin-top:2px">
+        <div class="ctag">Kohezyon — Aynı Cins Moleküller Arası Çekim</div>
+        <div class="cbody">Suyun su moleküllerini çekmesidir. <strong>Yüzey geriliminin kaynağı.</strong> Bal damlasının yuvarlak kalması, yağmur damlasının küresel şekli bunun sonucudur.</div>
+      </div>
+      <div class="card m" style="margin-top:6px">
+        <div class="ctag m">Adezyon — Farklı Cins Moleküller Arası Çekim</div>
+        <div class="cbody">Suyun cam, toprak veya dokuya yapışmasıdır. <strong>Islak cam yüzeyi, kılcallık olayı</strong> bu kuvvetten kaynaklanır.</div>
       </div>
     </div>
-    <div class="col col-3">
-      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:10px">Kohezyon & Adezyon</div>
-      <div class="card card-a" style="margin-bottom:10px">
-        <div class="card-title">Kohezyon — Aynı Cins Moleküller Arası Çekim</div>
-        <div class="card-body">Suyun su moleküllerini çekmesidir. <strong>Yüzey geriliminin kaynağıdır.</strong> Bal damlasının yuvarlak kalmaya çalışması, yağmur damlasının küresel şekli bunun sonucudur.</div>
-      </div>
-      <div class="card card-t" style="margin-bottom:10px">
-        <div class="card-title t">Adezyon — Farklı Cins Moleküller Arası Çekim</div>
-        <div class="card-body">Suyun cam, toprak veya dokuya yapışmasıdır. <strong>Islak cam yüzeyi, kılcallık olayı</strong> bu kuvvetten kaynaklanır.</div>
-      </div>
+    <div class="col col-n">
+      <div class="h2" style="color:var(--cyan);font-size:.9rem;margin-bottom:8px">Gözlemlenebilir Örnekler</div>
       <div class="list">
-        <div class="li"><div class="li-dot">🪲</div><div class="li-text"><strong>Su aygırı böceği</strong> yüzey gerilimi sayesinde su üstünde yürür; bacakları yüzeyi delmez.</div></div>
-        <div class="li"><div class="li-dot t">🪡</div><div class="li-text">Yavaşça bırakılan <strong>iğne veya jilet</strong> suda batmadan durabilir — yüzey esnek bir zar gibidir.</div></div>
+        <div class="li"><div class="li-dot c">🪲</div><div class="li-text"><strong>Su aygırı böceği</strong> yüzey gerilimi sayesinde su üstünde yürür; bacakları yüzeyi delmez.</div></div>
+        <div class="li"><div class="li-dot m">🪡</div><div class="li-text">Yavaşça bırakılan <strong>iğne veya jilet</strong> suda batmadan durabilir — yüzey esnek bir zar gibidir.</div></div>
         <div class="li"><div class="li-dot r">🧼</div><div class="li-text"><strong>Sabun</strong> yüzey gerilimini düşürür; su yayılır, kir uzaklaşır. Deterjanların temizleme prensibi budur.</div></div>
+        <div class="li"><div class="li-dot l">💧</div><div class="li-text">Damlalar <strong>küresel şekil</strong> alır — yüzey gerilimi alanı minimize etmeye çalışır. Küre en az yüzey alanına sahip geometrik şekildir.</div></div>
       </div>
     </div>
   </div>
-  <div class="slide-num">09 / 20</div>
+  <div class="snum">09 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 10 – KILCALLIK ══╗ -->
 <div class="slide" id="s10">
   <div class="tag">Özellik 4 — Devam</div>
   <div class="h1">Kılcallık <em>(Kapillarite)</em></div>
   <div class="rule"></div>
   <div class="row">
-    <div class="col col-4">
+    <div class="col col-w">
       <div class="body">
-        <p>Kılcallık; ince borularda sıvının <strong>yerçekimine karşı yükselmesi</strong> ya da alçalması olayıdır. İki kuvvetin dengesinden oluşur:</p>
+        <p>Kılcallık; ince borularda sıvının <strong>yerçekimine karşı yükselmesi</strong> ya da alçalması olayıdır.</p>
         <p>🔹 <strong>Adezyon kuvveti:</strong> Su molekülleri cam yüzeye yapışır ve yukarı çekilir.<br>🔹 <strong>Kohezyon kuvveti:</strong> Su molekülleri birbirini de yukarı çeker.<br>🔹 <strong>Yerçekimi:</strong> Su sütununu aşağı çeker.</p>
         <p>Boru çapı <strong>ne kadar ince</strong> olursa sıvı o kadar <strong>yüksek</strong> çıkar (Jurin Yasası). Boru çapının yarıya inmesi, yükselme miktarının iki katına çıkmasına neden olur.</p>
-        <p>Cıva gibi sıvılarda adezyon zayıf, kohezyon güçlü olduğundan cam boruda <strong>alçalma</strong> gözlemlenir; bu yüzden cıva termometrelerdeki menisküs yukarı kabarıktır.</p>
+        <p>Cıva gibi sıvılarda adezyon zayıf, kohezyon güçlü olduğundan cam boruda <strong>alçalma</strong> gözlemlenir.</p>
       </div>
-      <div class="fact t" style="margin-top:8px">🌲 Sekoya ağaçları 115 metreye kadar büyüyebilir; suyun bu yüksekliğe taşınması tamamen kılcallık + terleme ile gerçekleşir!</div>
+      <div class="pill m" style="margin-top:4px">🌲 Sekoya ağaçları 115 m yüksekliğe kadar büyüyebilir; su tamamen kılcallık + terleme ile taşınır!</div>
     </div>
-    <div class="col col-3">
-      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:10px">Doğadaki & Teknolojideki Örnekler</div>
+    <div class="col col-n">
+      <div class="h2" style="color:var(--cyan);font-size:.9rem;margin-bottom:8px">Doğada ve Teknolojide</div>
       <div class="list">
-        <div class="li"><div class="li-dot">🌿</div><div class="li-text"><strong>Bitkilerde Su İletimi:</strong> Kök hücrelerinden yapraklara kadar su, ksilem borucukları aracılığıyla kılcallık + terleme farkı ile iletilir.</div></div>
-        <div class="li"><div class="li-dot t">🕯</div><div class="li-text"><strong>Mum fitili:</strong> Erimiş balmumu fitil boyunca yükselerek alev noktasına ulaşır. Kılcallık olmadan mum yanmaz!</div></div>
+        <div class="li"><div class="li-dot m">🌿</div><div class="li-text"><strong>Bitkilerde Su İletimi:</strong> Kök hücrelerinden yapraklara su, ksilem borucukları aracılığıyla kılcallık + terleme farkı ile iletilir.</div></div>
+        <div class="li"><div class="li-dot c">🕯</div><div class="li-text"><strong>Mum fitili:</strong> Erimiş balmumu fitil boyunca yükselerek alev noktasına ulaşır. Kılcallık olmadan mum yanmaz!</div></div>
         <div class="li"><div class="li-dot r">🖊</div><div class="li-text"><strong>Dolmakalem:</strong> Mürekkep kılcal tüpler boyunca yazar. Eskiden tüm yazma araçları bu prensibi kullanırdı.</div></div>
-        <div class="li"><div class="li-dot l">🧻</div><div class="li-text"><strong>Havlu & Bez:</strong> Kağıt havlu suyu emer; çünkü selüloz lifleri arasında çok ince boşluklar vardır — kılcal etki.</div></div>
-        <div class="li"><div class="li-dot">🏗</div><div class="li-text"><strong>İnşaatta nem sorunu:</strong> Temelsiz yapılarda toprak suyu kılcallıkla yükselir, duvarları nemlendirir. Su yalıtımı bu yüzden kritiktir.</div></div>
+        <div class="li"><div class="li-dot a">🧻</div><div class="li-text"><strong>Havlu & Bez:</strong> Selüloz lifleri arasındaki ince boşluklar kılcal etki ile suyu emer.</div></div>
+        <div class="li"><div class="li-dot l">🏗</div><div class="li-text"><strong>İnşaatta nem:</strong> Toprak suyu kılcallıkla yükselir, duvarları nemlendirir. Su yalıtımı bu yüzden kritiktir.</div></div>
       </div>
     </div>
   </div>
-  <div class="slide-num">10 / 20</div>
+  <div class="snum">10 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 11 – BUHAR BASINCI ══╗ -->
 <div class="slide" id="s11">
   <div class="tag">Özellik 5</div>
   <div class="h1">Buhar Basıncı <em>(Vapor Pressure)</em></div>
   <div class="rule"></div>
   <div class="row">
-    <div class="col col-4">
+    <div class="col col-w">
       <div class="body">
         <p>Bir sıvının yüzeyindeki moleküllerin bir kısmı yeterli kinetik enerjiye sahip olduğunda <strong>sıvı fazdan çıkarak buhar fazına geçer</strong>. Kapalı bir kapta bu buhar molekülleri sıvı yüzeyine baskı uygular; bu basınca <strong>doymuş buhar basıncı</strong> denir.</p>
         <p><strong>Denge durumu:</strong> Birim zamanda buharlaşan molekül sayısı = yoğunlaşan molekül sayısı. Bu noktada buhar basıncı sabit kalır.</p>
         <p>Buhar basıncı yalnızca <strong>sıcaklığa ve maddenin cinsine</strong> bağlıdır; kabın hacmine ya da sıvı miktarına bağlı değildir.</p>
-        <p><strong>Antoine Denklemi:</strong> log P = A − B/(C+T) ile her madde için buhar basıncı hesaplanabilir (A, B, C maddeye özgü sabitlerdir).</p>
+        <p><strong>Antoine Denklemi:</strong> log P = A − B/(C+T)</p>
       </div>
-      <div class="fact" style="margin-top:6px">🧪 Aseton 20 °C'de 231 mmHg buhar basıncına sahiptir; su ise yalnızca 17.5 mmHg. Bu yüzden aseton çok hızlı buharlaşır.</div>
+      <div class="pill r" style="margin-top:6px">🧪 Aseton 20 °C'de 231 mmHg, su ise yalnızca 17.5 mmHg buhar basıncına sahiptir</div>
     </div>
-    <div class="col col-3">
-      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:10px">Buhar Basıncına Etki Eden Faktörler</div>
+    <div class="col col-n">
+      <div class="h2" style="color:var(--cyan);font-size:.9rem;margin-bottom:8px">Etkileyen Faktörler</div>
       <div class="list">
-        <div class="li"><div class="li-dot">🌡</div><div class="li-text"><strong>Sıcaklık (En Önemli):</strong> Sıcaklık artar → kinetik enerji artar → daha fazla molekül buharlaşır → buhar basıncı artar. İlişki üsteldir (Clausius-Clapeyron).</div></div>
-        <div class="li"><div class="li-dot t">🔗</div><div class="li-text"><strong>Moleküller Arası Kuvvetler:</strong> Güçlü bağlar (hidrojen bağı gibi) molekülleri tutar → buharlaşma azalır → buhar basıncı düşer. Su bu yüzden düşük buhar basıncına sahiptir.</div></div>
-        <div class="li"><div class="li-dot r">🧂</div><div class="li-text"><strong>Çözünmüş Madde (Raoult Yasası):</strong> Sıvıya tuz gibi uçucu olmayan bir madde eklenirse buhar basıncı düşer. P = x_çözücü × P°</div></div>
+        <div class="li"><div class="li-dot c">🌡</div><div class="li-text"><strong>Sıcaklık (En Önemli):</strong> Sıcaklık artar → kinetik enerji artar → daha fazla molekül buharlaşır → buhar basıncı artar (üstel ilişki, Clausius-Clapeyron).</div></div>
+        <div class="li"><div class="li-dot m">🔗</div><div class="li-text"><strong>Moleküller Arası Kuvvetler:</strong> Güçlü bağlar molekülleri tutar → buharlaşma azalır → buhar basıncı düşer. Su bu yüzden düşük buhar basıncına sahiptir.</div></div>
+        <div class="li"><div class="li-dot r">🧂</div><div class="li-text"><strong>Çözünmüş Madde (Raoult Yasası):</strong> Tuz gibi uçucu olmayan madde eklenirse buhar basıncı düşer. P = x_çözücü × P°</div></div>
         <div class="li"><div class="li-dot l">⚖️</div><div class="li-text"><strong>Yüzey Alanı:</strong> Denge buhar basıncını değiştirmez ama buharlaşma hızını etkiler. Geniş kaplar daha hızlı kurur.</div></div>
       </div>
-      <div class="hbox s" style="margin-top:6px">🌬 <strong>Ter buharlaşması:</strong> Deri sıcaklığı artar → buhar basıncı artar → ter daha hızlı buharlaşır → vücut soğur. Harika bir biyolojik termoregülasyon!</div>
+      <div class="strip m" style="margin-top:6px">🌬 <strong>Ter buharlaşması:</strong> Deri sıcaklığı artar → buhar basıncı artar → ter hızlı buharlaşır → vücut soğur. Mükemmel biyolojik termoregülasyon!</div>
     </div>
   </div>
-  <div class="slide-num">11 / 20</div>
+  <div class="snum">11 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 12 – KAYNAMA ══╗ -->
 <div class="slide" id="s12">
   <div class="tag">Özellik 6</div>
   <div class="h1">Kaynama Noktası <em>(Boiling Point)</em></div>
   <div class="rule"></div>
   <div class="row">
-    <div class="col col-4">
-      <div class="hbox" style="margin-bottom:12px">⚗️ <strong>Tanım:</strong> Bir sıvının <strong>buhar basıncının dış (atmosfer) basıncına eşit olduğu sıcaklıktır.</strong> Bu noktada sıvı tüm hacminde birden kaynamaya başlar; kabarcıklar yalnızca yüzeyden değil, sıvının içinden de yükselir.</div>
+    <div class="col col-w">
+      <div class="strip" style="margin-bottom:12px">⚗️ <strong>Tanım:</strong> Bir sıvının <strong>buhar basıncının dış (atmosfer) basıncına eşit olduğu sıcaklıktır.</strong> Bu noktada sıvı tüm hacminde birden kaynamaya başlar.</div>
       <div class="body">
-        <p>Saf su deniz seviyesinde (1 atm = 101.325 kPa) <strong>100 °C</strong>'de kaynar. Ancak bu değer yükseklikle birlikte değişir.</p>
-        <p><strong>Yüksek rakımda:</strong> Atmosfer basıncı düşer → suyun buhar basıncı daha düşük sıcaklıkta dış basınca eşit olur → su 100 °C altında kaynar → yiyecekler tam pişmez.</p>
+        <p>Saf su deniz seviyesinde (1 atm) <strong>100 °C</strong>'de kaynar. Ancak bu değer yükseklikle değişir.</p>
+        <p><strong>Yüksek rakımda:</strong> Atmosfer basıncı düşer → su 100 °C altında kaynar → yiyecekler tam pişmez.</p>
         <p><strong>Düdüklü Tencere:</strong> İçerideki basıncı artırır → su 120–130 °C'de kaynar → yiyecekler çok daha hızlı pişer.</p>
-        <p><strong>Kaynama Noktası Yükselmesi:</strong> Suya tuz eklenirse kaynama noktası yükselir (ebüliyoskopi). ΔTb = Kb · m · i</p>
+        <p><strong>Kaynama Noktası Yükselmesi:</strong> Suya tuz eklenirse kaynama noktası yükselir (ebüliyoskopi). <span class="c-cyan">ΔTb = Kb · m · i</span></p>
       </div>
     </div>
-    <div class="col col-3">
-      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:9px">Kaynama Noktaları Tablosu (1 atm)</div>
-      <table class="tbl">
-        <thead><tr><th>Madde</th><th class="t" style="text-align:right">Kaynama Noktası</th></tr></thead>
+    <div class="col col-n">
+      <div class="h2" style="color:var(--cyan);font-size:.88rem;margin-bottom:8px">Kaynama Noktaları (1 atm)</div>
+      <table class="tbl" style="font-size:.83rem">
+        <thead><tr><th>Madde</th><th style="text-align:right;color:var(--coral)">K. Noktası</th></tr></thead>
         <tbody>
           <tr><td><strong>Sıvı Azot (N₂)</strong></td><td><strong>–196 °C</strong></td></tr>
           <tr><td><strong>Sıvı Oksijen (O₂)</strong></td><td><strong>–183 °C</strong></td></tr>
           <tr><td><strong>Aseton</strong></td><td><strong>56 °C</strong></td></tr>
-          <tr><td><strong>Kloroform (CHCl₃)</strong></td><td><strong>61 °C</strong></td></tr>
+          <tr><td><strong>Kloroform</strong></td><td><strong>61 °C</strong></td></tr>
           <tr><td><strong>Etil Alkol</strong></td><td><strong>78 °C</strong></td></tr>
-          <tr class="hl-row"><td><strong>Saf Su ⭐</strong></td><td><strong>100 °C</strong></td></tr>
+          <tr class="hl"><td><strong>Saf Su ⭐</strong></td><td><strong>100 °C</strong></td></tr>
           <tr><td><strong>Zeytinyağı</strong></td><td><strong>~300 °C</strong></td></tr>
           <tr><td><strong>Cıva (Hg)</strong></td><td><strong>357 °C</strong></td></tr>
         </tbody>
       </table>
-      <div class="fact t" style="margin-top:9px">🏔 Ağrı Dağı zirvesinde (~5137 m) su yalnızca <strong>~83 °C</strong>'de kaynar. Yumurta pişirmek için daha uzun beklemeniz gerekir!</div>
+      <div class="pill m" style="margin-top:9px">🏔 Ağrı Dağı'nda (~5137 m) su yalnızca ~83 °C'de kaynar</div>
     </div>
   </div>
-  <div class="slide-num">12 / 20</div>
+  <div class="snum">12 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 13 – DONMA ══╗ -->
 <div class="slide" id="s13">
   <div class="tag">Özellik 7</div>
   <div class="h1">Donma Noktası <em>(Freezing Point)</em></div>
   <div class="rule"></div>
   <div class="row">
-    <div class="col col-4">
+    <div class="col col-w">
       <div class="body">
-        <p>Donma noktası, bir sıvının <strong>katı hâle geçtiği sıcaklıktır</strong>. Bu noktada moleküllerin kinetik enerjisi o kadar azalır ki artık birbirlerini sabit pozisyonda tutmaya yetecek düzeyde çekim kuvvetleri üstün gelir ve <strong>kristal kafes yapısı</strong> oluşmaya başlar.</p>
-        <p>Saf suyun donma noktası <strong>0 °C</strong>'dir (1 atm'de). Sıvı ve katı arasındaki geçiş sırasında sıcaklık sabit kalır; çünkü enerji faz değişimi için harcanır (örgü enerjisi).</p>
-        <p><strong>Donma Noktası Alçalması (Kriyoskopi):</strong> Suya tuz, şeker gibi uçucu olmayan maddeler çözündürülürse donma noktası düşer:</p>
-        <p style="text-align:center;font-family:'Lora',serif;font-style:italic;font-size:1.1rem;color:var(--amber);margin:5px 0">ΔTf = Kf · m · i</p>
+        <p>Donma noktası, bir sıvının <strong>katı hâle geçtiği sıcaklıktır</strong>. Moleküllerin kinetik enerjisi o kadar azalır ki çekim kuvvetleri üstün gelir ve <strong>kristal kafes yapısı</strong> oluşmaya başlar.</p>
+        <p>Saf suyun donma noktası <strong>0 °C</strong>'dir (1 atm'de). Sıvı ve katı arasındaki geçiş sırasında sıcaklık sabit kalır; enerji faz değişimi için harcanır.</p>
+        <p><strong>Donma Noktası Alçalması (Kriyoskopi):</strong></p>
+        <p style="text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:var(--cyan);margin:6px 0">ΔTf = Kf · m · i</p>
       </div>
-      <div class="fact" style="margin-top:8px">🚗 Antifriz (etilenglikon + su) çözeltisi −40 °C'ye kadar donmaz; motorları soğuk kış günlerinde korur.</div>
+      <div class="pill a" style="margin-top:6px">🚗 Antifriz (etilenglikon + su) −40 °C'ye kadar donmaz — motorları korur</div>
     </div>
-    <div class="col col-3">
-      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:10px">Günlük Hayat & Uygulama Örnekleri</div>
+    <div class="col col-n">
+      <div class="h2" style="color:var(--cyan);font-size:.9rem;margin-bottom:8px">Günlük Hayat Örnekleri</div>
       <div class="list">
-        <div class="li"><div class="li-dot">🧂</div><div class="li-text"><strong>Yollara Tuz Dökülmesi:</strong> Kış aylarında yol karlarını eritmek için NaCl ya da CaCl₂ kullanılır; tuz suyun donma noktasını düşürür.</div></div>
-        <div class="li"><div class="li-dot t">🍦</div><div class="li-text"><strong>Dondurma Yapımı:</strong> Karışıma tuz eklenmiş buz kullanıldığında buz −20 °C'ye kadar erimeden soğutma sağlar; bu yüzden kremanın donmasına izin verir.</div></div>
-        <div class="li"><div class="li-dot r">🚢</div><div class="li-text"><strong>Okyanus Suyu:</strong> Deniz suyu tuz içerdiğinden 0 °C'de donmaz; yaklaşık <strong>−1.8 °C</strong>'de donar. Bu, kutup denizlerindeki canlı yaşamı için kritik öneme sahiptir.</div></div>
-        <div class="li"><div class="li-dot l">🩸</div><div class="li-text"><strong>Kan Plazması:</strong> Protein ve tuz içerdiğinden donma noktası −0.54 °C'dir. Doku donması (donakalım) bu değerin altına düşüldüğünde gerçekleşir.</div></div>
-        <div class="li"><div class="li-dot">🔬</div><div class="li-text"><strong>Kriyoprezervasyon:</strong> Hücreler sıvı azot (−196 °C) ile dondurularak yıllarca saklanabilir. Kan bankacılığı ve spermatoloji bu yöntemi kullanır.</div></div>
+        <div class="li"><div class="li-dot c">🧂</div><div class="li-text"><strong>Yollara Tuz Dökülmesi:</strong> NaCl ya da CaCl₂ suyun donma noktasını düşürür; kar erir.</div></div>
+        <div class="li"><div class="li-dot m">🍦</div><div class="li-text"><strong>Dondurma Yapımı:</strong> Tuzlu buz kullanıldığında −20 °C'ye kadar soğutma sağlanır; kremanın donmasına izin verir.</div></div>
+        <div class="li"><div class="li-dot r">🚢</div><div class="li-text"><strong>Okyanus Suyu:</strong> Tuz içerdiğinden yaklaşık <strong>−1.8 °C</strong>'de donar. Kutup denizlerindeki canlı yaşamı için kritik.</div></div>
+        <div class="li"><div class="li-dot a">🩸</div><div class="li-text"><strong>Kan Plazması:</strong> Protein ve tuz içerdiğinden donma noktası −0.54 °C'dir. Doku donması bu değerin altında gerçekleşir.</div></div>
+        <div class="li"><div class="li-dot l">🔬</div><div class="li-text"><strong>Kriyoprezervasyon:</strong> Hücreler sıvı azot (−196 °C) ile dondurularak yıllarca saklanır. Kan bankacılığında kullanılır.</div></div>
       </div>
     </div>
   </div>
-  <div class="slide-num">13 / 20</div>
+  <div class="snum">13 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 14 – TEKNOLOJİ ══╗ -->
 <div class="slide" id="s14">
   <div class="tag">Uygulamalar</div>
   <div class="h1">Sıvılar <em>Teknoloji & Sanayide</em></div>
   <div class="rule"></div>
-  <div class="grid3" style="flex:1">
-    <div class="card card-a">
-      <div class="card-icon">⚕️</div>
-      <div class="card-title">Tıp & Sağlık</div>
-      <div class="card-body"><strong>IV Serum:</strong> Damar yoluyla vücuda sıvı takılır; yoğunluğu kan ile uyumlu olmalıdır.<br><br><strong>MRI Kontrast Madde:</strong> Gadolinyum içeren sıvılar, organların görüntülenmesini sağlar.<br><br><strong>Anestezi:</strong> İnhalasyon anestezikleri, yüksek buhar basınçlı sıvılardır.</div>
-    </div>
-    <div class="card card-t">
-      <div class="card-icon">⚡</div>
-      <div class="card-title t">Enerji & Yakıt</div>
-      <div class="card-body"><strong>LNG (Sıvılaştırılmış Doğal Gaz):</strong> −162 °C'de sıvılaştırılır; hacmi 600 kat küçülür, taşıması kolaylaşır.<br><br><strong>Hidrolik Enerji:</strong> Su türbinleri yoğunluk + kinetik enerji kullanır.<br><br><strong>Lityum Pil Elektrolitler:</strong> Sıvı elektrolit iyonları taşır.</div>
-    </div>
-    <div class="card card-s">
-      <div class="card-icon">🚀</div>
-      <div class="card-title s">Uzay & Havacılık</div>
-      <div class="card-body"><strong>Sıvı Roket Yakıtı:</strong> Sıvı hidrojen (–253 °C) + sıvı oksijen (–183 °C) birleşir; son derece güçlü yakıt oluşur.<br><br><strong>Hidrodinamik Yastıklama:</strong> Uçak kanatlarında hava basıncını hesaplamada sıvı benzetimleri kullanılır.</div>
-    </div>
-    <div class="card card-l">
-      <div class="card-icon">💻</div>
-      <div class="card-title l">Elektronik & Bilişim</div>
-      <div class="card-body"><strong>Sıvı Metal:</strong> Galinstan (Ga-In-Sn alaşımı) bilgisayar soğutmada kullanılır; ısı iletimi son derece yüksektir.<br><br><strong>LCD Ekranlar:</strong> "Sıvı Kristal Ekran" — gerçek anlamda sıvı ve katı özelliği bir arada taşır.</div>
-    </div>
-    <div class="card card-r">
-      <div class="card-icon">🏗</div>
-      <div class="card-title r">İnşaat & Malzeme</div>
-      <div class="card-body"><strong>Beton Karma:</strong> Sıvı-katı karışımı; viskozite kontrolü kritiktir.<br><br><strong>Epoksi Reçineler:</strong> Sıvı hâlde uygulanır, kimyasal reaksiyonla katılaşır. Yüzey kaplama ve yapıştırıcı olarak kullanılır.</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">🌿</div>
-      <div class="card-title">Gıda & Tarım</div>
-      <div class="card-body"><strong>Damla Sulama:</strong> Su, kılcal borularla bitki köklerine iletilir; su tasarrufu %50 artar.<br><br><strong>Pastörizasyon:</strong> Sütün belirli sıcaklıkta ısıtılıp hızla soğutulması — faz özellikleri kullanılır.<br><br><strong>Yağ Rafinasyonu:</strong> Ham yağ farklı yoğunluklarına göre ayrıştırılır.</div>
-    </div>
+  <div class="g3" style="flex:1">
+    <div class="card a"><div class="cicon">⚕️</div><div class="ctag a">Tıp & Sağlık</div><div class="cbody"><strong>IV Serum:</strong> Damar yoluyla vücuda sıvı; yoğunluğu kan ile uyumlu olmalı.<br><br><strong>MRI Kontrast:</strong> Gadolinyum içeren sıvılar organların görüntülenmesini sağlar.<br><br><strong>Anestezi:</strong> İnhalasyon anestezikleri yüksek buhar basınçlı sıvılardır.</div></div>
+    <div class="card c"><div class="cicon">⚡</div><div class="ctag">Enerji & Yakıt</div><div class="cbody"><strong>LNG:</strong> −162 °C'de sıvılaştırılan doğal gaz; hacmi 600 kat küçülür, taşıması kolaylaşır.<br><br><strong>Hidrolik Enerji:</strong> Su türbinleri yoğunluk + kinetik enerji kullanır.<br><br><strong>Pil Elektrolitler:</strong> Sıvı elektrolit iyonları taşır.</div></div>
+    <div class="card m"><div class="cicon">🚀</div><div class="ctag m">Uzay & Havacılık</div><div class="cbody"><strong>Roket Yakıtı:</strong> Sıvı H₂ (–253 °C) + sıvı O₂ (–183 °C) birleşir; son derece güçlü itki oluşur.<br><br><strong>Hidrodinamik:</strong> Uçak kanatlarında hava basıncı sıvı benzetimleriyle hesaplanır.</div></div>
+    <div class="card l"><div class="cicon">💻</div><div class="ctag l">Elektronik</div><div class="cbody"><strong>Sıvı Metal:</strong> Galinstan (Ga-In-Sn) bilgisayar soğutmada; ısı iletimi son derece yüksek.<br><br><strong>LCD Ekranlar:</strong> Sıvı kristal ekran — gerçek anlamda sıvı ve katı özelliği bir arada.</div></div>
+    <div class="card r"><div class="cicon">🏗</div><div class="ctag r">İnşaat & Malzeme</div><div class="cbody"><strong>Beton Karma:</strong> Sıvı-katı karışımı; viskozite kontrolü kritiktir.<br><br><strong>Epoksi Reçineler:</strong> Sıvı hâlde uygulanır, kimyasal reaksiyonla katılaşır.</div></div>
+    <div class="card dim"><div class="cicon">🌿</div><div class="ctag m">Gıda & Tarım</div><div class="cbody"><strong>Damla Sulama:</strong> Su kılcal borularla bitki köklerine iletilir; %50 su tasarrufu.<br><br><strong>Pastörizasyon:</strong> Süt belirli sıcaklıkta ısıtılıp hızla soğutulur.<br><br><strong>Yağ Rafinasyonu:</strong> Ham yağ yoğunluklarına göre ayrıştırılır.</div></div>
   </div>
-  <div class="slide-num">14 / 20</div>
+  <div class="snum">14 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 15 – ÖZEL SIVILAR ══╗ -->
 <div class="slide" id="s15">
   <div class="tag">Detaylı İnceleme</div>
   <div class="h1">Özel Sıvılar: <em>Su, Cıva, Sıvı Azot</em></div>
   <div class="rule"></div>
   <div class="row">
     <div class="col">
-      <div class="card card-t" style="flex:1">
-        <div class="card-icon">💧</div>
-        <div class="card-title t" style="font-size:.8rem">Su — Evrensel Çözücü</div>
-        <div class="card-body">
-          Su, yeryüzündeki en önemli sıvıdır ve pek çok "olağandışı" özelliğe sahiptir:<br><br>
-          🔹 <strong>Yoğunluk anomalisi:</strong> 4 °C'de en yoğun hâldedir; donunca genişler.<br>
-          🔹 <strong>Yüksek yüzey gerilimi:</strong> 72.8 mN/m; hidrojen bağlarından kaynaklanır.<br>
-          🔹 <strong>Yüksek özgül ısı:</strong> (4.18 J/g·K) iklimi dengeler.<br>
-          🔹 <strong>Amfoterik:</strong> Hem asit hem baz gibi davranabilir.<br>
-          🔹 Polar yapısı sayesinde iyonik ve polar maddeleri çözer.
-        </div>
+      <div class="card c" style="flex:1">
+        <div class="cicon">💧</div>
+        <div class="ctag">Su — Evrensel Çözücü</div>
+        <div class="cbody">🔹 <strong>Yoğunluk anomalisi:</strong> 4 °C'de en yoğun hâl; donunca genişler.<br>🔹 <strong>Yüksek yüzey gerilimi:</strong> 72.8 mN/m; hidrojen bağlarından.<br>🔹 <strong>Yüksek özgül ısı:</strong> (4.18 J/g·K) iklimi dengeler.<br>🔹 <strong>Amfoterik:</strong> Hem asit hem baz gibi davranabilir.<br>🔹 Polar yapısıyla iyonik ve polar maddeleri çözer.</div>
       </div>
     </div>
     <div class="col">
-      <div class="card card-r" style="flex:1">
-        <div class="card-icon">🌡</div>
-        <div class="card-title r" style="font-size:.8rem">Cıva — Sıvı Metal</div>
-        <div class="card-body">
-          Periyodik tablodaki tek oda koşullarında sıvı metal (bromla birlikte):<br><br>
-          🔹 <strong>Yoğunluk:</strong> 13.6 g/cm³ — kurşundan bile ağır!<br>
-          🔹 <strong>Yüzey gerilimi:</strong> 486 mN/m — cam boruda aşağı iner.<br>
-          🔹 <strong>Kaynama noktası:</strong> 357 °C; buharı son derece toksiktir.<br>
-          🔹 Eski termometre ve barometre ölçümlerinde kullanılırdı.<br>
-          🔹 Bugün kullanımı çoğu ülkede yasaklanmıştır.
-        </div>
+      <div class="card r" style="flex:1">
+        <div class="cicon">🌡</div>
+        <div class="ctag r">Cıva — Sıvı Metal</div>
+        <div class="cbody">🔹 <strong>Yoğunluk:</strong> 13.6 g/cm³ — kurşundan bile ağır!<br>🔹 <strong>Yüzey gerilimi:</strong> 486 mN/m — cam boruda aşağı iner.<br>🔹 <strong>Kaynama noktası:</strong> 357 °C; buharı son derece toksik.<br>🔹 Eski termometre ve barometre ölçümlerinde kullanılırdı.<br>🔹 Bugün kullanımı çoğu ülkede yasaklanmıştır.</div>
       </div>
     </div>
     <div class="col">
-      <div class="card card-l" style="flex:1">
-        <div class="card-icon">🧊</div>
-        <div class="card-title l" style="font-size:.8rem">Sıvı Azot — Dondurucunun Ötesi</div>
-        <div class="card-body">
-          Havanın yaklaşık %78'ini oluşturan azot, −196 °C'de sıvılaşır:<br><br>
-          🔹 <strong>Kriyojenik depolama:</strong> Kan, sperm, embriyo saklama.<br>
-          🔹 <strong>Gıda dondurma:</strong> IQF (Bireysel Hızlı Dondurma) teknolojisi.<br>
-          🔹 <strong>Cerrahi:</strong> Kriyoterapi ile doku dondurulup yok edilir.<br>
-          🔹 <strong>Metalurji:</strong> Metal parçalar sıvı azota batırılarak sertleştirilir.<br>
-          🔹 Deriye teması anında donmaya neden olur!
-        </div>
+      <div class="card l" style="flex:1">
+        <div class="cicon">🧊</div>
+        <div class="ctag l">Sıvı Azot — Dondurucunun Ötesi</div>
+        <div class="cbody">🔹 <strong>Kriyojenik depolama:</strong> Kan, sperm, embriyo saklama.<br>🔹 <strong>Gıda dondurma:</strong> IQF (Bireysel Hızlı Dondurma) teknolojisi.<br>🔹 <strong>Cerrahi:</strong> Kriyoterapi ile doku yok edilir.<br>🔹 <strong>Metalurji:</strong> Metal sertleştirmede kullanılır.<br>🔹 Deriye teması anında donmaya neden olur!</div>
       </div>
     </div>
   </div>
-  <div class="hbox" style="margin-top:12px">🫧 <strong>Süperakışkanlar (Süperfluids):</strong> Helyum −269 °C'nin altında süperakışkan hâle geçer ve sıfır viskozite gösterir. Yerçekimine rağmen kap dışına çıkabilir — maddenin en egzotik hâli!</div>
-  <div class="slide-num">15 / 20</div>
+  <div class="strip l" style="margin-top:10px">🫧 <strong>Süperakışkanlar:</strong> Helyum −269 °C'nin altında sıfır viskozite gösterir. Yerçekimine rağmen kap dışına çıkabilir — maddenin en egzotik hâli!</div>
+  <div class="snum">15 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 16 – DENEYLER ══╗ -->
 <div class="slide" id="s16">
   <div class="tag">Laboratuvar</div>
   <div class="h1">Sınıfta Yapılabilecek <em>Basit Deneyler</em></div>
   <div class="rule"></div>
-  <div class="grid2" style="flex:1">
-    <div class="card card-a">
-      <div class="card-icon">🌈</div>
-      <div class="card-title">Deney 1: Sıvı Katmanları (Yoğunluk)</div>
-      <div class="card-body">
-        <strong>Malzeme:</strong> Uzun şeffaf bardak, bal, gliserin, su, zeytinyağı, aseton, boya.<br><br>
-        <strong>Yapılış:</strong> Sıvıları yavaşça sırayla dökün; her biri kendi yoğunluğuna göre ayrı bir katman oluşturur.<br><br>
-        <strong>Sonuç:</strong> Yoğunlukları farklı sıvılar karışmadan katmanlanır. d = m/V ilişkisi gözlemlenir.<br><br>
-        <strong>Not:</strong> Sıvılar aynı sıcaklıkta kullanılmalı; karıştırmadan dökülmeli.
-      </div>
-    </div>
-    <div class="card card-t">
-      <div class="card-icon">🪡</div>
-      <div class="card-title t">Deney 2: Yüzey Gerilimi — İğne Deneyi</div>
-      <div class="card-body">
-        <strong>Malzeme:</strong> Derin kap, su, dikme iğnesi, kağıt parçası, sıvı deterjan.<br><br>
-        <strong>Yapılış:</strong> Kağıt üzerine iğneyi koyun, suya yavaşça bırakın. Kağıt batar, iğne yüzeyde kalır.<br><br>
-        <strong>Sonuç:</strong> Yüzey gerilimi iğneyi taşır. Ardından 1 damla deterjan ekleyin: iğne anında batar (yüzey gerilimi azalır).<br><br>
-        <strong>Gözlemle:</strong> Deterjanın yüzeye yayılışını ve iğnenin nasıl battığını kaydedin.
-      </div>
-    </div>
-    <div class="card card-s">
-      <div class="card-icon">🌿</div>
-      <div class="card-title s">Deney 3: Kılcallık — Renkli Su & Kereviz</div>
-      <div class="card-body">
-        <strong>Malzeme:</strong> Beyaz kereviz dalı, kırmızı gıda boyası, su, şeffaf bardak.<br><br>
-        <strong>Yapılış:</strong> Boyalı suya kerevizi koyun, 30–60 dk. bekleyin.<br><br>
-        <strong>Sonuç:</strong> Kırmızı boya ksilem borularından yükselerek yapraklara ulaşır. Kereviz yaprağı kırmızıya döner!<br><br>
-        <strong>Genişletme:</strong> Farklı sıcaklıktaki sular ile hız karşılaştırması yapılabilir.
-      </div>
-    </div>
-    <div class="card card-l">
-      <div class="card-icon">🍳</div>
-      <div class="card-title l">Deney 4: Viskozite Yarışması</div>
-      <div class="card-body">
-        <strong>Malzeme:</strong> Eğimli yüzey (kitap), su, zeytinyağı, bal, gliserin, kronometre.<br><br>
-        <strong>Yapılış:</strong> Eğimli yüzeye farklı sıvılar dökün ve akış süresini ölçün.<br><br>
-        <strong>Sonuç:</strong> En hızlı: su, En yavaş: bal. Viskozite farkı açıkça görülür.<br><br>
-        <strong>İleri Seviye:</strong> Aynı sıvıyı sıcak ve soğuk hâlde test ederek sıcaklık-viskozite ilişkisini gözlemleyin.
-      </div>
-    </div>
+  <div class="g2" style="flex:1">
+    <div class="card a"><div class="cicon">🌈</div><div class="ctag a">Deney 1 · Sıvı Katmanları (Yoğunluk)</div><div class="cbody"><strong>Malzeme:</strong> Şeffaf bardak, bal, gliserin, su, zeytinyağı, aseton, boya.<br><br><strong>Yapılış:</strong> Sıvıları yavaşça sırayla dökün; her biri yoğunluğuna göre ayrı katman oluşturur.<br><br><strong>Sonuç:</strong> Yoğunlukları farklı sıvılar karışmadan katmanlanır. d = m/V ilişkisi gözlemlenir.<br><br>Not: Aynı sıcaklıkta kullanılmalı; karıştırmadan dökülmeli.</div></div>
+    <div class="card c"><div class="cicon">🪡</div><div class="ctag">Deney 2 · Yüzey Gerilimi — İğne Deneyi</div><div class="cbody"><strong>Malzeme:</strong> Derin kap, su, dikme iğnesi, kağıt parçası, sıvı deterjan.<br><br><strong>Yapılış:</strong> Kağıt üzerine iğneyi koyun, suya yavaşça bırakın. Kağıt batar, iğne yüzeyde kalır.<br><br><strong>Sonuç:</strong> 1 damla deterjan ekleyin → iğne anında batar (yüzey gerilimi azalır).<br><br>Deterjanın yüzeye yayılışını ve iğnenin nasıl battığını kaydedin.</div></div>
+    <div class="card m"><div class="cicon">🌿</div><div class="ctag m">Deney 3 · Kılcallık — Renkli Su & Kereviz</div><div class="cbody"><strong>Malzeme:</strong> Beyaz kereviz dalı, kırmızı gıda boyası, su, bardak.<br><br><strong>Yapılış:</strong> Boyalı suya kerevizi koyun, 30–60 dk. bekleyin.<br><br><strong>Sonuç:</strong> Boya ksilem borularından yükselerek yapraklara ulaşır — kereviz kırmızıya döner!<br><br>Farklı sıcaklıklarda hız karşılaştırması yapılabilir.</div></div>
+    <div class="card l"><div class="cicon">🍳</div><div class="ctag l">Deney 4 · Viskozite Yarışması</div><div class="cbody"><strong>Malzeme:</strong> Eğimli yüzey, su, zeytinyağı, bal, gliserin, kronometre.<br><br><strong>Yapılış:</strong> Eğimli yüzeye farklı sıvılar dökün ve akış süresini ölçün.<br><br><strong>Sonuç:</strong> En hızlı: su · En yavaş: bal. Viskozite farkı gözlemlenir.<br><br>Aynı sıvıyı sıcak ve soğuk hâlde test ederek sıcaklık-viskozite ilişkisini gözlemleyin.</div></div>
   </div>
-  <div class="slide-num">16 / 20</div>
+  <div class="snum">16 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 17 – KARŞILAŞTIRMA ══╗ -->
 <div class="slide" id="s17">
   <div class="tag">Karşılaştırmalı Analiz</div>
-  <div class="h1">Sıvı Özellikleri <em>Karşılaştırma Tablosu</em></div>
+  <div class="h1">Özellikler <em>Karşılaştırma Tablosu</em></div>
   <div class="rule"></div>
-  <div style="flex:1;overflow:auto">
-    <table class="tbl" style="font-size:.82rem">
+  <div class="scroll-y">
+    <table class="tbl" style="font-size:.81rem">
       <thead>
         <tr>
           <th>Özellik</th>
@@ -909,126 +740,101 @@ body::after {
         </tr>
       </thead>
       <tbody>
-        <tr><td><strong>Akışkanlık</strong></td><td>Akabilme yeteneği</td><td>—</td><td style="color:var(--sage)">↑ Sıcaklık → ↑ Akışkanlık</td><td>Musluk suyu</td><td><strong>Yüksek</strong></td></tr>
-        <tr><td><strong>Yoğunluk</strong></td><td>Birim hacimde kütle</td><td>g/cm³</td><td style="color:var(--rose)">↑ Sıcaklık → ↓ Yoğunluk</td><td>Yağ-su katmanı</td><td><strong>1.00 g/cm³</strong></td></tr>
-        <tr><td><strong>Viskozite</strong></td><td>Akışa iç direnç</td><td>mPa·s</td><td style="color:var(--rose)">↑ Sıcaklık → ↓ Viskozite</td><td>Bal vs. su</td><td><strong>~1 mPa·s</strong></td></tr>
-        <tr class="hl-row"><td><strong>Yüzey Gerilimi</strong></td><td>Yüzeyi küçültme eğilimi</td><td>mN/m</td><td style="color:var(--rose)">↑ Sıcaklık → ↓ Yüz. Ger.</td><td>İğne yüzeyde kalır</td><td><strong>72.8 mN/m</strong></td></tr>
-        <tr><td><strong>Kılcallık</strong></td><td>İnce boruda yükselme</td><td>mm / cm</td><td style="color:var(--rose)">↑ Sıcaklık → ↓ Yükselme</td><td>Bitki su iletimi</td><td><strong>~15 cm (r=0.1mm)</strong></td></tr>
-        <tr><td><strong>Buhar Basıncı</strong></td><td>Denge buhar basıncı</td><td>kPa / mmHg</td><td style="color:var(--sage)">↑ Sıcaklık → ↑ Buhar Bas.</td><td>Çamaşır kuruması</td><td><strong>2.34 kPa (20°C)</strong></td></tr>
-        <tr><td><strong>Kaynama Noktası</strong></td><td>Buhar basıncı = dış basınç</td><td>°C</td><td style="color:var(--rose)">↑ Basınç → ↑ Kaynama N.</td><td>Düdüklü tencere</td><td><strong>100 °C (1 atm)</strong></td></tr>
-        <tr><td><strong>Donma Noktası</strong></td><td>Katılaşma sıcaklığı</td><td>°C</td><td style="color:var(--rose)">↑ Çözünen → ↓ Donma N.</td><td>Tuzlu yollar</td><td><strong>0 °C (1 atm)</strong></td></tr>
+        <tr><td><strong>Akışkanlık</strong></td><td>Akabilme yeteneği</td><td>—</td><td style="color:var(--mint)">↑ Sıcaklık → ↑ Akışkanlık</td><td>Musluk suyu</td><td><strong>Yüksek</strong></td></tr>
+        <tr><td><strong>Yoğunluk</strong></td><td>Birim hacimde kütle</td><td>g/cm³</td><td style="color:var(--coral)">↑ Sıcaklık → ↓ Yoğunluk</td><td>Yağ-su katmanı</td><td><strong>1.00 g/cm³</strong></td></tr>
+        <tr><td><strong>Viskozite</strong></td><td>Akışa iç direnç</td><td>mPa·s</td><td style="color:var(--coral)">↑ Sıcaklık → ↓ Viskozite</td><td>Bal vs. su</td><td><strong>~1 mPa·s</strong></td></tr>
+        <tr class="hl"><td><strong>Yüzey Gerilimi</strong></td><td>Yüzeyi küçültme eğilimi</td><td>mN/m</td><td style="color:var(--coral)">↑ Sıcaklık → ↓ Y. Ger.</td><td>İğne yüzeyde kalır</td><td><strong>72.8 mN/m</strong></td></tr>
+        <tr><td><strong>Kılcallık</strong></td><td>İnce boruda yükselme</td><td>mm/cm</td><td style="color:var(--coral)">↑ Sıcaklık → ↓ Yükselme</td><td>Bitki su iletimi</td><td><strong>~15 cm (r=0.1mm)</strong></td></tr>
+        <tr><td><strong>Buhar Basıncı</strong></td><td>Denge buhar basıncı</td><td>kPa/mmHg</td><td style="color:var(--mint)">↑ Sıcaklık → ↑ Buhar Bas.</td><td>Çamaşır kuruması</td><td><strong>2.34 kPa (20°C)</strong></td></tr>
+        <tr><td><strong>Kaynama Noktası</strong></td><td>Buhar bas. = dış basınç</td><td>°C</td><td style="color:var(--coral)">↑ Basınç → ↑ Kaynama N.</td><td>Düdüklü tencere</td><td><strong>100 °C (1 atm)</strong></td></tr>
+        <tr><td><strong>Donma Noktası</strong></td><td>Katılaşma sıcaklığı</td><td>°C</td><td style="color:var(--coral)">↑ Çözünen → ↓ Donma N.</td><td>Tuzlu yollar</td><td><strong>0 °C (1 atm)</strong></td></tr>
       </tbody>
     </table>
   </div>
-  <div class="hbox" style="margin-top:11px">📊 <strong>Genel örüntü:</strong> Sıcaklık arttıkça yoğunluk, viskozite, yüzey gerilimi ve kılcal yükselme <span class="rose">azalır</span>; buhar basıncı ve akışkanlık ise <span class="sage">artar</span>. Tek istisna: <strong>Su 4 °C'de maksimum yoğunluğa ulaşır.</strong></div>
-  <div class="slide-num">17 / 20</div>
+  <div class="strip" style="margin-top:10px">📊 <strong>Genel örüntü:</strong> Sıcaklık arttıkça yoğunluk, viskozite, yüzey gerilimi ve kılcal yükselme <span style="color:var(--coral);font-weight:700">azalır</span>; buhar basıncı ve akışkanlık ise <span style="color:var(--mint);font-weight:700">artar</span>. Tek istisna: <strong>Su 4 °C'de maksimum yoğunluğa ulaşır.</strong></div>
+  <div class="snum">17 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 18 – İLGİNÇ GERÇEKLER ══╗ -->
 <div class="slide" id="s18">
   <div class="tag">Biliyor muydunuz?</div>
   <div class="h1"><em>İlginç</em> Kimya Gerçekleri</div>
   <div class="rule"></div>
-  <div class="grid3" style="flex:1">
-    <div class="card card-a">
-      <div class="card-icon">🌊</div>
-      <div class="card-title">Non-Nütton Sıvıları</div>
-      <div class="card-body">Bazı sıvıların viskozitesi <strong>strese göre değişir</strong>. Mısır nişastası + su karışımı, yavaş dokunuşta sıvı gibi, hızlı darbede katı gibi davranır. Buna <strong>"dilatant" akışkan</strong> denir. Kurşun geçirmez yelek kumaşında kullanılır!</div>
-    </div>
-    <div class="card card-t">
-      <div class="card-icon">🔬</div>
-      <div class="card-title t">Sıvı Kristaller</div>
-      <div class="card-body">Sıvı ve katı arasında <strong>ara bir faz</strong>. Moleküller belirli bir yönde düzenlenir ama akabilir. Tüm <strong>LCD ekranlarda</strong> kullanılır. Elektrik uygulandığında ışığı engeller — böylece pikseller oluşur.</div>
-    </div>
-    <div class="card card-s">
-      <div class="card-icon">🧲</div>
-      <div class="card-title s">Ferrofluids (Manyetik Sıvılar)</div>
-      <div class="card-body">Nano boyutlu demir partiküllerin yağ içinde dağıtılmasıyla oluşur. <strong>Mıknatıs yaklaştırılınca sivri çıkıntılar oluşturur!</strong> Hoparlör soğutmasında, tıbbi görüntülemede kullanılır.</div>
-    </div>
-    <div class="card card-l">
-      <div class="card-icon">🌀</div>
-      <div class="card-title l">Süperkritik CO₂</div>
-      <div class="card-body">31 °C ve 73 atm üzerinde CO₂ <strong>süperkritik faza</strong> girer: hem gaz gibi yayılır hem sıvı gibi çözer. Kahvedeki kafeini ve biradaki alkolü çıkarmada <strong>yeşil çözücü</strong> olarak kullanılır.</div>
-    </div>
-    <div class="card card-r">
-      <div class="card-icon">💎</div>
-      <div class="card-title r">Cam — Sıvı mı Katı mı?</div>
-      <div class="card-body">Eski bir efsaneye göre antika cam pencerelerde alt kısım kalın olduğundan cam "akmış" sanılır. Gerçekte bu üretim hatası! Cam <strong>amorf bir katıdır</strong>, sıvı değil. Oda sıcaklığında akış süresi milyarlarca yıl olurdu.</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">🩺</div>
-      <div class="card-title">Kan: Karmaşık Bir Sıvı</div>
-      <div class="card-body">Kan teknik olarak <strong>biyolojik bir kolloiddir</strong>; içinde hücreler, protein, tuz ve yüzlerce farklı madde vardır. Dar damarlarda daha düşük viskozite gösterir (<strong>Fahraeus-Lindqvist etkisi</strong>). Kılcal damarlarda bu özellik hayatidir.</div>
-    </div>
+  <div class="g3" style="flex:1">
+    <div class="card a"><div class="cicon">🌊</div><div class="ctag a">Non-Nütton Sıvıları</div><div class="cbody">Bazı sıvıların viskozitesi <strong>strese göre değişir</strong>. Mısır nişastası + su karışımı, yavaş dokunuşta sıvı gibi, hızlı darbede katı gibi davranır — <strong>dilatant akışkan</strong>. Kurşun geçirmez yelek kumaşında kullanılır!</div></div>
+    <div class="card c"><div class="cicon">🔬</div><div class="ctag">Sıvı Kristaller</div><div class="cbody">Sıvı ve katı arasında <strong>ara bir faz</strong>. Moleküller belirli yönde düzenlenir ama akabilir. Tüm <strong>LCD ekranlarda</strong> kullanılır. Elektrik uygulandığında ışığı engeller — piksel oluşur.</div></div>
+    <div class="card m"><div class="cicon">🧲</div><div class="ctag m">Ferrofluids (Manyetik Sıvılar)</div><div class="cbody">Nano boyutlu demir partiküllerin yağ içinde dağıtılmasıyla oluşur. <strong>Mıknatıs yaklaştırılınca sivri çıkıntılar oluşturur!</strong> Hoparlör soğutmasında ve tıbbi görüntülemede kullanılır.</div></div>
+    <div class="card l"><div class="cicon">🌀</div><div class="ctag l">Süperkritik CO₂</div><div class="cbody">31 °C ve 73 atm üzerinde CO₂ <strong>süperkritik faza</strong> girer: hem gaz gibi yayılır hem sıvı gibi çözer. Kahvedeki kafeini ve biradaki alkolü çıkarmada <strong>yeşil çözücü</strong> olarak kullanılır.</div></div>
+    <div class="card r"><div class="cicon">💎</div><div class="ctag r">Cam — Sıvı mı Katı mı?</div><div class="cbody">Antika cam pencerelerde alt kısım kalın olduğundan cam "akmış" sanılır. Gerçekte bu üretim hatası! Cam <strong>amorf bir katıdır</strong>. Oda sıcaklığında akış süresi milyarlarca yıl olurdu.</div></div>
+    <div class="card dim"><div class="cicon">🩺</div><div class="ctag m">Kan: Karmaşık Bir Sıvı</div><div class="cbody">Kan teknik olarak <strong>biyolojik bir kolloiddir</strong>. Dar damarlarda daha düşük viskozite gösterir — <strong>Fahraeus-Lindqvist etkisi</strong>. Kılcal damarlarda bu özellik hayati önem taşır.</div></div>
   </div>
-  <div class="slide-num">18 / 20</div>
+  <div class="snum">18 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 19 – ÖZET ══╗ -->
 <div class="slide" id="s19">
   <div class="tag">Genel Değerlendirme</div>
   <div class="h1">Kapsamlı <em>Özet</em></div>
   <div class="rule"></div>
-  <div class="row" style="margin-bottom:12px">
-    <div class="col">
-      <div class="hbox" style="margin-bottom:10px">🎯 <strong>Bu sunumda ne öğrendik?</strong> Sıvıların yalnızca "su gibi akan şeyler" olmadığını; aksine son derece zengin ve karmaşık fiziksel özelliklere sahip madde hâli olduklarını gördük.</div>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
-        <div class="sum-item"><div class="sum-icon">🌊</div><div class="sum-tag">Akışkanlık</div><div class="sum-body">Tanecikler birbirinin üzerinden kayar. Sıcaklıkla artar. <strong>Viskozite ile ters orantılı.</strong></div></div>
-        <div class="sum-item"><div class="sum-icon">⚖️</div><div class="sum-tag">Yoğunluk</div><div class="sum-body"><strong>d = m/V</strong>. Yoğun sıvı alta çöker. Su'nun anomalisi: 4 °C'de maksimum.</div></div>
-        <div class="sum-item"><div class="sum-icon">🍯</div><div class="sum-tag">Viskozite</div><div class="sum-body">İç direnç. Sıcaklıkla <strong>azalır</strong>. Gazlarda ise sıcaklıkla artar (fark önemli!)</div></div>
-        <div class="sum-item"><div class="sum-icon">🫧</div><div class="sum-tag">Yüzey Gerilimi</div><div class="sum-body">Kohezyon asimetrisi → esnek yüzey. Sabunla azalır. Su: <strong>72.8 mN/m</strong>.</div></div>
-        <div class="sum-item"><div class="sum-icon">🌿</div><div class="sum-tag">Kılcallık</div><div class="sum-body">Adezyon + kohezyon. İnce boru → yüksek yükselme. Bitkilerdeki su iletiminin temeli.</div></div>
-        <div class="sum-item"><div class="sum-icon">☁️</div><div class="sum-tag">Buhar Basıncı</div><div class="sum-body">Kapalı kapta denge basıncı. Sıcaklıkla <strong>artar</strong>. Raoult: çözünen eklenince azalır.</div></div>
-        <div class="sum-item"><div class="sum-icon">♨️</div><div class="sum-tag">Kaynama</div><div class="sum-body">Buhar basıncı = dış basınç. Basınç artar → kaynama noktası <strong>yükselir</strong>.</div></div>
-        <div class="sum-item"><div class="sum-icon">❄️</div><div class="sum-tag">Donma</div><div class="sum-body">Çözünen eklenince <strong>düşer</strong>. Kriyoskopi prensibi. Antifriz bu yüzden işe yarar.</div></div>
-      </div>
-    </div>
+  <div class="strip" style="margin-bottom:12px">🎯 <strong>Bu sunumda ne öğrendik?</strong> Sıvıların yalnızca "su gibi akan şeyler" olmadığını; aksine son derece zengin ve karmaşık fiziksel özelliklere sahip madde hâli olduklarını gördük.</div>
+  <div class="sg" style="flex:1">
+    <div class="si2"><div class="si2-ico">🌊</div><div class="si2-tag">Akışkanlık</div><div class="si2-body">Tanecikler birbirinin üzerinden kayar. Sıcaklıkla artar. <strong>Viskozite ile ters orantılı.</strong></div></div>
+    <div class="si2"><div class="si2-ico">⚖️</div><div class="si2-tag">Yoğunluk</div><div class="si2-body"><strong>d = m/V</strong>. Yoğun sıvı alta çöker. Su'nun anomalisi: 4 °C'de maksimum.</div></div>
+    <div class="si2"><div class="si2-ico">🍯</div><div class="si2-tag">Viskozite</div><div class="si2-body">İç direnç. Sıcaklıkla <strong>azalır</strong>. Gazlarda ise artar — kritik fark!</div></div>
+    <div class="si2"><div class="si2-ico">🫧</div><div class="si2-tag">Yüzey Gerilimi</div><div class="si2-body">Kohezyon asimetrisi → esnek yüzey. Sabunla azalır. Su: <strong>72.8 mN/m</strong>.</div></div>
+    <div class="si2"><div class="si2-ico">🌿</div><div class="si2-tag">Kılcallık</div><div class="si2-body">Adezyon + kohezyon dengesi. İnce boru → yüksek yükselme.</div></div>
+    <div class="si2"><div class="si2-ico">☁️</div><div class="si2-tag">Buhar Basıncı</div><div class="si2-body">Kapalı kapta denge. Sıcaklıkla <strong>artar</strong>. Raoult: çözünen eklenince azalır.</div></div>
+    <div class="si2"><div class="si2-ico">♨️</div><div class="si2-tag">Kaynama</div><div class="si2-body">Buhar basıncı = dış basınç. Basınç artar → kaynama noktası <strong>yükselir</strong>.</div></div>
+    <div class="si2"><div class="si2-ico">❄️</div><div class="si2-tag">Donma</div><div class="si2-body">Çözünen eklenince <strong>düşer</strong>. Kriyoskopi prensibi. Antifriz bu yüzden işe yarar.</div></div>
   </div>
-  <div class="fact t">🌍 Sıvılar olmasaydı: Kan dolaşımı, fotosentez, okyanus akıntıları, hava döngüsü, yemek pişirme… hiçbiri mümkün olmazdı. Yaşam sıvılarla var olur.</div>
-  <div class="slide-num">19 / 20</div>
+  <div class="strip m" style="margin-top:10px">🌍 Sıvılar olmasaydı: Kan dolaşımı, fotosentez, okyanus akıntıları, yemek pişirme… hiçbiri mümkün olmazdı. <strong>Yaşam sıvılarla var olur.</strong></div>
+  <div class="snum">19 / 20</div>
 </div>
 
+<!-- ╔══ SLIDE 20 – KAPANIŞ ══╗ -->
 <div class="slide" id="s20">
   <div class="tag">Kapanış</div>
   <div class="h1">Kaynakça & <em>Teşekkürler</em></div>
   <div class="rule"></div>
   <div class="row">
-    <div class="col col-4">
-      <div class="h2" style="font-size:.9rem;color:var(--amber);margin-bottom:10px">Yararlanılan Kaynaklar</div>
-      <div class="ref-list">
-        <div class="ref-item"><span>[1]</span>MEB 9. Sınıf Kimya Ders Kitabı (2026–2027 Baskısı). Millî Eğitim Bakanlığı Yayınları, Ankara.</div>
-        <div class="ref-item"><span>[2]</span>Atkins, P. & de Paula, J. (2018). <em>Physical Chemistry</em> (11th ed.). Oxford University Press.</div>
-        <div class="ref-item"><span>[3]</span>Chang, R. & Goldsby, K. (2016). <em>Chemistry</em> (12th ed.). McGraw-Hill Education.</div>
-        <div class="ref-item"><span>[4]</span>Zumdahl, S. & DeCoste, D. (2019). <em>Chemical Principles</em> (8th ed.). Cengage Learning.</div>
-        <div class="ref-item"><span>[5]</span>TÜBİTAK Bilim ve Teknik Dergisi — "Sıvıların Olağandışı Dünyası", Mart 2025.</div>
-        <div class="ref-item"><span>[6]</span>NIST Chemistry WebBook — <em>Thermophysical Properties of Fluids</em>. webbook.nist.gov</div>
-        <div class="ref-item"><span>[7]</span>Khan Academy — Liquids: Properties and Phase Changes. khanacademy.org</div>
+    <div class="col col-w">
+      <div class="h2" style="color:var(--cyan);font-size:.9rem;margin-bottom:8px">Yararlanılan Kaynaklar</div>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <div class="ref"><span>[1]</span>MEB 9. Sınıf Kimya Ders Kitabı (2026–2027 Baskısı). Millî Eğitim Bakanlığı Yayınları, Ankara.</div>
+        <div class="ref"><span>[2]</span>Atkins, P. & de Paula, J. (2018). <em>Physical Chemistry</em> (11th ed.). Oxford University Press.</div>
+        <div class="ref"><span>[3]</span>Chang, R. & Goldsby, K. (2016). <em>Chemistry</em> (12th ed.). McGraw-Hill Education.</div>
+        <div class="ref"><span>[4]</span>Zumdahl, S. & DeCoste, D. (2019). <em>Chemical Principles</em> (8th ed.). Cengage Learning.</div>
+        <div class="ref"><span>[5]</span>TÜBİTAK Bilim ve Teknik Dergisi — "Sıvıların Olağandışı Dünyası", Mart 2025.</div>
+        <div class="ref"><span>[6]</span>NIST Chemistry WebBook — Thermophysical Properties of Fluids. webbook.nist.gov</div>
+        <div class="ref"><span>[7]</span>Khan Academy — Liquids: Properties and Phase Changes. khanacademy.org</div>
       </div>
     </div>
-    <div class="col col-3" style="align-items:center;justify-content:center;text-align:center;gap:18px">
-      <div style="font-size:3.5rem;animation:float 4s ease-in-out infinite">🎓</div>
-      <div style="font-family:'Lora',serif;font-size:1.65rem;font-weight:700;color:var(--text);line-height:1.2">Dinlediğiniz için<br><em style="color:var(--amber)">Teşekkürler!</em></div>
-      <div style="font-size:.9rem;color:var(--muted);line-height:1.75;max-width:260px">Sorularınızı bekliyorum. Sıvıların dünyası sandığımızdan çok daha derin ve ilgi çekici!</div>
-      <div style="display:flex;flex-direction:column;gap:8px;width:100%;max-width:240px">
-        <div class="badge" style="justify-content:center;display:flex">👤 Yalın Güneş</div>
-        <div class="badge t" style="justify-content:center;display:flex">🏫 9 / D</div>
-        <div class="badge n" style="justify-content:center;display:flex">📅 2026 – 2027 Eğitim Öğretim Yılı</div>
+    <div class="col col-n" style="align-items:center;justify-content:center;text-align:center;gap:16px">
+      <div style="font-size:3.8rem;animation:bob 4.5s ease-in-out infinite">🎓</div>
+      <div style="font-family:'Fraunces',serif;font-size:1.75rem;font-weight:900;color:var(--text);line-height:1.15">Dinlediğiniz için<br><em style="color:var(--cyan)">Teşekkürler!</em></div>
+      <div style="font-size:.88rem;color:var(--text2);line-height:1.78;max-width:230px">Sorularınızı bekliyorum. Sıvıların dünyası sandığımızdan çok daha derin!</div>
+      <div style="display:flex;flex-direction:column;gap:7px;width:100%;max-width:220px">
+        <div class="badge c" style="justify-content:center;display:flex">👤 Yalın Güneş</div>
+        <div class="badge m" style="justify-content:center;display:flex">🏫 9 / D</div>
+        <div class="badge" style="justify-content:center;display:flex">📅 2026 – 2027</div>
       </div>
     </div>
   </div>
-  <div class="slide-num">20 / 20</div>
+  <div class="snum">20 / 20</div>
 </div>
 
-</div>
+</div><!-- /deck -->
 
-<div class="progress-bar" id="progress"></div>
+<div class="progress" id="progress"></div>
 
 <div class="nav">
-  <button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>&#8592;</button>
-  <span class="slide-counter" id="counter">1 / 20</span>
-  <button class="nav-btn" id="nextBtn" onclick="go(1)">&#8594;</button>
+  <button class="nb" id="prevBtn" onclick="go(-1)" disabled>&#8592;</button>
+  <span class="nc" id="counter">1 / 20</span>
+  <button class="nb" id="nextBtn" onclick="go(1)">&#8594;</button>
 </div>
 <div class="kb">← → klavye tuşları &nbsp;·&nbsp; noktalara tıkla &nbsp;·&nbsp; kaydırarak geç</div>
 
-</div>
+</div><!-- /stage -->
 
 <script>
 const N = 20;
@@ -1048,10 +854,9 @@ function goTo(n) {
   const prev = document.getElementById('s' + cur);
   prev.classList.remove('active');
   prev.classList.add('exit');
-  setTimeout(() => { prev.classList.remove('exit'); }, 360);
+  setTimeout(() => prev.classList.remove('exit'), 420);
   cur = n;
-  const next = document.getElementById('s' + cur);
-  next.classList.add('active');
+  document.getElementById('s' + cur).classList.add('active');
   document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i + 1 === cur));
   document.getElementById('prevBtn').disabled = cur === 1;
   document.getElementById('nextBtn').disabled = cur === N;
@@ -1061,15 +866,15 @@ function goTo(n) {
 function go(d) { goTo(cur + d); }
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') go(1);
-  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') go(-1);
+  if (['ArrowRight','ArrowDown',' '].includes(e.key)) { e.preventDefault(); go(1); }
+  if (['ArrowLeft','ArrowUp'].includes(e.key)) { e.preventDefault(); go(-1); }
 });
 
 let tx = 0;
 document.getElementById('deck').addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
 document.getElementById('deck').addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - tx;
-  if (Math.abs(dx) > 50) { dx < 0 ? go(1) : go(-1); }
+  if (Math.abs(dx) > 48) go(dx < 0 ? 1 : -1);
 }, { passive: true });
 </script>
 </body>
